@@ -7,7 +7,7 @@ points: 6
 abbreviation: Lab 3
 num: 3
 start_date: 2025-01-30
-due_date: 2025-02-04
+due_date: 2025-02-05
 ---
 
 > Credit: This activity was designed by Semmy Purewall

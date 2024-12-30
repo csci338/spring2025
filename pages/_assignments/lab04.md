@@ -8,7 +8,7 @@ abbreviation: Lab 4
 show_schedule: 1
 num: 4
 start_date: 2025-02-06
-due_date: 2025-02-09
+due_date: 2025-02-12
 
 ---
 

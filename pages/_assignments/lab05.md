@@ -7,7 +7,7 @@ points: 6
 abbreviation: Lab 5
 num: 5
 start_date: 2025-02-13
-due_date: 2025-02-17
+due_date: 2025-02-19
 
 ---
 

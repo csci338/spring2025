@@ -7,7 +7,7 @@ points: 6
 abbreviation: Lab 10
 num: 10
 start_date: 2025-04-17
-due_date: 2025-04-24
+due_date: 2025-04-23
 ---
 
 <!-- {% include walkthrough-react-activity.html %} -->

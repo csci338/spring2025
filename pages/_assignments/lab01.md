@@ -7,7 +7,7 @@ points: 6
 abbreviation: Lab 1
 num: 1
 start_date: 2025-01-16
-due_date: 2025-01-21
+due_date: 2025-01-22
 ---
 
 ## Introduction
