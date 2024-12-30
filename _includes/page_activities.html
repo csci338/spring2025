@@ -1,7 +1,13 @@
 <!-- Slides -->
 {% assign slides = topic.slides | filter_list_by_date: date %}
-    {% for slide in slides %}
-{{ slide | display_link_or_badge: false, true }}
+{% for slide in slides %}
+    {{ slide | display_link_or_badge: false, true }}
+{% endfor %}
+
+<!-- Exams -->
+{% assign exams = topic.exams | filter_list_by_date: date %}
+{% for exam in exams %}
+    {{ exam | display_link_or_badge: false, true }}
 {% endfor %}
 
 <!-- Videos -->
@@ -16,14 +22,14 @@
     {{ activity | display_link_or_badge: false, true }}
 {% endfor %}
 
-<!-- Labs -->
-{% assign labs = topic | get_labs_by_module_by_date: site, date %}
-{% for lab in labs %}
-    {{ lab | display_link_or_badge: false, true }}
-{% endfor %}
-
 <!-- Projects -->
 {% assign projects = topic | get_projects_by_module_by_date: site, date %}
 {% for project in projects %}
     {{ project | display_link_or_badge: false, true }}
+{% endfor %}
+
+<!-- Labs -->
+{% assign labs = topic | get_labs_by_module_by_date: site, date %}
+{% for lab in labs %}
+    {{ lab | display_link_or_badge: false, true }}
 {% endfor %}

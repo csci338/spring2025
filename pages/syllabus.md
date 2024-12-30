@@ -3,18 +3,15 @@ layout: syllabus
 title: Syllabus
 permalink: /syllabus/
 course: "CSCI 338: Software Engineering"
-term: "Fall 2024"
+term: "Spring 2025"
 prerequisites: "CSCI 202 and CSCI 235"
-professor1: "Dr. Sarah Van Wart"
-time: "Tu/Th 9:55 AM - 11:35 AM"
-zoom_link: https://unca-edu.zoom.us/j/91825973279?pwd=1GeaiT1yTpbdIRciGlkipajxSaEHej.1
-instructors:
-  - name: "Dr. Sarah Van Wart"
-    email: "svanwart@unca.edu"
-    pronouns: "she / her"
-    office_hours: "Mo, Tu, Fr 3:30pm - 4:30pm (on zoom)"
-    location: "ONLINE"
-catalog_description: "CSCI 338 is project-oriented course in which students working in teams complete one or more projects encompassing software design and development. Students will develop their communication skills by writing project requirements, creating and evaluating prototypes, interfacing with end users, and developing and implementing test plans."
+time: "Tu, Th 3:15 PM - 4:55 PM"
+location: "RRO Rm. 217"
+instructor_name: "Dr. Sarah Van Wart"
+instructor_email: "svanwart@unca.edu"
+instructor_pronouns: "she / her"
+office_hours: "Mo, We, Fr 3:30 PM - 4:30 PM"
+instructor_location: "RRO Rm. 220"
 ---
 
 {:.info}

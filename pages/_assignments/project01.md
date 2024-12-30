@@ -7,8 +7,8 @@ points: 20
 abbreviation: Project 1
 num: 1
 h_max: 3
-start_date: 2025-03-27
-due_date: 2025-04-10
+start_date: 2025-02-27
+due_date: 2025-03-19
 ---
 
 <style>

@@ -16,13 +16,13 @@ slides:
       type: lecture
       num: 7
       draft: 1
-      title: Intro to Testing & Static Analysis
+      title: Intro to Testing
       url: https://docs.google.com/presentation/d/1FP8lJuy1C6AzzPxpulNOu9al_SIub2zF/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true
-    - start_date: 2025-02-20
+    - start_date: 2025-02-25
       type: lecture
       draft: 1
       num: 8
-      title: Shifting Left with Testing, Static Analysis, & Continuous Integration
+      title: Static Analysis & Continuous Integration
       url: https://docs.google.com/presentation/d/1Fp1aWWNRoO9D3PPUf3xbU7mEZec1j8gY/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true
 readings:
     - start_date: 2025-02-18
@@ -35,7 +35,7 @@ readings:
       title: Chapter 11. Testing Overview
       url: https://abseil.io/resources/swe-book/html/ch11.html
       required: 1
-    - start_date: 2025-02-20
+    - start_date: 2025-02-25
       type: reading
       title: Chapter 20. Static Analysis
       url: https://abseil.io/resources/swe-book/html/ch20.html
@@ -45,6 +45,18 @@ readings:
       title: Chapter 23. Continuous Integration
       url: https://abseil.io/resources/swe-book/html/ch23.html
       required: 1
+    - start_date: 2025-02-27
+      title: Please read the Project 1 description before class
+      type: reading
+      url: /assignments/project01
+      required: 1
+    - start_date: 2025-02-27
+      title: Setting up Project 1 using Docker (video)
+      type: reading
+      url: https://drive.google.com/file/d/10h6CsMGXYFRHe4y95x32moJs-u6P9rjo/view?usp=drive_link
+      required: 1
+      notes: If you need help getting set up, here's a video walkthrough
+projects: [ 1 ]
 questions:
     - <span class="badge-dark">general</span> What does "shifting left" mean?
     - <span class="badge-dark">testing</span> What are some of the benefits of automated testing? 

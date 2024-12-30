@@ -187,6 +187,7 @@ module Jekyll
         slides = page['slides'] || []
         readings = page['readings'] || []
         activities = page['activities'] || []
+        exams = page['exams'] || []
         exercise_files = page['exercise_files'] || [] 
         videos = page['videos'] || []   
         labs = []
@@ -201,7 +202,7 @@ module Jekyll
                 .select { |item| page['projects'].include?(item['num']) }\
                 .select { |item| item['type'] == 'project' }
         end
-        resources = resources.concat(slides).concat(readings)\
+        resources = resources.concat(slides).concat(exams).concat(readings)\
             .concat(activities).concat(videos).concat(exercise_files)\
             .concat(labs).concat(projects)
         return resources

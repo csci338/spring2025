@@ -1,16 +1,20 @@
 ---
 layout: module
-title: "Course Synthesis"
+title: "Back-End: Scaling Up"
 type: topic
 num: 11
 draft: 1
-projects: [2]
-start_date: 2025-05-01
+start_date: 2025-04-24
 slides:
-    - start_date: 2025-05-01
-      num: 16
-      draft: 1
+    - start_date: 2025-04-24
+      num: 17
       type: lecture
-      title: Course Synthesis
-      url: https://docs.google.com/presentation/d/13ZoVNNm5agKxtfgN8SPK6_NVG-ydNjZKFaRmM9dohjg/edit?usp=sharing
+      title: Scaling an App
+      draft: 1
+      url: https://docs.google.com/presentation/d/1cyXi_ZKqdMzDDWBOerW02yPTl2K8chkoNI5htzjkciE/edit#slide=id.g29c926bd7b1_0_477
+readings:
+    - start_date: 2025-04-24
+      type: reading
+      title: Kubernetes Basics (Tutorial)
+      url: https://kubernetes.io/docs/tutorials/kubernetes-basics/
 ---

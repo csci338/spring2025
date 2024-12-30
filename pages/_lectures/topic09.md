@@ -1,24 +1,23 @@
 ---
 layout: module
-title: "Back-End: Databases and Object Relational Mappings"
+title: "Back-End: Object Relational Mappings"
 type: topic
 draft: 1
 num: 9
-start_date: 2025-04-17
+start_date: 2025-04-01
 labs: [9]
+projects: [2]
 readings: 
-    - start_date: 2025-04-17
+    - start_date: 2025-04-01
       type: reading
-      title: Databases
-      url: /resources/databases
-      notes: "Please review the reference materials on the databases resource page. We will practice using these commands in Lab 9."
+      notes: "TBD"
       required: 1
 slides: 
-    - start_date: 2025-04-17
+    - start_date: 2025-04-01
       type: lecture
       draft: 1
-      num: 14
-      title: Intro to Databases & ORMs
+      num: 12
+      title: Intro to Object-Relational Mappings
       url: https://docs.google.com/presentation/d/1HwD6kQiRwlNMr3WWFPwRnaIWNPn0wl5vwlGdHv2xtVo/edit?usp=sharing
 ---
  
