@@ -5,12 +5,7 @@ type: topic
 num: 6
 draft: 1
 start_date: 2025-03-04
-exams: 
-    - start_date: 2025-03-06
-      type: exam
-      draft: 1
-      title: Midterm Exam
-      url: #
+exams: [1]
 readings:
     - start_date: 2025-03-04
       type: reading

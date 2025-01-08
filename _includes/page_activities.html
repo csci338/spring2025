@@ -4,12 +4,6 @@
     {{ slide | display_link_or_badge: false, true }}
 {% endfor %}
 
-<!-- Exams -->
-{% assign exams = topic.exams | filter_list_by_date: date %}
-{% for exam in exams %}
-    {{ exam | display_link_or_badge: false, true }}
-{% endfor %}
-
 <!-- Videos -->
 {% assign videos = topic.videos | filter_list_by_date: date %}
 {% for video in videos %}
@@ -32,4 +26,10 @@
 {% assign labs = topic | get_labs_by_module_by_date: site, date %}
 {% for lab in labs %}
     {{ lab | display_link_or_badge: false, true }}
+{% endfor %}
+
+<!-- Exams -->
+{% assign exams = topic | get_exams_by_module_by_date: site, date %}
+{% for exam in exams %}
+    {{ exam | display_link_or_badge: false, true }}
 {% endfor %}

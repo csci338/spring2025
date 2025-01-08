@@ -46,7 +46,7 @@ collections:
     permalink: /lectures/:name
   exams:
     output: true
-    sort_by: ordering
+    sort_by: start_date
     permalink: /exams/:name
   resources:
     output: true

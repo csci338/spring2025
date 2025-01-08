@@ -5,21 +5,21 @@ description: >
     This unit introduces the idea of software engineering, including how it is similar and different from programming, and a host of considerations for building software that is scalable and maintainable over time.  
 type: topic
 num: 1
-draft: 1
+draft: 0
 start_date: 2025-01-14
 slides:
     - start_date: "2025-01-14"
       type: lecture
       title: Intro to the Course
       num: 1
-      draft: 1
-      url: https://docs.google.com/presentation/d/1kd3e-BwmrhI-BUV3UGMbqBDdukMOSAmd/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true
+      draft: 0
+      url: https://docs.google.com/presentation/d/1v-rDKAHGY02AFgS4jLIjo6eLjHKXhR2N/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true
     - start_date: "2025-01-16"
       type: lecture
       num: 2
       draft: 1
       title: What is Software Engineering?
-      url: https://docs.google.com/presentation/d/1DR-1d_XeFVWaaO-ZDs7X6N6nFQICx2gI/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true
+      url: https://docs.google.com/presentation/d/1Xus4XHh8M_kmvUYoK5FcQOPwCd6Bv32z/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true
 reading_instructions: >
     Please read the following chapters before Thursday in the Software Engineering at Google book:
 readings: 
@@ -69,9 +69,9 @@ activities:
     - start_date: "2025-01-14"
       type: activity
       num: 1
-      draft: 1
+      draft: 0
       title: Warm Up
-      url: https://docs.google.com/document/d/1lb4iE41b-aJoR9B3M007bYTT-m3p9E8D/edit#heading=h.gl8cimderpa9
+      url: https://docs.google.com/document/d/1mfXaWNXMQriL-Gwa2P_YMp0UhoOLh7jP/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true
 
 labs: [1]
 questions:

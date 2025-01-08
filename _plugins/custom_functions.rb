@@ -159,6 +159,13 @@ module Jekyll
         labs = labs.select { |lab| lab['start_date'] == date }
       end
 
+
+      def get_exams_by_module_by_date(page, site, date)
+        exams = get_exams_by_module(page, site)
+        exams = exams.select { |exam| exam['start_date'] == date }
+      end
+
+
       def get_projects_by_module_by_date(page, site, date)
         projects = get_projects_by_module(page, site)
         projects = projects.select { |project| convert_to_date_if_not_already(project['start_date']) == date }
@@ -171,6 +178,14 @@ module Jekyll
             labs = site['assignments'].select { |item| page['labs'].include?(item['num']) && item['type'] == 'lab' }
         end
         return labs
+      end
+
+      def get_exams_by_module(page, site)
+        exams = []
+        if page['exams'] # Ensure page['labs'] is not nil before using it
+            exams = site['exams'].select { |item| page['exams'].include?(item['num']) && item['type'] == 'exam' }
+        end
+        return exams
       end
 
       def get_projects_by_module(page, site)
@@ -187,7 +202,6 @@ module Jekyll
         slides = page['slides'] || []
         readings = page['readings'] || []
         activities = page['activities'] || []
-        exams = page['exams'] || []
         exercise_files = page['exercise_files'] || [] 
         videos = page['videos'] || []   
         labs = []
@@ -202,9 +216,15 @@ module Jekyll
                 .select { |item| page['projects'].include?(item['num']) }\
                 .select { |item| item['type'] == 'project' }
         end
-        resources = resources.concat(slides).concat(exams).concat(readings)\
+        exams = []
+        if page['exams'] # Ensure page['labs'] is not nil before using it
+            labs = site['exams']\
+                .select { |item| page['exams'].include?(item['num']) }\
+                .select { |item| item['type'] == 'exam' }
+        end
+        resources = resources.concat(slides).concat(readings)\
             .concat(activities).concat(videos).concat(exercise_files)\
-            .concat(labs).concat(projects)
+            .concat(labs).concat(projects).concat(exams)
         return resources
       end
 

@@ -12,10 +12,5 @@ slides:
       type: lecture
       title: Course Synthesis
       url: https://docs.google.com/presentation/d/13ZoVNNm5agKxtfgN8SPK6_NVG-ydNjZKFaRmM9dohjg/edit?usp=sharing
-exams: 
-    - start_date: 2025-05-07
-      type: exam
-      draft: 1
-      title: Final Exam (exact date TBD)
-      url: #
+exams: [2]
 ---

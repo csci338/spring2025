@@ -8,7 +8,7 @@ abbreviation: Project 2
 num: 2
 h_max: 5
 start_date: 2025-04-03
-due_date: 2025-05-07
+due_date: 2025-05-05
 ---
 
 <style>
