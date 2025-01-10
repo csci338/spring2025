@@ -17,7 +17,7 @@ Welcome to your first CSCI 338 lab! The goal of today's lab is to get you a litt
 1. [OS Environment Exercises](#dot-files)
 1. [Vim / Emacs Exercises](#vim-emacs)
 
-**We have curated a list of useful resources on the [course resources page](../resources/).** Please see the "Command Line" and "Code Editors" sections:
+**I have curated a list of useful resources on the [course resources page](../resources/).** Please see the "Command Line" and "Code Editors" sections:
 
 
 {:#vscode}
@@ -87,10 +87,11 @@ Please complete the following command line exercises with the help of the [Comma
 ### 2.1 Open a Terminal
 * If you are a Mac user, open the Terminal program
 * If you are a Windows user, [follow these instructions to install WSL and a Linux distribution](/spring2025/resources/wsl) (Windows Subsystem for Linux). Once you're done, open a WSL terminal.
+    * Note: please read / watch the instructions for WSL carefully. If you skip steps, you will likely have to rebuild / reinstall your Linux distro, so going slower will save you time in the long run.
 
 ### 2.2. Navigation
 1. Figure out which directory you're in (use `pwd`)
-    * Windows users: if you type `explorer.exe`, it will open a Windows Explorer window to show you where your files are.
+    * Windows users: if you type `explorer.exe` from within WSL, it should open a Windows Explorer window to show you where your WSL files are located.
 1. Navigate to the folder where you plan to save your coursework (use `cd`). <br>**Pro-tips**:
     * If any of your folder names have spaces, you'll have to surround the path with quotes
     * Use the tab key to autocomplete the path
@@ -170,7 +171,7 @@ echo '''
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="styles.css" />
     <title>Hello World</title>
 </head>
 
@@ -182,7 +183,7 @@ echo '''
 </html>
 ''' > index.html
 
-# 4. Create a new starter style.css file:
+# 4. Create a new starter styles.css file:
 echo '''
 body * {
     box-sizing: border-box;
@@ -190,7 +191,7 @@ body * {
 body {
     font-family: Arial, sans-serif;
 }
-''' > style.css
+''' > styles.css
 
 # 5. Navigate to original directory:
 cd ..
@@ -250,16 +251,15 @@ csci338
 
 {:#dot-files}
 ## Part 3. OS Environment Exercises
-Try making a few adjustments to your `.zshrc` file on your own. Some suggestions:
-
-* <a href="https://dev.to/haamid/how-to-define-custom-alias-in-zsh-3b6a" target="_blank">Create an alias</a> to your `csci338` directory in your `.zshrc` file so that when you type: `338` on the command line, it automatically puts you into the `csci338` directory. 
-    * Here is what Sarah's `.zshrc` entry looks like:<br>`alias 338='cd /Users/svanwart/unca/csci338'`
-* Extend the size of your history file by adding some variables to your `.zshrc` file (google it).
+In Linux-style operating systems, you can create shortcuts, aliases, and customizations by editing your `.zshrc` file in your home directory. From your command line, please navigate to your home directory and try making an alias to your `csci338` directory:
+* Here is a resource for <a href="https://dev.to/haamid/how-to-define-custom-alias-in-zsh-3b6a" target="_blank">creating an alias</a>
+* If you did it correctly, when you type: `338` on the command line, you should be put into the `csci338` directory. 
+* Hint: Here is what Sarah's `.zshrc` entry looks like:<br>`alias 338='cd /Users/svanwart/unca/csci338'`
 
 > ### Before Moving On, Verify That...
 >
 >{:.checkbox-list}
-> * `338` on the command line, it automatically jumps you to the `csci338` directory
+> * When you type `338` on the command line, it automatically jumps you to the `csci338` directory
 
 {:#vim-emacs}
 ## Part 4. Vim / Emacs Exercises
@@ -276,7 +276,7 @@ Under Lab 1, paste the following into the textbox:
 1. A link to your "Hello World" website on Arden.
 2. A dump of your history (type `history` on the command line, copy it, and paste it into the Moodle).
 
-### Other Thoughts...
+### What to study / have done after completing this lab...
 * Make sure you can ssh into another server.
 * Make sure your VS code editor is set up.
 * Make sure you know some basic shell commands, and specifically how to navigate, search, create, delete, copy, read, and move files.
