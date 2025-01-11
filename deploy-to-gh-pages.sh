@@ -1,7 +1,7 @@
 # build the site and copy the files to a temporary directory:
 rvm use 2.7 && bundle exec jekyll build
 TEMP_DIR=$(mktemp -d)
-rsync -av --exclude='node_modules' --exclude='*.pyc' _site/ "$TEMP_DIR"
+rsync -av --exclude='node_modules' --exclude='*.pyc' --exclude='*.md' _site/ "$TEMP_DIR"
 
 # checkout gh-pages and remove all files:
 git checkout gh-pages
@@ -15,7 +15,6 @@ rm .gitignore
 # create .gitignore file to exclude unnecessary files
 echo "_site
 .sass-cache
-*.md
 *.sh
 *.yml
 Gemfile
