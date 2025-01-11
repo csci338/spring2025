@@ -1,0 +1,12 @@
+{
+    "editor.formatOnSave": true,
+    // enable per-language (here: Prettier as formatter)
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.autopep8"
+    },
+    "python.formatting.provider": "none",
+    "liveServer.settings.port": 5503
+}
