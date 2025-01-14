@@ -2,7 +2,7 @@
 layout: assignment-two-column
 title: Code Editors
 type: lab
-draft: 1
+draft: 0
 points: 6
 abbreviation: Lab 1
 num: 1
@@ -12,6 +12,7 @@ due_date: 2025-01-22
 
 ## Introduction
 Welcome to your first CSCI 338 lab! The goal of today's lab is to get you a little more comfortable doing "configuration things," including working on the command line, configuring your command line environment, and working with command line code editors. You will complete the following tasks:
+1. [Set-Up](#setup)
 1. [VS Code Exercises](#vscode)
 1. [Command Line Exercises](#command-line)
 1. [OS Environment Exercises](#dot-files)
@@ -19,25 +20,45 @@ Welcome to your first CSCI 338 lab! The goal of today's lab is to get you a litt
 
 **I have curated a list of useful resources on the [course resources page](../resources/).** Please see the "Command Line" and "Code Editors" sections:
 
+{:#setup}
+## Part 1. Set-Up
+1. Decide where you want to save all of your files for this class (e.g., Desktop, Documents, etc.)
+    * If you use syncing software (e.g., OneDrive, DropBox, Box, iCloud, make sure that you're not storing your files in a place where things are auto-syncing).
+1. Within your chosen file system location, create a folder called `csci338` (all lowercase -- Unix-Style file systems are case-sensitive, so lowercase files and folders are a useful convention).
+1. Install [VS Code](https://code.visualstudio.com/download) if it isn't already installed on your machine.
+1. Open your entire `csci338` folder inside of VS Code.
+1. **If you are a Windows user,** [follow these instructions to install WSL and a Linux distribution](/spring2025/resources/wsl) (Windows Subsystem for Linux). Once you're done, verify your installation by opening a WSL terminal and typing `pwd`.
+    * Note: please read / watch the instructions for WSL carefully. If you skip steps, you will likely have to rebuild / reinstall your Linux distro, so going slower will save you time in the long run.
+
+
 
 {:#vscode}
-## Part 1. VS Code Exercises
+## Part 2. VS Code Exercises
 
-### 1.1. Install VS Code and Extensions
-Please install [VS Code](https://code.visualstudio.com/download). When you're done, please install the following VS Code Extensions:
+### 2.1. Install VS Code and Extensions
+Please install the following VS Code Extensions:
 * Live Server (by Ritwick Dey)
 * Prettier (by Prettier should have the blue "verified" badge)
 * Prettier ESLint (by Rebecca Vest)
-* Remote - SSH (by Microsoft)
 
 To install VS Code Extensions:
-* Open the extensions window by either clicking the extensions icon (looks like 4 squares on the gray, left-hand bar) or use the keyboard shortcut (Shift+Cmd+X or Shift+Ctrl+X).
+* From within VS Code, open the extensions window by clicking the extensions icon (looks like 4 squares on the gray, left-hand bar).
 * Search for the extension name using the search textbox.
+* When you find the extension, install it.
 
-### 1.2. Configuration Tasks
+### 2.2. Configuration Tasks
 
 #### Configuring Prettier
-[Configure "Format on Save" using Prettier](https://www.robinwieruch.de/how-to-use-prettier-vscode/) by modifying `settings.json` file (CTRL+, or CMD+,).
+Configure "Format on Save" using Prettier by modifying `settings.json` file (a configuration file used to customize your VS Code Editor). To find `settings.json`, type Shift + CMD + P (MacOS) or Shift + CTRL + P (Windows) and then type `settings.json` in the search textbox that appears. Then, add the following code to `settings.json` within the curly braces. Note that in JSON, each key-value pair must be separated by a comma or else there will be syntax errors:
+
+```json
+"editor.formatOnSave": true,
+"[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+}
+```
+
+You can read more about configuring "Format on Save" using Prettier [here](https://www.robinwieruch.de/how-to-use-prettier-vscode/), but this blog has a typo (`"editor.formatOnSave": true,` should have a trailing comma).
 
 When you're done, test that the "format on save" functionality works by creating a `test.js` JavaScript file with following code:
 
@@ -55,41 +76,18 @@ function foo(a, b) {
 }
 ```
 
-#### Configuring SSH
-1. If you haven't already, register for a CSCI account here: [https://canton.cs.unca.edu/register](https://canton.cs.unca.edu/register). This will allow you to set (or reset) your password. Your username is the same as your email address (without the @unca.edu).
-2. Verify that you can ssh into arden as follows:
-    * Open the command line / terminal
-    * Type: `ssh your_username@arden.cs.unca.edu`
-    * Enter your password when prompted
-    * type ls -la at the command prompt (this should be your home directory)
-3. Make a remote connection via VS code:
-    * Click the green icon in the lower left-hand corner of VS Code
-    * Click "connect to host"
-    * Enter your credentials (your_username@arden.cs.unca.edu)
-    * Enter your password when prompted
-    * Open your home directory
-4. Make the simplest homepage imaginable:
-    * Create a file called `index.html` inside of your `public_html` folder.
-    * Edit the file (e.g., add "hello world")
-    * Save it
-    * Look at it on http://cs.unca.edu/~your_username (e.g., [http://cs.unca.edu/~svanwart](http://cs.unca.edu/~svanwart))
+Before Moving On, Verify that VS Code autoformats when you save.
 
-> ### Before Moving On, Verify That...
->
->{:.checkbox-list}
-> * VS Code autoformats when you save
-> * You have successfully created a webpage on Arden
 
 {:#command-line}
-## Part 2. Complete the Command Line Exercises
+## Part 3. Complete the Command Line Exercises
 Please complete the following command line exercises with the help of the [Command Line Reference](../resources/command-line) that has been compiled for you. Feel free to collaborate with your classmates!
 
-### 2.1 Open a Terminal
+### 3.1 Open a Terminal
 * If you are a Mac user, open the Terminal program
-* If you are a Windows user, [follow these instructions to install WSL and a Linux distribution](/spring2025/resources/wsl) (Windows Subsystem for Linux). Once you're done, open a WSL terminal.
-    * Note: please read / watch the instructions for WSL carefully. If you skip steps, you will likely have to rebuild / reinstall your Linux distro, so going slower will save you time in the long run.
+* If you are a Windows user, open WSL
 
-### 2.2. Navigation
+### 3.2. Navigation
 1. Figure out which directory you're in (use `pwd`)
     * Windows users: if you type `explorer.exe` from within WSL, it should open a Windows Explorer window to show you where your WSL files are located.
 1. Navigate to the folder where you plan to save your coursework (use `cd`). <br>**Pro-tips**:
@@ -98,9 +96,10 @@ Please complete the following command line exercises with the help of the [Comma
     * Use the up and down keys to revive old commands
     * Use the `history` command to see the commands you've issued in the past
 
-### 2.3. Create
-1. Create a directory called `csci338` (use `mkdir`)
-1. Navigate into `csci338`
+### 3.3. Create
+1. Navigate to the `csci338` you made in Part 1 on the Terminal.
+1. Create a directory called `lab01` within `csci338` (use `mkdir`)
+1. Navigate into the `lab01` directory you just made.
 1. Create a new file called `index.html` (use `touch`)
 1. Create another new file called `style.css` (use `touch`)
 1. Copy the Google homepage locally as follows: `curl https://www.google.com > google-home.html`
@@ -114,7 +113,7 @@ csci338
     └── style.css
 ```
 
-### 2.4. List
+### 3.4. List
 1. Verify that the two new files exist in your current directory (use `ls`)
 1. List all of the files and folders in your home (use `ls ~`)
 1. List all of the files and folders on your home directory including hidden files (use `ls -la`)
@@ -123,12 +122,12 @@ csci338
     * `tree ~ -La 2`
     * `tree ~`
 
-### 2.5. Read
+### 3.5. Read
 1. Read the contents of the `google-home.html` file you just created (use `cat`)
 1. Inspect the file using some of the other read commands (e.g., `less`, `head`, `tail`, open wc).
     * **Pro-tip**: For `less`, `head`, and `tail`, use the space bar to scroll down, and "q" to quit
 
-### 2.6. Write
+### 3.6. Write
 1. Append the sentence "Hello World" to the contents of the `index.html` file (`echo "Hello World" >> index.html`).
 1. Do it again.
 1. Read the contents of `index.html` (use `cat`)
@@ -139,19 +138,19 @@ csci338
 1. Now remove it (rm new.txt)
 1. Make sure you understand the difference between `>>` and `>`?
 
-### 2.7. Move & Copy
+### 3.7. Move & Copy
 1. Copy a directory and all subdirectories (try: `cp -r my_folder copy_of_my_folder`)
 1. Copy a file (try: `cp foo.txt bar.txt`)
 1. Rename a file (try: `mv bar.txt bar1.txt`)
 1. Move a file to a parent directory (try `mv bar.txt ../.`)
 
-### 2.8. Search
+### 3.8. Search
 Use grep to search for files for strings / text...
 1. To find the word "Goodbye" in your current directory or any descendents (try: `grep "Goodbye" ./ -r`)
 1. To find the word "goodbye" -- case insensitive -- in your current directory or any descendents (try: `grep "goodbye" ./ -ri`)
 1. To find the word "goodbye" -- case insensitive -- anywhere in your home directory or its descendents (try: `grep "goodbye" ~ -ri`)
 
-### 2.9. Make a bash script
+### 3.9. Make a bash script
 You can also combine multiple commands into a bash script (use the `.sh` extension). Let's make a bash script that sets up a basic web app in your current directory. Try the following:
 * Create a script called `start-web-prj.sh`
 * Add the following lines of code to the script:
@@ -240,44 +239,40 @@ If that didn't work and you're on a Mac, see <a href="https://stackoverflow.com/
 
 ```bash
 csci338
-├── google-home.html
-├── index.html
-├── my_new_folder
-│   ├── index.html
-│   └── style.css
-├── start-web-prj.sh
-└── style.css
+└── lab01
+    ├── google-home.html
+    ├── index.html
+    ├── my_new_folder
+    │   ├── index.html
+    │   └── style.css
+    ├── start-web-prj.sh
+    └── style.css
 ```
 
 {:#dot-files}
-## Part 3. OS Environment Exercises
+## Part 4. OS Environment Exercises
 In Linux-style operating systems, you can create shortcuts, aliases, and customizations by editing your `.zshrc` file in your home directory. From your command line, please navigate to your home directory and try making an alias to your `csci338` directory:
 * Here is a resource for <a href="https://dev.to/haamid/how-to-define-custom-alias-in-zsh-3b6a" target="_blank">creating an alias</a>
 * If you did it correctly, when you type: `338` on the command line, you should be put into the `csci338` directory. 
 * Hint: Here is what Sarah's `.zshrc` entry looks like:<br>`alias 338='cd /Users/svanwart/unca/csci338'`
 
-> ### Before Moving On, Verify That...
->
->{:.checkbox-list}
-> * When you type `338` on the command line, it automatically jumps you to the `csci338` directory
+Before moving on, verify that when you type `338` on the command line, it automatically jumps you to the `csci338` directory
 
 {:#vim-emacs}
-## Part 4. Vim / Emacs Exercises
+## Part 5. Vim / Emacs Exercises
 
 Using either [vim](../resources/vim) or [emacs](../resources/emacs):
 
-1. Opening a file from the command line
+1. Open a file from the command line
 2. Edit it
 3. Save it
 4. Exit the editor
 
 ## What do I turn in?
-Under Lab 1, paste the following into the textbox:
-1. A link to your "Hello World" website on Arden.
-2. A dump of your history (type `history` on the command line, copy it, and paste it into the Moodle).
+Under Lab 1, paste a dump of all of the relevant command line history commands that you used today (type `history` on the command line, copy it, and paste it into the Moodle).
 
 ### What to study / have done after completing this lab...
-* Make sure you can ssh into another server.
+* If you are a Windows user, make sure your WSL is installed and configured
 * Make sure your VS code editor is set up.
-* Make sure you know some basic shell commands, and specifically how to navigate, search, create, delete, copy, read, and move files.
+* Make sure you know some basic shell commands, and specifically how to navigate, search, create, delete, copy, read, and move files. Here are some sample quiz / exam questions: <a href="https://docs.google.com/document/d/1cBdqsCEobdzdNiGrISZip3Xm45bs0VgfWyM9rJM7M8A/edit?usp=sharing" target="_blank">Sample command line quiz questions</a>
 * Make sure you know how to open, edit, save, and exit either vim or emacs.

@@ -81,6 +81,8 @@ questions:
     - What is Hyrum's Law?
     - How should decisions be made on software engineering teams? Name some better and worse ways of making decisions.
     - What do we mean by trade-offs?
+    - >
+      <a href="https://docs.google.com/document/d/1cBdqsCEobdzdNiGrISZip3Xm45bs0VgfWyM9rJM7M8A/edit?usp=sharing" target="_blank">Sample command line quiz questions</a>
 
 ---
 
