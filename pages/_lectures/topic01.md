@@ -17,7 +17,7 @@ slides:
     - start_date: "2025-01-16"
       type: lecture
       num: 2
-      draft: 1
+      draft: 0
       title: What is Software Engineering?
       url: https://docs.google.com/presentation/d/1Xus4XHh8M_kmvUYoK5FcQOPwCd6Bv32z/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true
 reading_instructions: >
@@ -81,6 +81,7 @@ questions:
     - What is Hyrum's Law?
     - How should decisions be made on software engineering teams? Name some better and worse ways of making decisions.
     - What do we mean by trade-offs?
+    - What is "shifting left"?
     - >
       <a href="https://docs.google.com/document/d/1cBdqsCEobdzdNiGrISZip3Xm45bs0VgfWyM9rJM7M8A/edit?usp=sharing" target="_blank">Sample command line quiz questions</a>
 
