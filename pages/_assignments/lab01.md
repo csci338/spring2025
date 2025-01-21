@@ -22,14 +22,12 @@ Welcome to your first CSCI 338 lab! The goal of today's lab is to get you a litt
 
 {:#setup}
 ## Part 1. Set-Up
-1. Decide where you want to save all of your files for this class (e.g., Desktop, Documents, etc.)
-    * If you use syncing software (e.g., OneDrive, DropBox, Box, iCloud, make sure that you're not storing your files in a place where things are auto-syncing).
-1. Within your chosen file system location, create a folder called `csci338` (all lowercase -- Unix-Style file systems are case-sensitive, so lowercase files and folders are a useful convention).
 1. Install [VS Code](https://code.visualstudio.com/download) if it isn't already installed on your machine.
-1. Open your entire `csci338` folder inside of VS Code.
 1. **If you are a Windows user,** [follow these instructions to install WSL and a Linux distribution](/spring2025/resources/wsl) (Windows Subsystem for Linux). Once you're done, verify your installation by opening a WSL terminal and typing `pwd`.
     * Note: please read / watch the instructions for WSL carefully. If you skip steps, you will likely have to rebuild / reinstall your Linux distro, so going slower will save you time in the long run.
-
+1. Create a directory called `csci338`
+    * If you are a windows user, you will create that directory within your ***home directory within your WSL instance.*** (e.g., `/Users/your_username`).
+    * If you are a Mac user, you can create your `csci338` directory anywhere except for in your Downloads directory.
 
 
 {:#vscode}
@@ -122,6 +120,21 @@ csci338
     * `tree ~ -La 2`
     * `tree ~`
 
+    If `tree` is not installed, see if you can figure out how to install it. On WSL:
+
+    ```
+    sudo apt-get update
+    sudo apt-get install tree
+    ```
+
+    On Mac:
+
+    ```
+    brew install tree
+    ```
+
+           
+
 ### 3.5. Read
 1. Read the contents of the `google-home.html` file you just created (use `cat`)
 1. Inspect the file using some of the other read commands (e.g., `less`, `head`, `tail`, open wc).
@@ -156,13 +169,24 @@ You can also combine multiple commands into a bash script (use the `.sh` extensi
 * Add the following lines of code to the script:
 
 ```bash
-# 1. Create a new directory called "src"
-mkdir my_new_folder
+#!/bin/bash
 
-# 2. Navigate into it:
-cd my_new_folder
+# Prompt the user for the folder name
+read -p "Enter the folder name: " DIR_NAME
 
-# 3. Create a new starter index.html file:
+# 1. Create a new directory if it doesn't already exist
+if [ -d "$DIR_NAME" ]; then
+    echo "Directory '$DIR_NAME' already exists. Exiting."
+    exit 1
+else
+    mkdir "$DIR_NAME"
+    echo "Directory '$DIR_NAME' created."
+fi
+
+# 2. Navigate into it
+cd "$DIR_NAME" || { echo "Failed to navigate into $DIR_NAME. Exiting."; exit 1; }
+
+# 3. Create a new starter index.html file
 echo '''
 <!DOCTYPE html>
 <html lang="en">
@@ -181,8 +205,9 @@ echo '''
 
 </html>
 ''' > index.html
+echo "index.html created."
 
-# 4. Create a new starter styles.css file:
+# 4. Create a new starter styles.css file
 echo '''
 body * {
     box-sizing: border-box;
@@ -192,11 +217,16 @@ body {
 }
 ''' > styles.css
 
-# 5. Navigate to original directory:
+echo "styles.css created."
+
+# 5. Navigate back to the original directory
 cd ..
 
-# # 6. Open the index.html file in a web browser:
-# open my_new_folder/index.html
+# 6. Optional: Open the index.html file in a web browser
+#    Try one of these commands:
+
+# wslview "$DIR_NAME/index.html"   # WSL
+# open "$DIR_NAME/index.html"  # macOS
 ```
 
 When you're done, execute the script as follows:
@@ -205,8 +235,11 @@ When you're done, execute the script as follows:
 
 Take a look at the new `src` folder (and nested files) that were created by typing: `tree .`
 
-Now, open the HTML file you just made in a new browser:
-`open my_new_folder/index.html`
+Now, open the HTML file you just made in a new browser by typing one of the following commands from the command line:
+
+* Mac Users: `open my_new_folder/index.html`
+* WSL Users: `wslview my_new_folder/index.html`
+* Linux Users: `xdg-open my_new_folder/index.html`
 
 And finally, open the folder you just made in VS Code:
 
@@ -252,7 +285,7 @@ csci338
 {:#dot-files}
 ## Part 4. OS Environment Exercises
 In Linux-style operating systems, you can create shortcuts, aliases, and customizations by editing your `.zshrc` file in your home directory. From your command line, please navigate to your home directory and try making an alias to your `csci338` directory:
-* Here is a resource for <a href="https://dev.to/haamid/how-to-define-custom-alias-in-zsh-3b6a" target="_blank">creating an alias</a>
+* To learn more about how to create an alies, see this resource: <a href="https://medium.com/@email2smohanty/the-significance-of-bashrc-or-zshrc-configuration-file-49fa31c5da17" target="_blank">The Significance of .bashrc or .zshrc Configuration File</a>
 * If you did it correctly, when you type: `338` on the command line, you should be put into the `csci338` directory. 
 * Hint: Here is what Sarah's `.zshrc` entry looks like:<br>`alias 338='cd /Users/svanwart/unca/csci338'`
 

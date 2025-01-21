@@ -10,12 +10,10 @@ description: >
 slides: 
     - start_date: "2025-01-21"
       num: 3
-      draft: 1
+      draft: 0
       type: lecture
       title: Intro to Version Control
-      url: https://docs.google.com/presentation/d/1Caf-Ri8A5TNeYjTNC4yL5aD074NYNJAD/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true
-      link: > 
-        Lecture 3: <a href="https://docs.google.com/presentation/d/1Caf-Ri8A5TNeYjTNC4yL5aD074NYNJAD/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true" target="_blank">Intro to Version Control</a>
+      url: https://docs.google.com/presentation/d/15xJHGo3uSSt-UNlxIeJpWHgp4m7MoW2T/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true
     - start_date: "2025-01-23"
       type: lecture
       draft: 1
@@ -71,9 +69,15 @@ readings:
       type: reading
       url: https://www.atlassian.com/git/tutorials/comparing-workflows
 activities:
+    - start_date: "2025-01-21"
+      title: Coding Practice
+      num: 2
+      type: activity
+      draft: 0
+      url: https://docs.google.com/document/d/1ufrC5XuE2OXPkYuXoPCDfS9ndK3rCKOh/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true
     - start_date: "2025-01-28"
       title: Git Collaboration Activity
-      num: 1
+      num: 3
       draft: 1
       type: activity
       url: /activities/git-in-class-activity
