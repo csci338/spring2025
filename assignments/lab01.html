@@ -121,17 +121,16 @@
 
 <h2 id="setup">Part 1. Set-Up</h2>
 <ol>
-  <li>Decide where you want to save all of your files for this class (e.g., Desktop, Documents, etc.)
-    <ul>
-      <li>If you use syncing software (e.g., OneDrive, DropBox, Box, iCloud, make sure that you’re not storing your files in a place where things are auto-syncing).</li>
-    </ul>
-  </li>
-  <li>Within your chosen file system location, create a folder called <code class="highlighter-rouge">csci338</code> (all lowercase – Unix-Style file systems are case-sensitive, so lowercase files and folders are a useful convention).</li>
   <li>Install <a href="https://code.visualstudio.com/download">VS Code</a> if it isn’t already installed on your machine.</li>
-  <li>Open your entire <code class="highlighter-rouge">csci338</code> folder inside of VS Code.</li>
   <li><strong>If you are a Windows user,</strong> <a href="/spring2025/resources/wsl">follow these instructions to install WSL and a Linux distribution</a> (Windows Subsystem for Linux). Once you’re done, verify your installation by opening a WSL terminal and typing <code class="highlighter-rouge">pwd</code>.
     <ul>
       <li>Note: please read / watch the instructions for WSL carefully. If you skip steps, you will likely have to rebuild / reinstall your Linux distro, so going slower will save you time in the long run.</li>
+    </ul>
+  </li>
+  <li>Create a directory called <code class="highlighter-rouge">csci338</code>
+    <ul>
+      <li>If you are a windows user, you will create that directory within your <strong><em>home directory within your WSL instance.</em></strong> (e.g., <code class="highlighter-rouge">/Users/your_username</code>).</li>
+      <li>If you are a Mac user, you can create your <code class="highlighter-rouge">csci338</code> directory anywhere except for in your Downloads directory.</li>
     </ul>
   </li>
 </ol>
@@ -237,6 +236,17 @@
       <li><code class="highlighter-rouge">tree ~ -La 2</code></li>
       <li><code class="highlighter-rouge">tree ~</code></li>
     </ul>
+
+    <p>If <code class="highlighter-rouge">tree</code> is not installed, see if you can figure out how to install it. On WSL:</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> sudo apt-get update
+ sudo apt-get install tree
+</code></pre></div>    </div>
+
+    <p>On Mac:</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> brew install tree
+</code></pre></div>    </div>
   </li>
 </ol>
 
@@ -286,13 +296,24 @@
   <li>Add the following lines of code to the script:</li>
 </ul>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 1. Create a new directory called "src"</span>
-<span class="nb">mkdir </span>my_new_folder
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
 
-<span class="c"># 2. Navigate into it:</span>
-<span class="nb">cd </span>my_new_folder
+<span class="c"># Prompt the user for the folder name</span>
+<span class="nb">read</span> <span class="nt">-p</span> <span class="s2">"Enter the folder name: "</span> DIR_NAME
 
-<span class="c"># 3. Create a new starter index.html file:</span>
+<span class="c"># 1. Create a new directory if it doesn't already exist</span>
+<span class="k">if</span> <span class="o">[</span> <span class="nt">-d</span> <span class="s2">"</span><span class="nv">$DIR_NAME</span><span class="s2">"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then
+    </span><span class="nb">echo</span> <span class="s2">"Directory '</span><span class="nv">$DIR_NAME</span><span class="s2">' already exists. Exiting."</span>
+    <span class="nb">exit </span>1
+<span class="k">else
+    </span><span class="nb">mkdir</span> <span class="s2">"</span><span class="nv">$DIR_NAME</span><span class="s2">"</span>
+    <span class="nb">echo</span> <span class="s2">"Directory '</span><span class="nv">$DIR_NAME</span><span class="s2">' created."</span>
+<span class="k">fi</span>
+
+<span class="c"># 2. Navigate into it</span>
+<span class="nb">cd</span> <span class="s2">"</span><span class="nv">$DIR_NAME</span><span class="s2">"</span> <span class="o">||</span> <span class="o">{</span> <span class="nb">echo</span> <span class="s2">"Failed to navigate into </span><span class="nv">$DIR_NAME</span><span class="s2">. Exiting."</span><span class="p">;</span> <span class="nb">exit </span>1<span class="p">;</span> <span class="o">}</span>
+
+<span class="c"># 3. Create a new starter index.html file</span>
 <span class="nb">echo</span> <span class="s1">'''
 &lt;!DOCTYPE html&gt;
 &lt;html lang="en"&gt;
@@ -311,8 +332,9 @@
 
 &lt;/html&gt;
 '''</span> <span class="o">&gt;</span> index.html
+<span class="nb">echo</span> <span class="s2">"index.html created."</span>
 
-<span class="c"># 4. Create a new starter styles.css file:</span>
+<span class="c"># 4. Create a new starter styles.css file</span>
 <span class="nb">echo</span> <span class="s1">'''
 body * {
     box-sizing: border-box;
@@ -322,11 +344,16 @@ body {
 }
 '''</span> <span class="o">&gt;</span> styles.css
 
-<span class="c"># 5. Navigate to original directory:</span>
+<span class="nb">echo</span> <span class="s2">"styles.css created."</span>
+
+<span class="c"># 5. Navigate back to the original directory</span>
 <span class="nb">cd</span> ..
 
-<span class="c"># # 6. Open the index.html file in a web browser:</span>
-<span class="c"># open my_new_folder/index.html</span>
+<span class="c"># 6. Optional: Open the index.html file in a web browser</span>
+<span class="c">#    Try one of these commands:</span>
+
+<span class="c"># wslview "$DIR_NAME/index.html"   # WSL</span>
+<span class="c"># open "$DIR_NAME/index.html"  # macOS</span>
 </code></pre></div></div>
 
 <p>When you’re done, execute the script as follows:</p>
@@ -335,8 +362,13 @@ body {
 
 <p>Take a look at the new <code class="highlighter-rouge">src</code> folder (and nested files) that were created by typing: <code class="highlighter-rouge">tree .</code></p>
 
-<p>Now, open the HTML file you just made in a new browser:
-<code class="highlighter-rouge">open my_new_folder/index.html</code></p>
+<p>Now, open the HTML file you just made in a new browser by typing one of the following commands from the command line:</p>
+
+<ul>
+  <li>Mac Users: <code class="highlighter-rouge">open my_new_folder/index.html</code></li>
+  <li>WSL Users: <code class="highlighter-rouge">wslview my_new_folder/index.html</code></li>
+  <li>Linux Users: <code class="highlighter-rouge">xdg-open my_new_folder/index.html</code></li>
+</ul>
 
 <p>And finally, open the folder you just made in VS Code:</p>
 
@@ -384,7 +416,7 @@ body {
 <h2 id="dot-files">Part 4. OS Environment Exercises</h2>
 <p>In Linux-style operating systems, you can create shortcuts, aliases, and customizations by editing your <code class="highlighter-rouge">.zshrc</code> file in your home directory. From your command line, please navigate to your home directory and try making an alias to your <code class="highlighter-rouge">csci338</code> directory:</p>
 <ul>
-  <li>Here is a resource for <a href="https://dev.to/haamid/how-to-define-custom-alias-in-zsh-3b6a" target="_blank">creating an alias</a></li>
+  <li>To learn more about how to create an alies, see this resource: <a href="https://medium.com/@email2smohanty/the-significance-of-bashrc-or-zshrc-configuration-file-49fa31c5da17" target="_blank">The Significance of .bashrc or .zshrc Configuration File</a></li>
   <li>If you did it correctly, when you type: <code class="highlighter-rouge">338</code> on the command line, you should be put into the <code class="highlighter-rouge">csci338</code> directory.</li>
   <li>Hint: Here is what Sarah’s <code class="highlighter-rouge">.zshrc</code> entry looks like:<br /><code class="highlighter-rouge">alias 338='cd /Users/svanwart/unca/csci338'</code></li>
 </ul>
