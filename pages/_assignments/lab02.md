@@ -2,7 +2,7 @@
 layout: assignment-two-column
 title: "Configuring git and GitHub"
 type: lab
-draft: 1
+draft: 0
 points: 6
 abbreviation: Lab 2
 num: 2
@@ -13,13 +13,13 @@ due_date: 2025-01-29
 ## Introduction
 Today we will be configuring your lab repo using **git** and **GitHub**. Next week we will be working on ***collaboration workflows***.
 
-Here are the <a href="https://docs.google.com/presentation/d/11HyT_sktBgkhoM2_LgQ3cHB68YZj_AZZ/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true" target="_blank">Lab 2 slides</a>.
+Here are the <a href="https://docs.google.com/presentation/d/1XZ6uvNQbYMJVW9sg02276qEZctMQ7r7m/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true" target="_blank">Lab 2 slides</a>.
 
 
 ## Your Tasks
 
 ### 1. Add your GitHub username to the spreadsheet
-If you haven't already, please register for a GitHub account, and then add your full name and your GitHub username to <a href="https://docs.google.com/spreadsheets/d/1CZ0PcwqBflEvliUh_Wc4hH648teQb4Q3q3gIXBBLKfM/edit?gid=0#gid=0" target="_blank">this spreadsheet</a>. I will invite you to be a contributor to the relevant repos.
+If you haven't already, please register for a GitHub account, and then add your full name and your GitHub username to <a href="https://docs.google.com/spreadsheets/d/1O56O2b-0QjdGna0dpTEcMwM_am4tS6Rei8ovTmSfSMQ/edit?usp=sharing" target="_blank">this spreadsheet</a>. I will invite you to be a contributor to the relevant repos.
 * Note that **you will have to confirm this invitation** via email.
 * I recommend that you use your UNCA email account because you can get some student perks later from GitHub.
 
@@ -41,11 +41,9 @@ To generate a public / private key pair (use WSL if you're a Windows user):
 * More on public / private keys here: <a href="https://kb.iu.edu/d/aews" target="_blank">https://kb.iu.edu/d/aews</a>
 
 ### 3. Fork the Course Repository
-In this class, we're going to be working with two repositories:
-* **`class-exercises-spring2025`** -- For in-class exercises and labs. You will have your own personal copy of this repository on Github that you will periodically sync with the class repo. This will be for doing individual work and activities.
-* [Next Week] **`app-spring2025`** -- Shared repo that you will directly pushing to / pulling from from your local computer.
+In this class, we're going to be working with various shared repositories on GitHub. For most of our labs and in-class exercises, we will be using the **`class-exercises-spring2025`** repository. You will "fork" your own personal copy of this repository on Github that you will periodically sync with the class repo. This will be for doing individual work and activities.
 
-Before we get into the details of the GitHub workflow, you will create a copy of the course repo -- one that **you own** -- on GitHub. To do this:
+Before we get into the details of various GitHub workflows, you will create a copy of the course repo -- one that **you own** -- on GitHub. To do this:
 1. Navigate to the course repository: <a href="https://github.com/csci338/class-exercises-spring2025" target="_blank">https://github.com/csci338/class-exercises-spring2025</a>
 1. Click the "Fork" button (towards the top of the page on the right hand side)
 1. Confirm where you would like the repo to be forked (choose your GitHub account). 
@@ -60,18 +58,38 @@ Now, on your laptop, make a copy of your repo locally as follows:
 1. Look at commit history (`git log`)
 
 ### 5. Make a new branch
-1. Create a new branch called `lab02`
+1. Create a new branch called `lab02-b`
     * See the <a href="/spring2025/resources/github">git cheatsheat</a>
 1. Switch to the branch you just made (if you haven't already)
-1. Verify that you are now on the `lab02` branch (see cheatsheet)
+1. Verify that you are now on the `lab02-b` branch (see cheatsheet)
 
 
 ### 6. Write some code
 1. Open the entire `class-exercises-spring2025` folder in VS Code.
 1. Create a folder named `lab02`
 1. Inside of your `lab02` folder, create a text file called `ContainsPair.java`
-1. Within the `ContainsPair.java` file, implement one of the "contains pair" solutions we discussed in class (ideally the fastest one).
-1. Compile it on the command line using the `javac` command (e.g., `javac ContainsPair.java`). Make sure you're in the right directory. This should generate the compiled `Java.class` file.
+1. Within the `ContainsPair.java` file, implement one of the "contains pair" solutions we discussed in class (ideally the fastest one). Here's a stub to help you:
+
+    ```java
+    import java.util.ArrayList;
+    import java.util.Arrays;
+    import java.util.List;
+
+    public class ContainsPair {
+
+        public static void main(String[] args) {
+            List<Integer> list1 = Arrays.asList(1, 2, 3, 2);
+            List<Integer> list2 = Arrays.asList(5, 2, -10, 44, 90);
+            System.out.println(ContainsPair.check(list1)); // should print true
+            System.out.println(ContainsPair.check(list2)); // should print false
+        }
+        public static boolean check(List<Integer> l) {
+            // replace this with your code:
+            return false;
+        }
+    }
+    ```
+1. Compile it on the command line using the `javac` command (e.g., `javac ContainsPair.java`). See the Lecture 3 slides for potential solutions. Make sure you're in the right directory. This should generate the compiled `Java.class` file.
     * If you're on WSL and `javac` is not installed, you can install it using the apt package manager as follows:<br>`sudo apt install default-jdk`
 1. Run your program on the command line by typing `java ContainsPair`
 
@@ -88,12 +106,12 @@ If you did it correctly, git is now ignoring your `*.class` file.
 
 ### 8. Stage and commit your changes
 1. Stage your changes using `git add .` (the dot indicates that you want to stage all of the files that have been added / deleted / edited).
-1. Commit your changes using `git commit -am "lab02"`.
+1. Commit your changes using `git commit -m "Some descriptive commit message"` (e.g. "Lab 2 is completed").
 
 ### 9. Push (upload) your changes to GitHub
 1. Push your branch to GitHub using the `git push` command
-    * This command should display an error with a suggested push command (e.g., `git push --set-upstream origin <your-branch-name>`). This is telling you that there is no branch called `lab02` in the GitHub repository.
-1. Try again by typing `git push --set-upstream origin lab02`
+    * This command should display an error with a suggested push command (e.g., `git push --set-upstream origin <your-branch-name>`). This is telling you that there is no branch called `lab02-b` in the GitHub repository.
+1. Try again by typing `git push --set-upstream origin lab02-b`
 
 
 ### 10. Create a pull request
@@ -123,6 +141,6 @@ Please use the email you used to register with GitHub
 Please paste a link to your pull request in the Moodle submission box. Also, please verify that...
 
 {:.checkbox-list}
-* You created a branch called `lab02`
+* You created a branch called `lab02-b`
 * You have a working `ContainsPair.java` file in it
 * You have edited your `.gitignore` file so that `ContainsPair.class` is not checked into version control.

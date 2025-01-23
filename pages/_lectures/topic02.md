@@ -16,11 +16,9 @@ slides:
       url: https://docs.google.com/presentation/d/15xJHGo3uSSt-UNlxIeJpWHgp4m7MoW2T/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true
     - start_date: "2025-01-23"
       type: lecture
-      draft: 1
+      draft: 0
       title: Introduction to Lab 2
-      url: https://docs.google.com/presentation/d/11HyT_sktBgkhoM2_LgQ3cHB68YZj_AZZ/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true
-      link: > 
-        Lab 2: <a href="https://docs.google.com/presentation/d/11HyT_sktBgkhoM2_LgQ3cHB68YZj_AZZ/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true" target="_blank">Introduction to Lab 2</a>
+      url: https://docs.google.com/presentation/d/1XZ6uvNQbYMJVW9sg02276qEZctMQ7r7m/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true
     - start_date: "2025-01-28"
       num: 4
       draft: 1
