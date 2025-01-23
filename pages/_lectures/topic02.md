@@ -25,8 +25,6 @@ slides:
       type: lecture
       title: Version Control and Collaborative Workflows
       url: https://docs.google.com/presentation/d/1Jw5noRHBzAtxJL-j13OCawd615ca7swk/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true
-      link: > 
-        Lecture 4: <a href="https://docs.google.com/presentation/d/1Jw5noRHBzAtxJL-j13OCawd615ca7swk/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true" target="_blank">Version Control and Collaborative Workflows</a>
 readings: 
     - start_date: "2025-01-21"
       title: Chapter 16. Version Control and Branch Management
@@ -35,19 +33,17 @@ readings:
       required: 1
       url: https://abseil.io/resources/swe-book/html/ch16.html
     - start_date: "2025-01-28"
-      title: Git Wikipedia article 
+      title: 
       num: 2
       type: reading
-      notes: > 
-        Read the history section (including all subsections: Naming, Characteristics, Data Structures, and References).
+      citation: > 
+        <a href="https://en.wikipedia.org/wiki/git" target="_blank">Git Wikipedia article </a><br>Read the "History" and "Characteristics" sections.
       required: 1
     - start_date: "2025-01-28"
-      title: Pro Git book
       type: reading
       num: 3
-      notes: > 
-        The Pro Git book provides some useful context and conceptual models, particularly 2.1-2.5, 3.1-3.1, and 3.6.
-      url: https://git-scm.com/book/en/v2
+      citation: >
+        <a href="https://git-scm.com/book/en/v2" target="_blank">Pro Git book</a><br>The Pro Git book provides some useful context and conceptual models, particularly 2.1-2.5, 3.1-3.1, and 3.6.
     - start_date: "2025-01-30"
       title: Collaborating with git and GitHub (video)
       num: 4

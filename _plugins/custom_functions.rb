@@ -81,15 +81,24 @@ module Jekyll
         target = get_target(page['url'])
         title = (hide_title || simple) ? "" : "<span>#{page['title']}</span>"
         link_icon = simple ? "" : " <i class='fa-solid fa-link'></i>"
-        extras = (page['type'] == "reading" and page['required'] == nil) ? " <span class='optional'>optional</span>" : ""
+        extras = (page['type'] == "reading" and page['required'] == nil and page['pick_one'] == nil) ? " <span class='optional'>optional</span>" : ""
         extras = (page['type'] == "reading" and page['skim'] == 1) ? " <span class='optional'>skim</span>" : extras
         colon = "<span style='display: none'>: </span>"
         is_draft = (page['draft'] == 1)
         link_class = simple ? "" : (is_draft ? "badge" : type)
         
         notes = show_notes ? "<div>#{page['notes']}</div>" : ""
+        
+        if type == "reading" && page["citation"]
+            return "<span class='mb-1 #{class_name}'>"\
+               "#{extras}"\
+               "<span class='#{link_class}'>#{badge_text}</span>#{colon}"\
+                  "#{page["citation"]}"\
+            "</span>"\
+            "#{notes}"
+        end
 
-        if !is_draft && url
+        if !is_draft && url != nil
           # Return an anchor (<a>) tag if the url exists
           return "<span class='mb-1 #{class_name}' target=''>"\
                 "#{extras}"\
@@ -101,7 +110,7 @@ module Jekyll
             "#{notes}"
         end
 
-        if is_draft
+        if is_draft || url == nil
             # Return a span if no url exists
             return "<span class='mb-1 #{class_name}'>"\
                "#{extras}"\
@@ -117,6 +126,53 @@ module Jekyll
 
         return ""
       end
+
+
+    #   def display_link_or_badge(page, hide_title=false, new_line=true, simple=false, show_notes=true)
+    #     type = page['type'] == "homework" ? "hw" : page['type']
+    #     class_name = new_line ? "block" : "inline"
+    #     badge_text = type ? type.capitalize : ""
+    #     badge_text = simple ? page['title'] : "#{badge_text} #{page['num']}"
+    #     url = get_url(page['url'])
+    #     target = get_target(page['url'])
+    #     title = (hide_title || simple) ? "" : "<span>#{page['title']}</span>"
+    #     link_icon = simple ? "" : " <i class='fa-solid fa-link'></i>"
+    #     extras = (page['type'] == "reading" and page['required'] == nil) ? " <span class='optional'>optional</span>" : ""
+    #     extras = (page['type'] == "reading" and page['skim'] == 1) ? " <span class='optional'>skim</span>" : extras
+    #     colon = "<span style='display: none'>: </span>"
+    #     is_draft = (page['draft'] == 1)
+    #     link_class = simple ? "" : (is_draft ? "badge" : type)
+        
+    #     notes = show_notes ? "<div>#{page['notes']}</div>" : ""
+
+    #     if !is_draft && url
+    #       # Return an anchor (<a>) tag if the url exists
+    #       return "<span class='mb-1 #{class_name}' target=''>"\
+    #             "#{extras}"\
+    #             "<a class='#{link_class}' href='#{url}' target='#{target}'>"\
+    #                 "#{link_icon} #{badge_text}"\
+    #             "</a>#{colon}"\
+    #             "#{title}"\
+    #         "</span>"\
+    #         "#{notes}"
+    #     end
+
+    #     if is_draft
+    #         # Return a span if no url exists
+    #         return "<span class='mb-1 #{class_name}'>"\
+    #            "#{extras}"\
+    #            "<span class='#{link_class}'>#{badge_text}</span>#{colon}"\
+    #               "#{title}"\
+    #           "</span>"\
+    #           "#{notes}"
+    #     end
+        
+    #     if page['notes'] != nil
+    #         return page['notes']
+    #     end
+
+    #     return ""
+    #   end
       
 
 
