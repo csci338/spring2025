@@ -21,10 +21,10 @@ slides:
       url: https://docs.google.com/presentation/d/1XZ6uvNQbYMJVW9sg02276qEZctMQ7r7m/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true
     - start_date: "2025-01-28"
       num: 4
-      draft: 1
+      draft: 0
       type: lecture
       title: Version Control and Collaborative Workflows
-      url: https://docs.google.com/presentation/d/1Jw5noRHBzAtxJL-j13OCawd615ca7swk/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true
+      url: https://docs.google.com/presentation/d/1PK57O63dkB5tMsG61XVw8PcER1P9dh_O/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true
 readings: 
     - start_date: "2025-01-21"
       title: Chapter 16. Version Control and Branch Management
@@ -63,16 +63,10 @@ readings:
       type: reading
       url: https://www.atlassian.com/git/tutorials/comparing-workflows
 activities:
-    - start_date: "2025-01-21"
-      title: Coding Practice
-      num: 2
-      type: activity
-      draft: 0
-      url: https://docs.google.com/document/d/1ufrC5XuE2OXPkYuXoPCDfS9ndK3rCKOh/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true
     - start_date: "2025-01-28"
       title: Git Collaboration Activity
-      num: 3
-      draft: 1
+      num: 2
+      draft: 0
       type: activity
       url: /activities/git-in-class-activity
 labs: [2, 3]

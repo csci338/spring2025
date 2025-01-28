@@ -38,11 +38,11 @@ readings:
       url: https://docs.docker.com/get-started/docker_cheatsheet.pdf
 activities:
     - start_date: "2025-02-04"
-      title: Git Collaboration Activity
-      num: 1
-      draft: 1
+      title: Coding Practice
+      num: 3
       type: activity
-      url: /activities/git-in-class-activity
+      draft: 1
+      url: https://docs.google.com/document/d/1ufrC5XuE2OXPkYuXoPCDfS9ndK3rCKOh/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true
 labs: [4]
 questions:
     - What were servers "back in the day"? What are servers now?
