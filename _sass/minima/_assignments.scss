@@ -186,24 +186,6 @@
             margin-top: 0px;
         }
     }
-    .checkbox-list {
-        padding-left: 22px;
-    }
-
-    .checkbox-list > li {
-        text-indent: -8px;
-        margin-left: 22px;
-    }
-
-    .checkbox-list > li:before {
-        font-family:"Font Awesome 5 Free";
-        content: "\f00c";
-        font-weight: 600;
-        color: #1cb954;
-        font-size: 1.2em;
-        vertical-align: top;
-        margin-right: 6px;
-    }
 }
 
 ol.readings, ul.readings {
@@ -236,9 +218,14 @@ blockquote.info {
     background-color: #0076a514;
     padding: 25px 50px;
     border-width: 0;
-    padding: 20px 0px 20px 40px;
+    padding: 20px 20px 20px 40px;
     border-radius: 10px;
+
+    p {
+        margin-bottom: 15px;
+    }
 } 
+
 
 blockquote.caveat {
     margin: 20px 0px 20px 40px;
