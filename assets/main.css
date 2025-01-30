@@ -81,6 +81,13 @@ ol.flush li img, ol.flush li .highlighter-rouge, ul.flush li img, ul.flush li .h
 
 .checkbox:before { font-family: "Font Awesome 5 Free"; content: "\f00c"; font-weight: 600; color: #1cb954; margin-right: 10px; font-size: 1.5em; vertical-align: top; }
 
+.checkbox-list { padding-left: 22px; list-style-type: none; }
+
+.checkbox-list > li { text-indent: -8px; margin-left: 22px; }
+.checkbox-list > li ul > li, .checkbox-list > li ol > li { text-indent: 0; }
+
+.checkbox-list > li:before { font-family: "Font Awesome 5 Free"; content: "\f00c"; font-weight: 600; color: #1cb954; font-size: 1.2em; vertical-align: top; margin-right: 6px; }
+
 pre.highlight { border-radius: 10px; background: #F6F6F6; padding: 10px; }
 
 .blockquote-no-margin { margin-top: 0px; }
@@ -200,9 +207,6 @@ table.medium.module td:nth-child(2) { max-width: 320px; }
 .assignment ul.toc li::before, .reference ul.toc li::before, .lecture ul.toc li::before, .two-column article ul.toc li::before, .syllabus ul.toc li::before, .schedule ul.toc li::before { content: none; }
 .assignment .outline, .reference .outline, .lecture .outline, .two-column article .outline, .syllabus .outline, .schedule .outline { background: #F6F6F6; padding: 10px; border-radius: 10px; margin-bottom: 15px; }
 .assignment .outline h3, .reference .outline h3, .lecture .outline h3, .two-column article .outline h3, .syllabus .outline h3, .schedule .outline h3 { margin-top: 0px; }
-.assignment .checkbox-list, .reference .checkbox-list, .lecture .checkbox-list, .two-column article .checkbox-list, .syllabus .checkbox-list, .schedule .checkbox-list { padding-left: 22px; }
-.assignment .checkbox-list > li, .reference .checkbox-list > li, .lecture .checkbox-list > li, .two-column article .checkbox-list > li, .syllabus .checkbox-list > li, .schedule .checkbox-list > li { text-indent: -8px; margin-left: 22px; }
-.assignment .checkbox-list > li:before, .reference .checkbox-list > li:before, .lecture .checkbox-list > li:before, .two-column article .checkbox-list > li:before, .syllabus .checkbox-list > li:before, .schedule .checkbox-list > li:before { font-family: "Font Awesome 5 Free"; content: "\f00c"; font-weight: 600; color: #1cb954; font-size: 1.2em; vertical-align: top; margin-right: 6px; }
 
 ol.readings, ul.readings { margin-top: 0px; margin-bottom: 0px; }
 ol.readings li, ul.readings li { margin-top: 0px; }
@@ -212,7 +216,8 @@ ol.readings li, ul.readings li { margin-top: 0px; }
 .lectures ol, .schedule ol, .readings ol { margin-top: 0px; margin-bottom: 0px; padding-left: 14px; }
 .lectures ol li, .schedule ol li, .readings ol li { margin-bottom: 5px; }
 
-blockquote.info { background-color: #0076a514; padding: 25px 50px; border-width: 0; padding: 20px 0px 20px 40px; border-radius: 10px; }
+blockquote.info { background-color: #0076a514; padding: 25px 50px; border-width: 0; padding: 20px 20px 20px 40px; border-radius: 10px; }
+blockquote.info p { margin-bottom: 15px; }
 
 blockquote.caveat { margin: 20px 0px 20px 40px; background: none; border-left: 0px; padding: 25px; padding: 0px; }
 
