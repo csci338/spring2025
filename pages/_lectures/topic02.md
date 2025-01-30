@@ -25,6 +25,11 @@ slides:
       type: lecture
       title: Version Control and Collaborative Workflows
       url: https://docs.google.com/presentation/d/1PK57O63dkB5tMsG61XVw8PcER1P9dh_O/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true
+    - start_date: "2025-01-30"
+      type: lecture
+      draft: 0
+      title: Intro to Lab 3
+      url: https://docs.google.com/presentation/d/1uWq_3F_qDBE-6WHXzGvH3LlM8uIieaqk/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true
 readings: 
     - start_date: "2025-01-21"
       title: Chapter 16. Version Control and Branch Management
