@@ -258,12 +258,12 @@ ol.flush, ul.flush {
 
 .checkbox-list > li:before {
     font-family:"Font Awesome 5 Free";
-    content: "\f00c";
-    font-weight: 600;
-    color: #1cb954;
-    font-size: 1.2em;
-    vertical-align: top;
-    margin-right: 6px;
+    content: "\f00c" !important;;
+    font-weight: 600 !important;;
+    color: #1cb954 !important;;
+    font-size: 1.2em !important;;
+    vertical-align: top !important;;
+    margin-right: 6px !important;;
 }
 
 pre.highlight {

@@ -2,7 +2,7 @@
 layout: assignment-two-column
 title: "A Tour of git Commands"
 type: lab
-draft: 1
+draft: 0
 points: 6
 abbreviation: Lab 3
 num: 3
@@ -10,14 +10,10 @@ start_date: 2025-01-30
 due_date: 2025-02-05
 ---
 
-> Credit: This activity was designed by Semmy Purewall
+**Credit: This activity was designed by Semmy Purewall**
 
+{% include oops.html %}
 
-## Lab Readings
-
-| <span class="pj">required</span> | <a href="https://www.youtube.com/watch?v=_wQdY_5Tb5Q" target="_blank">Collaborating using Git and GitHub</a>: Branches, Pull Requests, Merging vs Rebasing (Video walkthrough) |
-| <span class="badge">recommended</span> | <a href="https://www.youtube.com/watch?v=_UZEXUrj-Ds" target="_blank">What is git rebase?</a> |
-| <span class="badge">recommended</span> | <a href="https://www.atlassian.com/git/tutorials/comparing-workflows" target="_blank">Article explaining how to rebase + handle merge conflicts</a> |
 
 The goals with this lab are as follows:
 
@@ -38,7 +34,7 @@ On your laptop:
 1. Checkout the main branch: `git checkout main`
 1. Pull the latest changes from your remote main branch into your local main branch: `git pull origin main`
 1. If you did it correctly, you should notice that you should now have a `lab03` directory inside of your `class-exercises-spring2025` folder.
-1. Create a new branch (while on the main branch) to do our work for lab 3: `git checkout -b my_lab3_work`
+1. Create a new branch (while on the main branch) to do our work for lab 3: `git checkout -b lab03-b`
     * Note that branches are created from the branch you're currently on (in this case `main`). Therefore, it's important to pay attention to which branch you're on before making new branches.
     * Typically, you always branch from `main`. 
 
@@ -105,9 +101,9 @@ $ git status
 > 1.2. What do you see? Copy the output to your `answers.md` file.
 {:.blockquote-no-margin}
 
-The key things you're looking for is the `branch` you're on (in this
-case, `main`) and a list of untracked files (in this case, just
-`README.md`).
+When you issue the `git status command`, you're usually looking for 2 things:
+1. The `branch` you're on (in this case, `main`) and 
+2. a list of untracked files (in this case, just `README.md`).
 
 Let's add `README.md` to Git's staging area using the `add`
 subcommand.

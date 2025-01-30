@@ -51,7 +51,7 @@ collections:
   resources:
     output: true
     sort_by: lecture_date
-    permalink: /resources/:name
+    permalink: /resources/:name/
 
 collections_dir: pages
 
