@@ -53,36 +53,22 @@
                 
                 
                 <ol class="side-menu">
-  <li><a href="#id_lab-readings">Lab Readings</a></li>
-  <li><a href="#id_1-git-basics">1. Git Basics</a>
-    <ol>
-      <li><a href="#id_getting-help">Getting Help</a></li>
-      <li><a href="#id_create-a-new-git-repository">Create a New Git Repository</a></li>
-      <li><a href="#id_our-first-commit">Our First Commit!</a></li>
-      <li><a href="#id_add-to-readmemd">Add to README.md</a></li>
-      <li><a href="#id_reflection-and-review">Reflection and Review</a></li>
-      <li><a href="#id_practice">Practice</a></li>
-    </ol>
-  </li>
-  <li><a href="#id_github">Github</a>
-    <ol>
-      <li><a href="#id_create-a-new-repository">Create a New Repository</a></li>
-      <li><a href="#id_important-use-the-ssh-protocol">Important: Use the ssh protocol</a></li>
-      <li><a href="#id_git-is-distributed">Git is Distributed</a></li>
-      <li><a href="#id_more-practice">More Practice</a></li>
-    </ol>
-  </li>
-  <li><a href="#id_branching">Branching</a>
-    <ol>
-      <li><a href="#id_add-to-readmemd-1">Add to README.md</a></li>
-      <li><a href="#id_still-more-practice">Still More Practice</a></li>
-      <li><a href="#id_pull-requests">Pull Requests</a></li>
-      <li><a href="#id_merging-a-pull-request">Merging a Pull Request</a></li>
-      <li><a href="#id_post-merge">Post Merge</a></li>
-    </ol>
-  </li>
-  <li><a href="#id_summary">Summary</a></li>
-  <li><a href="#id_what-to-submit">What to Submit</a></li>
+  <li><a href="#id_class-exercises-repo-checklist">Class Exercises Repo Checklist</a></li>
+  <li><a href="#id_getting-help">Getting Help</a></li>
+  <li><a href="#id_create-a-new-git-repository">Create a New Git Repository</a></li>
+  <li><a href="#id_our-first-commit">Our First Commit!</a></li>
+  <li><a href="#id_add-to-readmemd">Add to README.md</a></li>
+  <li><a href="#id_reflection-and-review">Reflection and Review</a></li>
+  <li><a href="#id_practice">Practice</a></li>
+  <li><a href="#id_create-a-new-repository">Create a New Repository</a></li>
+  <li><a href="#id_important-use-the-ssh-protocol">Important: Use the ssh protocol</a></li>
+  <li><a href="#id_git-is-distributed">Git is Distributed</a></li>
+  <li><a href="#id_more-practice">More Practice</a></li>
+  <li><a href="#id_add-to-readmemd-1">Add to README.md</a></li>
+  <li><a href="#id_still-more-practice">Still More Practice</a></li>
+  <li><a href="#id_pull-requests">Pull Requests</a></li>
+  <li><a href="#id_merging-a-pull-request">Merging a Pull Request</a></li>
+  <li><a href="#id_post-merge">Post Merge</a></li>
 </ol>
 
             </aside>
@@ -106,28 +92,37 @@
     
 </p>
 
-<blockquote>
-  <p>Credit: This activity was designed by Semmy Purewall</p>
+<p><strong>Credit: This activity was designed by Semmy Purewall</strong></p>
+
+<style>
+    .checkbox-list>li {
+        margin-bottom: 30px;
+    }
+</style>
+
+<blockquote class="info">
+  <h3 id="id_class-exercises-repo-checklist">Class Exercises Repo Checklist</h3>
+  <p>Because I didn’t make the <a href="https://github.com/csci338/class-exercises-spring2025" target="_blank">class-exercises-spring2025</a> private when folks forked it, we need to go back and do a little
+surgery to get things in order. This will also be good additional git / GitHub practice.</p>
+
+  <p>Please verify the following:</p>
+  <ul class="checkbox-list">
+    <li>You should be able to access the source version of the <a href="https://github.com/csci338/class-exercises-spring2025" target="_blank">csci338/class-exercises-spring2025</a>
+repo, which is now private.</li>
+    <li>If you can’t, check your email and accept your invitation to join the repo.</li>
+    <li>A the root of your GitHub repo, your “forked from” source should say <strong>csci338/class-exercises-spring2025</strong>. See
+screenshot:<br /><br /><img src="/spring2025/assets/images/github/ss1.png" class="large" /><br />If this is not the case:
+      <ol>
+        <li>Delete your GitHub repo (not your local repo on your computer).</li>
+        <li>Re-fork your copy of the repo from <a href="https://github.com/csci338/class-exercises-spring2025" target="_blank">csci338/class-exercises-spring2025</a></li>
+        <li>Re-push the <code class="highlighter-rouge">lab02-b</code> branch to your remote.</li>
+        <li>You will not need to recreate a pull request for lab 2 if you already created and submitted one on the Moodle.</li>
+      </ol>
+    </li>
+    <li>Make sure that your version of the <code class="highlighter-rouge">class-exercises-spring2025</code> repo is private.</li>
+    <li>Add <code class="highlighter-rouge">svanwart</code> as a collaborator on your private repo.</li>
+  </ul>
 </blockquote>
-
-<h2 id="id_lab-readings">Lab Readings</h2>
-
-<table>
-  <tbody>
-    <tr>
-      <td><span class="pj">required</span></td>
-      <td><a href="https://www.youtube.com/watch?v=_wQdY_5Tb5Q" target="_blank">Collaborating using Git and GitHub</a>: Branches, Pull Requests, Merging vs Rebasing (Video walkthrough)</td>
-    </tr>
-    <tr>
-      <td><span class="badge">recommended</span></td>
-      <td><a href="https://www.youtube.com/watch?v=_UZEXUrj-Ds" target="_blank">What is git rebase?</a></td>
-    </tr>
-    <tr>
-      <td><span class="badge">recommended</span></td>
-      <td><a href="https://www.atlassian.com/git/tutorials/comparing-workflows" target="_blank">Article explaining how to rebase + handle merge conflicts</a></td>
-    </tr>
-  </tbody>
-</table>
 
 <p>The goals with this lab are as follows:</p>
 
@@ -156,7 +151,7 @@
   <li>Checkout the main branch: <code class="highlighter-rouge">git checkout main</code></li>
   <li>Pull the latest changes from your remote main branch into your local main branch: <code class="highlighter-rouge">git pull origin main</code></li>
   <li>If you did it correctly, you should notice that you should now have a <code class="highlighter-rouge">lab03</code> directory inside of your <code class="highlighter-rouge">class-exercises-spring2025</code> folder.</li>
-  <li>Create a new branch (while on the main branch) to do our work for lab 3: <code class="highlighter-rouge">git checkout -b my_lab3_work</code>
+  <li>Create a new branch (while on the main branch) to do our work for lab 3: <code class="highlighter-rouge">git checkout -b lab03-b</code>
     <ul>
       <li>Note that branches are created from the branch you’re currently on (in this case <code class="highlighter-rouge">main</code>). Therefore, it’s important to pay attention to which branch you’re on before making new branches.</li>
       <li>Typically, you always branch from <code class="highlighter-rouge">main</code>.</li>
@@ -225,9 +220,11 @@ changes. Let’s do that now with the <code class="highlighter-rouge">status</co
   <p>1.2. What do you see? Copy the output to your <code class="highlighter-rouge">answers.md</code> file.</p>
 </blockquote>
 
-<p>The key things you’re looking for is the <code class="highlighter-rouge">branch</code> you’re on (in this
-case, <code class="highlighter-rouge">main</code>) and a list of untracked files (in this case, just
-<code class="highlighter-rouge">README.md</code>).</p>
+<p>When you issue the <code class="highlighter-rouge">git status command</code>, you’re usually looking for 2 things:</p>
+<ol>
+  <li>The <code class="highlighter-rouge">branch</code> you’re on (in this case, <code class="highlighter-rouge">main</code>) and</li>
+  <li>a list of untracked files (in this case, just <code class="highlighter-rouge">README.md</code>).</li>
+</ol>
 
 <p>Let’s add <code class="highlighter-rouge">README.md</code> to Git’s staging area using the <code class="highlighter-rouge">add</code>
 subcommand.</p>
