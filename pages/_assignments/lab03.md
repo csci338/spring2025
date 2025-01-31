@@ -51,13 +51,24 @@ faster than using Chat GPT). Read through
 see how to access it.
 
 ### Create a New Git Repository
-Create a new repository for code exercises inside of your `csci338` directory. To do this, create a directory called `lab03-exercises` using the `mkdir` command.
+Create a new repository for code exercises directly inside of your `csci338` directory. To do this, create a directory called `lab03-exercises` using the `mkdir` command.
 
 ```
 $ mkdir lab03-exercises
 ```
 
-Now confirm it's created using the `ls -la` command. Then, change your working directory to the new directory. Create a new markdown file called `README.md`. Add a header to the top.
+{:.info}
+> **Important**: Make sure you don't create the `lab03-exercises` repo inside of your `class-exercises-spring2025` repo (no nested repos). Rather, your directory structure should look something like this:
+>
+```
+> csci338
+> ├── class-exercises-spring2025
+> ├── lab03-exercises
+> ├── merge-activity
+> └── rebase-activity
+```
+
+Verify that you've created your new `lab03-exercises` directory directly inside of `csci338` before proceeding. Then, change your working directory to `csci338/lab03-exercises`. Within `lab03-exercises`, create a new markdown file called `README.md`. Add a header to the top.
 
 Great! First let's try to commit this.
 
