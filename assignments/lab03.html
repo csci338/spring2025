@@ -172,12 +172,23 @@ faster than using Chat GPT). Read through
 see how to access it.</p>
 
 <h3 id="id_create-a-new-git-repository">Create a New Git Repository</h3>
-<p>Create a new repository for code exercises inside of your <code class="highlighter-rouge">csci338</code> directory. To do this, create a directory called <code class="highlighter-rouge">lab03-exercises</code> using the <code class="highlighter-rouge">mkdir</code> command.</p>
+<p>Create a new repository for code exercises directly inside of your <code class="highlighter-rouge">csci338</code> directory. To do this, create a directory called <code class="highlighter-rouge">lab03-exercises</code> using the <code class="highlighter-rouge">mkdir</code> command.</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ mkdir lab03-exercises
 </code></pre></div></div>
 
-<p>Now confirm it’s created using the <code class="highlighter-rouge">ls -la</code> command. Then, change your working directory to the new directory. Create a new markdown file called <code class="highlighter-rouge">README.md</code>. Add a header to the top.</p>
+<blockquote class="info">
+  <p><strong>Important</strong>: Make sure you don’t create the <code class="highlighter-rouge">lab03-exercises</code> repo inside of your <code class="highlighter-rouge">class-exercises-spring2025</code> repo (no nested repos). Rather, your directory structure should look something like this:</p>
+
+  <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>csci338
+├── class-exercises-spring2025
+├── lab03-exercises
+├── merge-activity
+└── rebase-activity
+</code></pre></div>  </div>
+</blockquote>
+
+<p>Verify that you’ve created your new <code class="highlighter-rouge">lab03-exercises</code> directory directly inside of <code class="highlighter-rouge">csci338</code> before proceeding. Then, change your working directory to <code class="highlighter-rouge">csci338/lab03-exercises</code>. Within <code class="highlighter-rouge">lab03-exercises</code>, create a new markdown file called <code class="highlighter-rouge">README.md</code>. Add a header to the top.</p>
 
 <p>Great! First let’s try to commit this.</p>
 
