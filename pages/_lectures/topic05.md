@@ -45,17 +45,17 @@ readings:
       title: Chapter 23. Continuous Integration
       url: https://abseil.io/resources/swe-book/html/ch23.html
       required: 1
-    - start_date: 2025-02-27
-      title: Please read the Project 1 description before class
-      type: reading
-      url: /assignments/project01
-      required: 1
-    - start_date: 2025-02-27
-      title: Setting up Project 1 using Docker (video)
-      type: reading
-      url: https://drive.google.com/file/d/10h6CsMGXYFRHe4y95x32moJs-u6P9rjo/view?usp=drive_link
-      required: 1
-      notes: If you need help getting set up, here's a video walkthrough
+    # - start_date: 2025-02-27
+    #   title: Please read the Project 1 description before class
+    #   type: reading
+    #   url: /assignments/project01
+    #   required: 1
+    # - start_date: 2025-02-27
+    #   title: Setting up Project 1 using Docker (video)
+    #   type: reading
+    #   url: https://drive.google.com/file/d/10h6CsMGXYFRHe4y95x32moJs-u6P9rjo/view?usp=drive_link
+    #   required: 1
+    #   notes: If you need help getting set up, here's a video walkthrough
 projects: [ 1 ]
 questions:
     - <span class="badge-dark">general</span> What does "shifting left" mean?
