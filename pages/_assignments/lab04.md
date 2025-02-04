@@ -2,7 +2,7 @@
 layout: assignment-two-column
 title: "Intro to Docker"
 type: lab
-draft: 1
+draft: 0
 points: 6
 abbreviation: Lab 4
 show_schedule: 1
@@ -117,6 +117,7 @@ This just lists the commands we'll be using in today's tutorial:
 
 For this week's lab, you will be completing the "Getting Started" Docker Tutorial. 
 
+{:.info}
 > ### Before you begin, get the latest code from `class-exercises-spring2025`
 > **On GitHub:**
 > * Sync the latest changes from the class version of class-exercises-spring2025 to your copy of the repo.
@@ -125,10 +126,10 @@ For this week's lab, you will be completing the "Getting Started" Docker Tutoria
 > * Make sure that all of your changes from the last lab are staged and committed.
 > * Checkout your main branch: `git checkout main`
 > * Pull down the latest changes: `git pull`
-> * Create a new branch called `lab04`: `git checkout -b lab04`
+> * Create a new branch called lab04-b: `git checkout -b lab04-b`
 > * Verify that you're on your new branch: `git branch`
 > * After going through the lab, answer the questions in the `lab04/answers.md` file.
-> {:.compact}
+
 
 ### Begin the Docker Tutorial
 Begin the Docker tutorial as follows:
@@ -146,7 +147,6 @@ Begin the Docker tutorial as follows:
     1. Multi-Container Apps
     1. Using Docker Compose
     1. *Image Building Best Practices (Optional)*
-    {:.compact}
 1. Answer the questions in the `class-exercises-spring2025/lab04/answers.md` file.
 
 
@@ -154,6 +154,6 @@ Begin the Docker tutorial as follows:
 After answering all of the questions in your `class-exercises-spring2025/labo04/answers.md` file...
 
 1. Make sure that your app folder is inside of your lab04 folder (including your Dockerfile and docker-compose.yml files).
-2. Then, stage, commit, and push the 'lab04' branch of your `class-exercises-spring2025` repo to GitHub.
+2. Then, stage, commit, and push the `lab04-b` branch of your `class-exercises-spring2025` repo to GitHub.
 3. Create a Pull Request (but do not merge your pull request -- that doesn't happen until Sarah reviews it).
 4. Paste a link to your pull request in the Lab04 submission
