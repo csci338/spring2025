@@ -299,16 +299,20 @@ node -v
 ```
 
 #### Ubuntu / WSL
-Because `apt` has a very outdated node version, you're going to add a new debian source so that apt can pull down a more recent version of node. The specific instructions you want are as follows:
+Because `apt` has a very outdated node version, you're going to install and use `nvm` (Node.js version manager) to install the latest version of node. Please issue the following commands on your WSL terminal:
 
 ```bash
 sudo apt-get install -y curl
-curl -fsSL https://deb.nodesource.com/setup_22.x -o nodesource_setup.sh
-sudo -E bash nodesource_setup.sh
-sudo apt-get install -y nodejs
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
+```
+
+When you're done, restart your WSL terminal for the changes to take effect, and then install node as follows:
+
+```bash
+nvm install node
 node -v
 ```
-Source: <a href="https://github.com/nodesource/distributions/blob/master/README.md" target="_blank">https://github.com/nodesource/distributions/blob/master/README.md</a>
+Source: <a href="https://dev.to/dcodeyt/the-easiest-way-to-install-nodejs-on-wsl-mac-ubuntu-43pp" target="_blank">https://dev.to/dcodeyt/the-easiest-way-to-install-nodejs-on-wsl-mac-ubuntu-43pp</a>
 
 
 ### 8. Initializing a Node.js Project
