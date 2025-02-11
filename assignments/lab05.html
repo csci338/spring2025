@@ -421,15 +421,18 @@ node <span class="nt">-v</span>
 </code></pre></div></div>
 
 <h4 id="id_ubuntu--wsl">Ubuntu / WSL</h4>
-<p>Because <code class="highlighter-rouge">apt</code> has a very outdated node version, you’re going to add a new debian source so that apt can pull down a more recent version of node. The specific instructions you want are as follows:</p>
+<p>Because <code class="highlighter-rouge">apt</code> has a very outdated node version, you’re going to install and use <code class="highlighter-rouge">nvm</code> (Node.js version manager) to install the latest version of node. Please issue the following commands on your WSL terminal:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-get <span class="nb">install</span> <span class="nt">-y</span> curl
-curl <span class="nt">-fsSL</span> https://deb.nodesource.com/setup_22.x <span class="nt">-o</span> nodesource_setup.sh
-<span class="nb">sudo</span> <span class="nt">-E</span> bash nodesource_setup.sh
-<span class="nb">sudo </span>apt-get <span class="nb">install</span> <span class="nt">-y</span> nodejs
+curl <span class="nt">-o-</span> https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
+</code></pre></div></div>
+
+<p>When you’re done, restart your WSL terminal for the changes to take effect, and then install node as follows:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nvm <span class="nb">install </span>node
 node <span class="nt">-v</span>
 </code></pre></div></div>
-<p>Source: <a href="https://github.com/nodesource/distributions/blob/master/README.md" target="_blank">https://github.com/nodesource/distributions/blob/master/README.md</a></p>
+<p>Source: <a href="https://dev.to/dcodeyt/the-easiest-way-to-install-nodejs-on-wsl-mac-ubuntu-43pp" target="_blank">https://dev.to/dcodeyt/the-easiest-way-to-install-nodejs-on-wsl-mac-ubuntu-43pp</a></p>
 
 <h3 id="id_8-initializing-a-nodejs-project">8. Initializing a Node.js Project</h3>
 <ol>
