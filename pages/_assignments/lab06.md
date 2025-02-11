@@ -20,6 +20,7 @@ The goal of this lab is to get you familiar with some automated testing and stat
 5. Perform some static analysis tests on your code -- and fix any errors
 6. Create a pull request.
 
+{:.info}
 > ### This is an "Either Or" Assignment
 > * You only have to implement the rock paper scissors activities in **ONE of the languages** (either JavaScript or Python).
 > * **Extra Credit:** If you need to make up a lab or if you would like to earn 6 points extra credit (equivalent to 1 Lab), you can do both options.
@@ -37,7 +38,7 @@ Before you begin, get the latest code from <a href="https://github.com/csci338/c
 * Checkout your main branch: `git checkout main`
 * Pull down the latest changes: `git pull`
     * If you did it correctly, you will notice that a new `lab06` folder has been created.
-* Create a new branch called lab06: `git checkout -b lab06`
+* Create a new branch called lab06: `git checkout -b lab06-b`
 * Verify that you're on your new branch: `git branch`
 
 ## Option 1. JavaScript
@@ -469,4 +470,4 @@ You are now done with the Python version of this lab! If you want 6 points extra
 A project's **test suite**, **code formatter**, **linter**, and **import sorter** (if applicable) are typically run before any pull request is made. These tools are also run by your project's continuous integration code validation suite before any branch is merged into the main codebase. Test suites and automated static analysis tools are an important part of creating scalable software that is maintainable over time.
 
 ## What to Submit
-When you're done, push your `lab06` branch to GitHub and make a pull request. Please ensure that the destination (left-hand side) is pointing to the `main` branch of **your repo** and the source (right-hand side) is pointing to the `lab06` branch of **your repo**. Then, please paste a link to your PR in the Moodle.
+When you're done, push your `lab06-b` branch to GitHub and make a pull request. Please ensure that the destination (left-hand side) is pointing to the `main` branch of **your repo** and the source (right-hand side) is pointing to the `lab06` branch of **your repo**. Then, please paste a link to your PR in the Moodle.

@@ -3,7 +3,7 @@ layout: module
 title: "Package & Dependency Management"
 type: topic
 num: 4
-draft: 1
+draft: 0
 start_date: 2025-02-11
 description: >
    When developing software, it is common to rely on dependencies -- code that has been developed by other people. However, <em>your code</em> isn't the only code that changes. Dependencies (and their dependencies, and their dependencies' dependencies) also evolve over time as new features are added and bugs are patched. Given this, in this unit we will examine some tools, approaches, and considerations for managing code dependencies. We will also experiment with a few different dependency management tools, such as npm, poetry, and apt.
@@ -11,10 +11,10 @@ description: >
 slides: 
     - start_date: "2025-02-11"
       num: 6
-      draft: 1
+      draft: 0
       type: lecture
       title: Package & Dependency Management
-      url: https://docs.google.com/presentation/d/1L7iqwWTZELObQ8vFDuB7aAc9Kkw5U1EN/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true
+      url: https://docs.google.com/presentation/d/1hNrQ73xwDzFbMB9lK633KoodLb_FOIza/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true
 labs: [5]
 readings:
     - start_date: "2025-02-11"

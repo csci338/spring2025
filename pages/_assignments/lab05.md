@@ -2,7 +2,7 @@
 layout: assignment-two-column
 title: "Understanding Package Managers"
 type: lab
-draft: 1
+draft: 0
 points: 6
 abbreviation: Lab 5
 num: 5
@@ -26,6 +26,8 @@ By the end of the lab, you should understand how to install, update, remove, and
 - [Poetry Documentation](https://python-poetry.org/docs/)
 - [npm Documentation](https://docs.npmjs.com/)
 
+
+{:.info}
 > ## Before you begin
 > Before you begin, get the latest code from class-exercises-spring2025
 >
@@ -38,7 +40,7 @@ By the end of the lab, you should understand how to install, update, remove, and
 > * Checkout your main branch: `git checkout main`
 > * Pull down the latest changes: `git pull`
 >     * If you did it correctly, you will notice that a new `lab05` folder has been created.
-> * Create a new branch called lab05: `git checkout -b lab05`
+> * Create a new branch called lab05: `git checkout -b lab05-b`
 > * Verify that you’re on your new branch: `git branch`
 > * You are going to do some coding / package manager activities within your `class-exercises-spring2025/lab05` directory
 > * After going through the lab, be sure to answer the questions in `lab05/answers.md`.
@@ -149,7 +151,7 @@ If it worked, an `google.html` file should have been created to your local direc
 **Poetry** is a dependency manager for Python projects that handles dependencies and packaging.
 
 ### 3. Creating a Python Project with Poetry
-1. Verify that you're on a local branch called `lab05` (`git branch`). If you're not, jump to the top and re-read the "Before You Begin" section.
+1. Verify that you're on a local branch called `lab05-b` (`git branch`). If you're not, jump to the top and re-read the "Before You Begin" section.
 1. Check if poetry is already installed by typing `poetry` at your Terminal / WSL command prompt.
 3. If it's not, install Poetry:<br><br>
    ```bash
@@ -315,7 +317,7 @@ Source: <a href="https://github.com/nodesource/distributions/blob/master/README.
    npm init -y
    ```
 
-   The `npm init` command should have created two new files within `node-demo`: `package.json` and `    package-lock.json`. Verify this.
+   The `npm init` command should have created two new files within `node-demo`: `package.json` and `package-lock.json`. Verify this.
 
 ### 9. Install the React and Vite Dependencies
 1. Install the `react`, `react-dom`, and `vite` packages through the node package manager as shown below:<br><br>
@@ -421,6 +423,6 @@ Please verify that you completed the Lab 5 tasks:
 * You have created an interactive modal box using React (Part 3)
 * You have answered all of the questions in `answers.md`.
 
-Then, push your `lab05` branch to GitHub and make a pull request. Please ensure that the destination (left-hand side) is pointing to the `main` branch of **your repo** and the source (right-hand side) is pointing to the `lab05` branch of **your repo**
+Then, push your `lab05-b` branch to GitHub and make a pull request. Please ensure that the destination (left-hand side) is pointing to the `main` branch of **your repo** and the source (right-hand side) is pointing to the `lab05-b` branch of **your repo**
 
-Paste a link to your repo in the Moodle submission.
+Paste a link to your pull request in the Moodle submission.
