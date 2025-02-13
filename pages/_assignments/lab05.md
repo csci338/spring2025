@@ -161,6 +161,10 @@ If it worked, an `google.html` file should have been created to your local direc
    ```bash
    poetry --version
    ```
+    * If you get an error, you will need to add your poetry installation to your path file. See <a href="" target="_blank">this StackOverflow post</a>. It will probably tell you to run this command:
+      ```
+      export PATH="$HOME/.local/bin:$PATH"
+      ```
 5. Navigate to your `class-exercises-spring2025/lab05` directory.
 6. From within the `lab05` directory, create a new Python project using Poetry:<br><br>
    ```bash
@@ -222,7 +226,7 @@ It should have outputted the web page from the URL given to the screen.
 Now run the same python file again (outside of your virtual environment):
 
 ```bash
-python lab05-experiments.py
+python3 lab05-experiments.py
 ```
 You should see an error because `requests` and `bs4` are not installed for your system-level python installation.
 
@@ -321,14 +325,14 @@ Source: <a href="https://dev.to/dcodeyt/the-easiest-way-to-install-nodejs-on-wsl
    npm init -y
    ```
 
-   The `npm init` command should have created two new files within `node-demo`: `package.json` and `package-lock.json`. Verify this.
+   The `npm init` command should have created two new files within `node-demo`: `package.json`. Verify this.
 
 ### 9. Install the React and Vite Dependencies
 1. Install the `react`, `react-dom`, and `vite` packages through the node package manager as shown below:<br><br>
    ```bash
    npm install react react-dom vite
    ```
-2. Verify that the package was installed by checking the `node_modules` folder and `package.json` file.
+2. Verify that the package was installed by checking the `node_modules` folder and `package.json` file. You should also notice that a `package-lock.json` was created.
 3. Modify the `package.json` file by replacing the entire "scripts" entry with this one:<br><br>
     ```json
     "scripts": {
