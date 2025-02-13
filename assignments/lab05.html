@@ -280,6 +280,12 @@
   <li>Verify the installation:<br /><br />
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>poetry <span class="nt">--version</span>
 </code></pre></div>    </div>
+    <ul>
+      <li>If you get an error, you will need to add your poetry installation to your path file. See <a href="" target="_blank">this StackOverflow post</a>. It will probably tell you to run this command:
+        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export PATH="$HOME/.local/bin:$PATH"
+</code></pre></div>        </div>
+      </li>
+    </ul>
   </li>
   <li>Navigate to your <code class="highlighter-rouge">class-exercises-spring2025/lab05</code> directory.</li>
   <li>From within the <code class="highlighter-rouge">lab05</code> directory, create a new Python project using Poetry:<br /><br />
@@ -341,7 +347,7 @@
 
 <p>Now run the same python file again (outside of your virtual environment):</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python lab05-experiments.py
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python3 lab05-experiments.py
 </code></pre></div></div>
 <p>You should see an error because <code class="highlighter-rouge">requests</code> and <code class="highlighter-rouge">bs4</code> are not installed for your system-level python installation.</p>
 
@@ -440,7 +446,7 @@ node <span class="nt">-v</span>
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm init <span class="nt">-y</span>
 </code></pre></div>    </div>
 
-    <p>The <code class="highlighter-rouge">npm init</code> command should have created two new files within <code class="highlighter-rouge">node-demo</code>: <code class="highlighter-rouge">package.json</code> and <code class="highlighter-rouge">package-lock.json</code>. Verify this.</p>
+    <p>The <code class="highlighter-rouge">npm init</code> command should have created two new files within <code class="highlighter-rouge">node-demo</code>: <code class="highlighter-rouge">package.json</code>. Verify this.</p>
   </li>
 </ol>
 
@@ -450,7 +456,7 @@ node <span class="nt">-v</span>
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm <span class="nb">install </span>react react-dom vite
 </code></pre></div>    </div>
   </li>
-  <li>Verify that the package was installed by checking the <code class="highlighter-rouge">node_modules</code> folder and <code class="highlighter-rouge">package.json</code> file.</li>
+  <li>Verify that the package was installed by checking the <code class="highlighter-rouge">node_modules</code> folder and <code class="highlighter-rouge">package.json</code> file. You should also notice that a <code class="highlighter-rouge">package-lock.json</code> was created.</li>
   <li>Modify the <code class="highlighter-rouge">package.json</code> file by replacing the entire “scripts” entry with this one:<br /><br />
     <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w"> </span><span class="nl">"scripts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
      </span><span class="nl">"start"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vite"</span><span class="p">,</span><span class="w">
