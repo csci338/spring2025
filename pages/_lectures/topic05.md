@@ -15,9 +15,9 @@ slides:
     - start_date: 2025-02-18
       type: lecture
       num: 7
-      draft: 1
+      draft: 0
       title: Intro to Testing
-      url: https://docs.google.com/presentation/d/1FP8lJuy1C6AzzPxpulNOu9al_SIub2zF/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true
+      url: https://docs.google.com/presentation/d/1_6T3tl0-JWFTjX1rljBB1j3fO8cctj4W/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true
     - start_date: 2025-02-25
       type: lecture
       draft: 1
@@ -57,6 +57,13 @@ readings:
     #   required: 1
     #   notes: If you need help getting set up, here's a video walkthrough
 projects: [ 1 ]
+activities:
+    - start_date: "2025-02-18"
+      title: Testing Activity
+      num: 4
+      type: activity
+      draft: 0
+      url: /activities/testing-activity
 questions:
     - <span class="badge-dark">general</span> What does "shifting left" mean?
     - <span class="badge-dark">testing</span> What are some of the benefits of automated testing? 

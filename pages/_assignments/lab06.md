@@ -2,7 +2,7 @@
 layout: assignment-two-column
 title: "Testing & Static Analysis"
 type: lab
-draft: 1
+draft: 0
 points: 6
 abbreviation: Lab 6
 num: 6
@@ -12,13 +12,14 @@ h_max: 5
 ---
 
 ## Introduction & Background
-The goal of this lab is to get you familiar with some automated testing and static analysis tools that are commonly used in industry. To do this, you are going:
+The goal of this lab is to get you familiar with some automated testing and static analysis tools that are commonly used in industry. To do this, you will:
 1. Pick a language / environment: **either** Python **or** JavaScript
 2. Implement a "rock paper scissors" function
 3. Write some vanilla unit tests for your function
 4. Re-write your tests using a testing framework
 5. Perform some static analysis tests on your code -- and fix any errors
-6. Create a pull request.
+6. Answer the 3-4 questions in `answers.md`.
+7. Create a pull request.
 
 {:.info}
 > ### This is an "Either Or" Assignment
@@ -45,7 +46,7 @@ Before you begin, get the latest code from <a href="https://github.com/csci338/c
 Begin by completing the JavaScript tasks, which are located in the `javascript_rps` folder (`rps` stands for "rock paper scissors"), as described below:
 
 ### 1. Implement the "Rock Paper Scissors" function
-Open `your-task.js` and take a look at the `rps` function, which should look like this:
+Open `your-task.mjs` and take a look at the `rps` function, which should look like this:
 
 ```js
 export function rps(hand1, hand2) {
@@ -68,18 +69,18 @@ Implement the following "rock paper scissors" logic and return the corresponding
 ### 2. Write the tests WITHOUT a framework
 As you are writing your `rps` function, write corresponding tests to verify your implementation for different possible arguments that a user might pass in. 
 
-You will first write some tests *without* a framework. To help you, I have written two helper functions in `helpers.js`. The high-level point here is that **anyone can write and run tests -- simply and easily -- without using a fancy testing library**. Please open the `run-tests-vanilla.js` file to inspect how these two helper functions are used. Pause and try and understand what this code does.
+You will first write some tests *without* a framework. To help you, I have written two helper functions in `helpers.mjs`. The high-level point here is that **anyone can write and run tests -- simply and easily -- without using a fancy testing library**. Please open the `run-tests-vanilla.mjs` file to inspect how these two helper functions are used. Pause and try and understand what this code does.
 
 When you've thought about it, please run the test suite by navigating into the `javascript_rps` directory from the command line and running the following command:
 
 ```shell
-node run-tests-vanilla.js 
+node run-tests-vanilla.mjs 
 ```
 
 Your should see the following output:
 
 ```shell
-> node run-tests-vanilla.js
+> node run-tests-vanilla.mjs
 
 ----------------------------------------------------
 ✅ Success: it returns "Hello world!"
@@ -90,14 +91,15 @@ Your should see the following output:
 😬 Only  2 out of 3 tests passed.
 ```
 
-Please write all the tests to ensure that the relevant possible inputs yield the expected output. As you make new test functions, don't forget to add the name of the function definition to the list of tests that are passed into the `runAllTests` function (at the bottom of the file).
+Please write all the tests to ensure that the relevant possible inputs yield the expected output. A few tips:
+1. As you make new test functions, don't forget to add the name of the function definition to the list of tests that are passed into the `runAllTests` function (at the bottom of the file).
 
 
 ### 3. Write the tests with a framework (Mocha)
 Now that you have implemented the `rps` function and written the corresponding tests using "vanilla" JavaScript, you are going to rewrite your tests to use **Mocha** -- a JavaScript testing framework. 
 
 #### Install Mocha
-Mocha offers a set of functions and objects that organize your tests and make them easier to define and write. It also requires that all tests be placed in a folder called `tests`. Create a Node project and install `mocha` via the npm package manager as follows:
+Mocha offers a set of functions and objects that organize your tests and make them easier to define and write. It also requires that all tests be placed in a folder called `test`. Create a Node project and install `mocha` via the npm package manager as follows:
 
 ```bash
 # create the package.json file:
@@ -110,7 +112,7 @@ npm install mocha --save-dev
 Verify that a `package.json` file and a `node_modules` folder have been created.
 
 #### Run the mocha tests
-To run the tests, modify `package.json` by setting the test value to "mocha":
+To run the tests, you must first modify `package.json` by setting the test value to "mocha":
 
 ```json
 "scripts": {
@@ -150,13 +152,13 @@ If you did it correctly you should see output that looks like the following:
       -invalid
       +Paper wins!
       
-      at Context.<anonymous> (file:///.../lab06/javascript_rps/test/run-tests-mocha.js:60:16)
+      at Context.<anonymous> (file:///.../lab06/javascript_rps/test/run-tests-mocha.mjs:60:16)
       at process.processImmediate (node:internal/timers:478:21)
 ```
 
 
 ### 4. Rewrite your tests using the Mocha conventions
-Once you have successfully run the tests, open the `tests/run-tests-mocha.js` file and see if you can understand what's going on. Pause and think. What is the same and what is different?
+Once you have successfully run the tests, open the `tests/run-tests-mocha.mjs` file and see if you can understand what's going on. Pause and think. What is the same and what is different?
 
 After inspecting the code, please add new mocha tests to exhaustively test the `rps` function using the Mocha helper functions. Note that instead of your functions returning **true** or **false**, you need to use Node's built-in `assert` module.
 
@@ -184,8 +186,8 @@ You will also need to update your `package.json` file by adding 2 new entries (b
 ...
 "scripts": {
     "test": "mocha",
-    "format:check": "prettier --check \"**/*.{js,jsx}\"",
-    "format:fix": "prettier --write \"**/*.{js,jsx}\""
+    "format:check": "prettier --check \"**/*.{js,jsx,mjs}\"",
+    "format:fix": "prettier --write \"**/*.{js,jsx,mjs}\""
 },
 ...
 ```
@@ -208,10 +210,10 @@ To fix these files, just run prettier with the --fix flag (which you just config
 npm run format:fix
 ```
 
-Open one of your "fixed" `.js` files and note what changed. Then run the prettier check again. The check should now report that no formatting errors were found.
+Open one of your "fixed" `.mjs` files and note what changed. Then run the prettier check again. The check should now report that no formatting errors were found.
 
 #### ES Lint
-ES Lint enforces linting rules using the `eslint.config.js` configuration file. I have already made a simple `eslint.config.js` file for you, but you can add additional checks and rules rules. Please open it and take a look! 
+ES Lint enforces linting rules using the `eslint.config.mjs` configuration file. I have already made a simple `eslint.config.mjs` file for you, but you can add additional checks and rules rules. Please open it and take a look! 
 * Note that because we are using some mocha functions (e.g., `describe`, `it`, etc.), we need to teach the linter that these functions are indeed valid functions so they don't raise errors (they're global functions and it's hard for `eslint` to tell where they come from).
 
 **Install and configure eslint:**
@@ -230,8 +232,8 @@ You will also need to update your `package.json` file by adding 2 new entries (b
 ...
 "scripts": {
     "test": "mocha",
-    "format:check": "prettier --check \"**/*.{js,jsx}\"",
-    "format:fix": "prettier --write \"**/*.{js,jsx}\"",
+    "format:check": "prettier --check \"**/*.{js,mjs,jsx}\"",
+    "format:fix": "prettier --write \"**/*.{js,mjs,jsx}\"",
     "lint:check": "eslint . && echo \"All ES Lint checks pass!\"",
     "lint:fix": "eslint . --fix && echo \"All ES Lint checks pass!\""
 },
@@ -253,9 +255,15 @@ This command will tell you which of your JavaScript files do not conform to the 
 As a first step to fixing these files, just run eslint with the `--fix` flag (which you just configured in your `.package.json` file). This command will try to auto-correct some of your linting errors...
 
 ```bash
-npm run format:fix
+npm run lint:fix
 ```
 ...that said, other errors might need to be corrected manually. 
+
+### 6. Answer the questions in `answers.md`
+Open `answers.md` in the root of your `lab06` directory and answer the questions.
+
+### 7. Make a Pull Request
+When you're done, make a pull request from your `lab06-b` branch to your `main` branch.
 
 You are now done with the JavaScript version of this lab.  If you want 6 points extra credit, you can also do the JavaScript version of this lab. Otherwise, please jump down to ["Takeaways"](#takeaways).
 
@@ -418,14 +426,24 @@ poetry run flake8 .
 
 This command will tell you which of your python files do not conform to the PEP 8 / linting rules. Take a look and make a note of these files.
 
-One tricky thing about using linters and code formatters together is that they sometimes have conflicting rules. For instance, each may have a different rule for the correct length of a line length or whether it's OK to have trailing whitespace.
+You may have noticed two things:
+1. Flake8 is analyzing all of the python dependencies in your virtual environment.
+1. Some of the linting rules are contradicting the formatting rules. For instance, black and flake8 have a different rule for the correct length of a line length or whether it's OK to have trailing whitespace.
 
-To deal with this problem, you will make a declarative configuration file at the root of your `python_rps` folder called `.flake8` and add some rules to override the `flake8` style settings so that they match the ones specified in `black`. Please paste the following rules into the `.flake8` file you just made:
+To deal with these problems, you can make a declarative configuration file at the root of your `python_rps` folder called `.flake8` and add some rules to:
+1. Override the `flake8` style settings so that they match the ones specified in `black`, and
+2. Exclude analyzing the python dependencies that you did not write.
+
+Please paste the following rules into the `.flake8` file you just made:
 
 ```
 [flake8]
 max-line-length = 88
 ignore = W291, W293
+
+exclude =
+    __pycache__
+    .venv
 ```
 Then run the linter again:
 
@@ -433,8 +451,7 @@ Then run the linter again:
 poetry run flake8 .
 ```
 
-There should be fewer errors now. The rest will need to be corrected manually.
-
+There should be fewer errors now. Please correct them all manually and then run flake8 again. Once all of your linter errors are corrected, you are done with this section.
 
 #### iSort
 Finally, to enforce consistency in the import statements used in a file, some teams use an import sorter. Will will use `isort` to do this. Let's install it...
@@ -462,12 +479,17 @@ Take a look and make a note of the files that were modified by this command. The
 poetry run python run_tests_framework.py --verbose
 ```
 
+### 6. Answer the questions in `answers.md`
+Open `answers.md` in the root of your `lab06` directory and answer the questions.
+
+### 7. Make a Pull Request
+When you're done, make a pull request from your `lab06-b` branch to your `main` branch.
 
 You are now done with the Python version of this lab! If you want 6 points extra credit, you can also do the JavaScript version of this lab.
 
-{:#takeaways}
-## Takeaways
-A project's **test suite**, **code formatter**, **linter**, and **import sorter** (if applicable) are typically run before any pull request is made. These tools are also run by your project's continuous integration code validation suite before any branch is merged into the main codebase. Test suites and automated static analysis tools are an important part of creating scalable software that is maintainable over time.
+{:#takeaways :.info}
+> ## Takeaways
+> A project's **test suite**, **code formatter**, **linter**, and **import sorter** (if applicable) are typically run before any pull request is made. These tools are also run by your project's continuous integration validation suite before any branch is merged into the main codebase. Test suites and automated static analysis tools are an important part of creating scalable software that is maintainable over time.
 
 ## What to Submit
 When you're done, push your `lab06-b` branch to GitHub and make a pull request. Please ensure that the destination (left-hand side) is pointing to the `main` branch of **your repo** and the source (right-hand side) is pointing to the `lab06` branch of **your repo**. Then, please paste a link to your PR in the Moodle.
