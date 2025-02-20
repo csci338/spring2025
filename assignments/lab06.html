@@ -76,6 +76,8 @@
           <li><a href="#id_es-lint">ES Lint</a></li>
         </ol>
       </li>
+      <li><a href="#id_6-answer-the-questions-in-answersmd">6. Answer the questions in answers.md</a></li>
+      <li><a href="#id_7-make-a-pull-request">7. Make a Pull Request</a></li>
     </ol>
   </li>
   <li><a href="#id_option-2-python">Option 2. Python</a>
@@ -96,9 +98,11 @@
           <li><a href="#id_isort">iSort</a></li>
         </ol>
       </li>
+      <li><a href="#id_6-answer-the-questions-in-answersmd-1">6. Answer the questions in answers.md</a></li>
+      <li><a href="#id_7-make-a-pull-request-1">7. Make a Pull Request</a></li>
     </ol>
   </li>
-  <li><a href="#takeaways">Takeaways</a></li>
+  <li><a href="#id_takeaways">Takeaways</a></li>
   <li><a href="#id_what-to-submit">What to Submit</a></li>
 </ol>
 
@@ -124,13 +128,14 @@
 </p>
 
 <h2 id="id_introduction--background">Introduction &amp; Background</h2>
-<p>The goal of this lab is to get you familiar with some automated testing and static analysis tools that are commonly used in industry. To do this, you are going:</p>
+<p>The goal of this lab is to get you familiar with some automated testing and static analysis tools that are commonly used in industry. To do this, you will:</p>
 <ol>
   <li>Pick a language / environment: <strong>either</strong> Python <strong>or</strong> JavaScript</li>
   <li>Implement a “rock paper scissors” function</li>
   <li>Write some vanilla unit tests for your function</li>
   <li>Re-write your tests using a testing framework</li>
   <li>Perform some static analysis tests on your code – and fix any errors</li>
+  <li>Answer the 3-4 questions in <code class="highlighter-rouge">answers.md</code>.</li>
   <li>Create a pull request.</li>
 </ol>
 
@@ -170,7 +175,7 @@
 <p>Begin by completing the JavaScript tasks, which are located in the <code class="highlighter-rouge">javascript_rps</code> folder (<code class="highlighter-rouge">rps</code> stands for “rock paper scissors”), as described below:</p>
 
 <h3 id="id_1-implement-the-rock-paper-scissors-function">1. Implement the “Rock Paper Scissors” function</h3>
-<p>Open <code class="highlighter-rouge">your-task.js</code> and take a look at the <code class="highlighter-rouge">rps</code> function, which should look like this:</p>
+<p>Open <code class="highlighter-rouge">your-task.mjs</code> and take a look at the <code class="highlighter-rouge">rps</code> function, which should look like this:</p>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">export</span> <span class="kd">function</span> <span class="nx">rps</span><span class="p">(</span><span class="nx">hand1</span><span class="p">,</span> <span class="nx">hand2</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1">// finish this code:</span>
@@ -194,16 +199,16 @@
 <h3 id="id_2-write-the-tests-without-a-framework">2. Write the tests WITHOUT a framework</h3>
 <p>As you are writing your <code class="highlighter-rouge">rps</code> function, write corresponding tests to verify your implementation for different possible arguments that a user might pass in.</p>
 
-<p>You will first write some tests <em>without</em> a framework. To help you, I have written two helper functions in <code class="highlighter-rouge">helpers.js</code>. The high-level point here is that <strong>anyone can write and run tests – simply and easily – without using a fancy testing library</strong>. Please open the <code class="highlighter-rouge">run-tests-vanilla.js</code> file to inspect how these two helper functions are used. Pause and try and understand what this code does.</p>
+<p>You will first write some tests <em>without</em> a framework. To help you, I have written two helper functions in <code class="highlighter-rouge">helpers.mjs</code>. The high-level point here is that <strong>anyone can write and run tests – simply and easily – without using a fancy testing library</strong>. Please open the <code class="highlighter-rouge">run-tests-vanilla.mjs</code> file to inspect how these two helper functions are used. Pause and try and understand what this code does.</p>
 
 <p>When you’ve thought about it, please run the test suite by navigating into the <code class="highlighter-rouge">javascript_rps</code> directory from the command line and running the following command:</p>
 
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>node run-tests-vanilla.js 
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>node run-tests-vanilla.mjs 
 </code></pre></div></div>
 
 <p>Your should see the following output:</p>
 
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> node run-tests-vanilla.js
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> node run-tests-vanilla.mjs
 
 <span class="nt">----------------------------------------------------</span>
 ✅ Success: it returns <span class="s2">"Hello world!"</span>
@@ -214,13 +219,16 @@
 😬 Only  2 out of 3 tests passed.
 </code></pre></div></div>
 
-<p>Please write all the tests to ensure that the relevant possible inputs yield the expected output. As you make new test functions, don’t forget to add the name of the function definition to the list of tests that are passed into the <code class="highlighter-rouge">runAllTests</code> function (at the bottom of the file).</p>
+<p>Please write all the tests to ensure that the relevant possible inputs yield the expected output. A few tips:</p>
+<ol>
+  <li>As you make new test functions, don’t forget to add the name of the function definition to the list of tests that are passed into the <code class="highlighter-rouge">runAllTests</code> function (at the bottom of the file).</li>
+</ol>
 
 <h3 id="id_3-write-the-tests-with-a-framework-mocha">3. Write the tests with a framework (Mocha)</h3>
 <p>Now that you have implemented the <code class="highlighter-rouge">rps</code> function and written the corresponding tests using “vanilla” JavaScript, you are going to rewrite your tests to use <strong>Mocha</strong> – a JavaScript testing framework.</p>
 
 <h4 id="id_install-mocha">Install Mocha</h4>
-<p>Mocha offers a set of functions and objects that organize your tests and make them easier to define and write. It also requires that all tests be placed in a folder called <code class="highlighter-rouge">tests</code>. Create a Node project and install <code class="highlighter-rouge">mocha</code> via the npm package manager as follows:</p>
+<p>Mocha offers a set of functions and objects that organize your tests and make them easier to define and write. It also requires that all tests be placed in a folder called <code class="highlighter-rouge">test</code>. Create a Node project and install <code class="highlighter-rouge">mocha</code> via the npm package manager as follows:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># create the package.json file:</span>
 npm init <span class="nt">-y</span>  
@@ -232,7 +240,7 @@ npm <span class="nb">install </span>mocha <span class="nt">--save-dev</span>
 <p>Verify that a <code class="highlighter-rouge">package.json</code> file and a <code class="highlighter-rouge">node_modules</code> folder have been created.</p>
 
 <h4 id="id_run-the-mocha-tests">Run the mocha tests</h4>
-<p>To run the tests, modify <code class="highlighter-rouge">package.json</code> by setting the test value to “mocha”:</p>
+<p>To run the tests, you must first modify <code class="highlighter-rouge">package.json</code> by setting the test value to “mocha”:</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"scripts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"test"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mocha"</span><span class="w">
@@ -269,12 +277,12 @@ npm <span class="nb">install </span>mocha <span class="nt">--save-dev</span>
       <span class="nt">-invalid</span>
       +Paper wins!
       
-      at Context.&lt;anonymous&gt; <span class="o">(</span>file:///.../lab06/javascript_rps/test/run-tests-mocha.js:60:16<span class="o">)</span>
+      at Context.&lt;anonymous&gt; <span class="o">(</span>file:///.../lab06/javascript_rps/test/run-tests-mocha.mjs:60:16<span class="o">)</span>
       at process.processImmediate <span class="o">(</span>node:internal/timers:478:21<span class="o">)</span>
 </code></pre></div></div>
 
 <h3 id="id_4-rewrite-your-tests-using-the-mocha-conventions">4. Rewrite your tests using the Mocha conventions</h3>
-<p>Once you have successfully run the tests, open the <code class="highlighter-rouge">tests/run-tests-mocha.js</code> file and see if you can understand what’s going on. Pause and think. What is the same and what is different?</p>
+<p>Once you have successfully run the tests, open the <code class="highlighter-rouge">tests/run-tests-mocha.mjs</code> file and see if you can understand what’s going on. Pause and think. What is the same and what is different?</p>
 
 <p>After inspecting the code, please add new mocha tests to exhaustively test the <code class="highlighter-rouge">rps</code> function using the Mocha helper functions. Note that instead of your functions returning <strong>true</strong> or <strong>false</strong>, you need to use Node’s built-in <code class="highlighter-rouge">assert</code> module.</p>
 
@@ -302,8 +310,8 @@ npm <span class="nb">install </span>mocha <span class="nt">--save-dev</span>
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">...</span><span class="w">
 </span><span class="nl">"scripts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"test"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mocha"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"format:check"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prettier --check </span><span class="se">\"</span><span class="s2">**/*.{js,jsx}</span><span class="se">\"</span><span class="s2">"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"format:fix"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prettier --write </span><span class="se">\"</span><span class="s2">**/*.{js,jsx}</span><span class="se">\"</span><span class="s2">"</span><span class="w">
+    </span><span class="nl">"format:check"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prettier --check </span><span class="se">\"</span><span class="s2">**/*.{js,jsx,mjs}</span><span class="se">\"</span><span class="s2">"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"format:fix"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prettier --write </span><span class="se">\"</span><span class="s2">**/*.{js,jsx,mjs}</span><span class="se">\"</span><span class="s2">"</span><span class="w">
 </span><span class="p">}</span><span class="err">,</span><span class="w">
 </span><span class="err">...</span><span class="w">
 </span></code></pre></div></div>
@@ -324,10 +332,10 @@ npm <span class="nb">install </span>mocha <span class="nt">--save-dev</span>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm run format:fix
 </code></pre></div></div>
 
-<p>Open one of your “fixed” <code class="highlighter-rouge">.js</code> files and note what changed. Then run the prettier check again. The check should now report that no formatting errors were found.</p>
+<p>Open one of your “fixed” <code class="highlighter-rouge">.mjs</code> files and note what changed. Then run the prettier check again. The check should now report that no formatting errors were found.</p>
 
 <h4 id="id_es-lint">ES Lint</h4>
-<p>ES Lint enforces linting rules using the <code class="highlighter-rouge">eslint.config.js</code> configuration file. I have already made a simple <code class="highlighter-rouge">eslint.config.js</code> file for you, but you can add additional checks and rules rules. Please open it and take a look!</p>
+<p>ES Lint enforces linting rules using the <code class="highlighter-rouge">eslint.config.mjs</code> configuration file. I have already made a simple <code class="highlighter-rouge">eslint.config.mjs</code> file for you, but you can add additional checks and rules rules. Please open it and take a look!</p>
 <ul>
   <li>Note that because we are using some mocha functions (e.g., <code class="highlighter-rouge">describe</code>, <code class="highlighter-rouge">it</code>, etc.), we need to teach the linter that these functions are indeed valid functions so they don’t raise errors (they’re global functions and it’s hard for <code class="highlighter-rouge">eslint</code> to tell where they come from).</li>
 </ul>
@@ -346,8 +354,8 @@ npm <span class="nb">install </span>mocha <span class="nt">--save-dev</span>
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">...</span><span class="w">
 </span><span class="nl">"scripts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"test"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mocha"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"format:check"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prettier --check </span><span class="se">\"</span><span class="s2">**/*.{js,jsx}</span><span class="se">\"</span><span class="s2">"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"format:fix"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prettier --write </span><span class="se">\"</span><span class="s2">**/*.{js,jsx}</span><span class="se">\"</span><span class="s2">"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"format:check"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prettier --check </span><span class="se">\"</span><span class="s2">**/*.{js,mjs,jsx}</span><span class="se">\"</span><span class="s2">"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"format:fix"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prettier --write </span><span class="se">\"</span><span class="s2">**/*.{js,mjs,jsx}</span><span class="se">\"</span><span class="s2">"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"lint:check"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eslint . &amp;&amp; echo </span><span class="se">\"</span><span class="s2">All ES Lint checks pass!</span><span class="se">\"</span><span class="s2">"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"lint:fix"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eslint . --fix &amp;&amp; echo </span><span class="se">\"</span><span class="s2">All ES Lint checks pass!</span><span class="se">\"</span><span class="s2">"</span><span class="w">
 </span><span class="p">}</span><span class="err">,</span><span class="w">
@@ -367,9 +375,15 @@ npm <span class="nb">install </span>mocha <span class="nt">--save-dev</span>
 
 <p>As a first step to fixing these files, just run eslint with the <code class="highlighter-rouge">--fix</code> flag (which you just configured in your <code class="highlighter-rouge">.package.json</code> file). This command will try to auto-correct some of your linting errors…</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm run format:fix
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm run lint:fix
 </code></pre></div></div>
 <p>…that said, other errors might need to be corrected manually.</p>
+
+<h3 id="id_6-answer-the-questions-in-answersmd">6. Answer the questions in <code class="highlighter-rouge">answers.md</code></h3>
+<p>Open <code class="highlighter-rouge">answers.md</code> in the root of your <code class="highlighter-rouge">lab06</code> directory and answer the questions.</p>
+
+<h3 id="id_7-make-a-pull-request">7. Make a Pull Request</h3>
+<p>When you’re done, make a pull request from your <code class="highlighter-rouge">lab06-b</code> branch to your <code class="highlighter-rouge">main</code> branch.</p>
 
 <p>You are now done with the JavaScript version of this lab.  If you want 6 points extra credit, you can also do the JavaScript version of this lab. Otherwise, please jump down to <a href="#takeaways">“Takeaways”</a>.</p>
 
@@ -521,20 +535,34 @@ FAILED <span class="o">(</span><span class="nv">failures</span><span class="o">=
 
 <p>This command will tell you which of your python files do not conform to the PEP 8 / linting rules. Take a look and make a note of these files.</p>
 
-<p>One tricky thing about using linters and code formatters together is that they sometimes have conflicting rules. For instance, each may have a different rule for the correct length of a line length or whether it’s OK to have trailing whitespace.</p>
+<p>You may have noticed two things:</p>
+<ol>
+  <li>Flake8 is analyzing all of the python dependencies in your virtual environment.</li>
+  <li>Some of the linting rules are contradicting the formatting rules. For instance, black and flake8 have a different rule for the correct length of a line length or whether it’s OK to have trailing whitespace.</li>
+</ol>
 
-<p>To deal with this problem, you will make a declarative configuration file at the root of your <code class="highlighter-rouge">python_rps</code> folder called <code class="highlighter-rouge">.flake8</code> and add some rules to override the <code class="highlighter-rouge">flake8</code> style settings so that they match the ones specified in <code class="highlighter-rouge">black</code>. Please paste the following rules into the <code class="highlighter-rouge">.flake8</code> file you just made:</p>
+<p>To deal with these problems, you can make a declarative configuration file at the root of your <code class="highlighter-rouge">python_rps</code> folder called <code class="highlighter-rouge">.flake8</code> and add some rules to:</p>
+<ol>
+  <li>Override the <code class="highlighter-rouge">flake8</code> style settings so that they match the ones specified in <code class="highlighter-rouge">black</code>, and</li>
+  <li>Exclude analyzing the python dependencies that you did not write.</li>
+</ol>
+
+<p>Please paste the following rules into the <code class="highlighter-rouge">.flake8</code> file you just made:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[flake8]
 max-line-length = 88
 ignore = W291, W293
+
+exclude =
+    __pycache__
+    .venv
 </code></pre></div></div>
 <p>Then run the linter again:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>poetry run flake8 <span class="nb">.</span>
 </code></pre></div></div>
 
-<p>There should be fewer errors now. The rest will need to be corrected manually.</p>
+<p>There should be fewer errors now. Please correct them all manually and then run flake8 again. Once all of your linter errors are corrected, you are done with this section.</p>
 
 <h4 id="id_isort">iSort</h4>
 <p>Finally, to enforce consistency in the import statements used in a file, some teams use an import sorter. Will will use <code class="highlighter-rouge">isort</code> to do this. Let’s install it…</p>
@@ -558,10 +586,18 @@ ignore = W291, W293
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>poetry run python run_tests_framework.py <span class="nt">--verbose</span>
 </code></pre></div></div>
 
+<h3 id="id_6-answer-the-questions-in-answersmd-1">6. Answer the questions in <code class="highlighter-rouge">answers.md</code></h3>
+<p>Open <code class="highlighter-rouge">answers.md</code> in the root of your <code class="highlighter-rouge">lab06</code> directory and answer the questions.</p>
+
+<h3 id="id_7-make-a-pull-request-1">7. Make a Pull Request</h3>
+<p>When you’re done, make a pull request from your <code class="highlighter-rouge">lab06-b</code> branch to your <code class="highlighter-rouge">main</code> branch.</p>
+
 <p>You are now done with the Python version of this lab! If you want 6 points extra credit, you can also do the JavaScript version of this lab.</p>
 
-<h2 id="takeaways">Takeaways</h2>
-<p>A project’s <strong>test suite</strong>, <strong>code formatter</strong>, <strong>linter</strong>, and <strong>import sorter</strong> (if applicable) are typically run before any pull request is made. These tools are also run by your project’s continuous integration code validation suite before any branch is merged into the main codebase. Test suites and automated static analysis tools are an important part of creating scalable software that is maintainable over time.</p>
+<blockquote id="takeaways">
+  <h2 id="id_takeaways">Takeaways</h2>
+  <p>A project’s <strong>test suite</strong>, <strong>code formatter</strong>, <strong>linter</strong>, and <strong>import sorter</strong> (if applicable) are typically run before any pull request is made. These tools are also run by your project’s continuous integration validation suite before any branch is merged into the main codebase. Test suites and automated static analysis tools are an important part of creating scalable software that is maintainable over time.</p>
+</blockquote>
 
 <h2 id="id_what-to-submit">What to Submit</h2>
 <p>When you’re done, push your <code class="highlighter-rouge">lab06-b</code> branch to GitHub and make a pull request. Please ensure that the destination (left-hand side) is pointing to the <code class="highlighter-rouge">main</code> branch of <strong>your repo</strong> and the source (right-hand side) is pointing to the <code class="highlighter-rouge">lab06</code> branch of <strong>your repo</strong>. Then, please paste a link to your PR in the Moodle.</p>
