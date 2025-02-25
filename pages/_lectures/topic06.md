@@ -3,7 +3,7 @@ layout: module
 title: Midterm Exam Review & Midterm
 type: topic
 num: 6
-draft: 1
+draft: 0
 start_date: 2025-03-04
 exams: [1]
 readings:

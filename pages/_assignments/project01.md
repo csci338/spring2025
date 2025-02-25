@@ -102,34 +102,54 @@ During class on Tuesday (9/24), we discussed how to organize our system, and we 
 Your teams are listed below. Each member of your team has been assigned a task from the GitHub Issue Tracker. Some of you will be working on the same Python class, so  so make sure you only work on the tasks to which you were assigned:
 
 {% expandable expanded="true" level=3 title="Team 1" %}
-Please see your team's <a href="https://github.com/csci338/p01-team01-spring2025" target="_blank">repo</a> and <a href="https://github.com/csci338/p01-team01-spring2025/issues" target="_blank">issue tracker</a> for more information. Members of Team 1 are:
+Please see your team's <a href="#" target="_blank">repo</a> and <a href="#" target="_blank">issue tracker</a> for more information. Members of your team are:
 
-
-| 1. | Jacob (jforres1) | Implement the Course class |
-| 2. | Anthony B. (anthonyablazer) | Implement the Courses class |
-| 3. | Brian (bmungal) | Implement some of the UserPreferences class (Part 1) |
-| 4. | Josie (jandersoj) | Implement some of the UserPreferences class (Part 2) |
-| 5. | Jasmine (jnarehoo) | Implement the CourseFilter class |
-| 6. | Ruby (runuss720)| Implement the UI functions (ui.py) |
-| 7. | Kate (kgary432) | Implement the Schedule class (except for `save_schedule` and `send_email`)|
-| 8. | Zejun (Hayden514) | Implement the `save_schedule` method of the Schedule class |
-| 9. | Sergio (sbaguena10)|Implement the `send_email` method of the Schedule class |
+| 1. | TBD | Implement the Course class |
+| 2. | TBD | Implement the Courses class |
+| 3. | TBD | Implement the UserPreferences class |
+| 4. | TBD | Implement the CourseFilter class |
+| 5. | TBD | Implement the UI functions (ui.py) |
+| 6. | TBD | Implement the Schedule class (except for `send_email`)|
+| 7. | TBD | Implement the `save_schedule` method of the Schedule class |
 
 {% endexpandable %}
 
 {% expandable expanded="true" level=3 title="Team 2" %}
-Please see your team's <a href="https://github.com/csci338/p01-team02-spring2025" target="_blank">repo</a> and <a href="https://github.com/csci338/p01-team02-spring2025/issues" target="_blank">issue tracker</a> for more information. Members of Team 2 are:
+Please see your team's <a href="#" target="_blank">repo</a> and <a href="#" target="_blank">issue tracker</a> for more information. Members of your team are:
 
+| 1. | TBD | Implement the Course class |
+| 2. | TBD | Implement the Courses class |
+| 3. | TBD | Implement the UserPreferences class |
+| 4. | TBD | Implement the CourseFilter class |
+| 5. | TBD | Implement the UI functions (ui.py) |
+| 6. | TBD | Implement the Schedule class (except for `send_email`)|
+| 7. | TBD | Implement the `save_schedule` method of the Schedule class |
 
-| 1. | Travis (tgroom90)| Implement the Course class |
-| 2. | Isreal (isrealmcd) | Implement the Courses class |
-| 3. | Eli (eutterba) | Implement some of the UserPreferences class (Part 1) |
-| 4. | Zachary (zRaNk1995)| Implement some of the UserPreferences class (Part 2) |
-| 5. | Christian (Csluder2) | Implement the CourseFilter class |
-| 6. | Tai (tairobinett) | Implement the UI functions (ui.py) |
-| 7. | Andrew (awillis4) | Implement the Schedule class (except for `save_schedule` and `send_email`) |
-| 8. | Anthony I. (Aindelic)|Implement the `save_schedule` method of the Schedule class |
-| 9. | Brendan (ringojuic)|Implement the `send_email` method of the Schedule class |
+{% endexpandable %}
+
+{% expandable expanded="true" level=3 title="Team 3" %}
+Please see your team's <a href="#" target="_blank">repo</a> and <a href="#" target="_blank">issue tracker</a> for more information. Members of your team are:
+
+| 1. | TBD | Implement the Course class |
+| 2. | TBD | Implement the Courses class |
+| 3. | TBD | Implement the UserPreferences class |
+| 4. | TBD | Implement the CourseFilter class |
+| 5. | TBD | Implement the UI functions (ui.py) |
+| 6. | TBD | Implement the Schedule class (except for `send_email`)|
+| 7. | TBD | Implement the `save_schedule` method of the Schedule class |
+
+{% endexpandable %}
+
+{% expandable expanded="true" level=3 title="Team 4" %}
+Please see your team's <a href="#" target="_blank">repo</a> and <a href="#" target="_blank">issue tracker</a> for more information. Members of your team are:
+
+| 1. | TBD | Implement the Course class |
+| 2. | TBD | Implement the Courses class |
+| 3. | TBD | Implement the UserPreferences class |
+| 4. | TBD | Implement the CourseFilter class |
+| 5. | TBD | Implement the UI functions (ui.py) |
+| 6. | TBD | Implement the Schedule class (except for `send_email`)|
+| 7. | TBD | Implement the `save_schedule` method of the Schedule class |
 
 {% endexpandable %}
 
@@ -465,7 +485,7 @@ poetry run pytest test_courses.py::TestCourses::test_one -v  # runs a single tes
 
 
 {% expandable expanded="true" level=3 title="3. Formatting Tips" %}
-We are using `black` to format our code, `isort` to sort our import statements, and `flake8` to validate your Python code. 
+We are using `black` to format our code, `isort` to sort our import statements, and `flake8` to validate the Python code. 
 * [https://black.readthedocs.io/en/stable/usage_and_configuration/index.html](https://black.readthedocs.io/en/stable/usage_and_configuration/index.html)
 * [https://pypi.org/project/isort/](https://pypi.org/project/isort/)
 * [https://flake8.pycqa.org/en/latest/](https://flake8.pycqa.org/en/latest/)
@@ -515,17 +535,19 @@ You will submit your work by making a pull request (PR) and tagging `svanwart` a
 * Written tests for all public methods.
 * Ensured all of the formatter and linter checks pass before making a pull request.
 
-#### Pull Request Details
-In the text of your PR, be sure that:
+#### [PLEASE READ VERY CAREFULLY] Pull Request Details
+In your pull request, make sure that:
 
 {:.checkbox-list}
-* You reference this issue by using the hash tag followed by the issue number.
-* You describe what has been done in the PR as simply and clearly as possible.
+* You only include code changes that you made in the PR. There shouldn't be other random files in your PR. Just the code you want Sarah to review that you wrote.
 * All of the validation checks on GitHub need to pass
 * There are no merge conflicts with the `main` branch. You will need to coordinate with your teammmates to figure out how to integrate some of the work.
+* In the text of your PR:
+    * Reference this issue by using the hash tag followed by the issue number.
+    * Describe what has been done in the PR as simply and clearly as possible.
+
 
 A few other PR details:
-
 * You may make multiple PRs to implement subsets of functionality. Remember: it's better to create smaller, incremental PRs than one big PR (no long-running branches).
 * I (Sarah) will review all pull requests from the previous day by 10AM the following morning
 * Once I approve your pull request, **you will be responsible for merging your branch into `main` via GitHub**.

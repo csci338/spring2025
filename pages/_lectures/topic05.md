@@ -3,7 +3,7 @@ layout: module
 title: Testing, Static Analysis, & Continuous Integration (CI)
 type: topic
 num: 5
-draft: 1
+draft: 0
 start_date: 2025-02-18
 labs: [6]
 description: >
@@ -20,10 +20,10 @@ slides:
       url: https://docs.google.com/presentation/d/1_6T3tl0-JWFTjX1rljBB1j3fO8cctj4W/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true
     - start_date: 2025-02-25
       type: lecture
-      draft: 1
+      draft: 0
       num: 8
       title: Static Analysis & Continuous Integration
-      url: https://docs.google.com/presentation/d/1Fp1aWWNRoO9D3PPUf3xbU7mEZec1j8gY/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true
+      url: https://docs.google.com/presentation/d/19GWQPVXcIt2LHV1nkab6TzwTG1MSbw1U/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true
 readings:
     - start_date: 2025-02-18
       type: reading
@@ -64,6 +64,12 @@ activities:
       type: activity
       draft: 0
       url: /activities/testing-activity
+    - start_date: "2025-02-25"
+      title: Team Preferences
+      type: activity
+      draft: 0
+      num: 5
+      url: https://docs.google.com/document/d/12IoscZkjdahbzFSMjzzvZojQ7oJyGP7uDTjMt0gQC1w/edit?tab=t.0
 questions:
     - <span class="badge-dark">general</span> What does "shifting left" mean?
     - <span class="badge-dark">testing</span> What are some of the benefits of automated testing? 
