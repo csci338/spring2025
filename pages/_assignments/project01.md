@@ -2,13 +2,13 @@
 title: UNCA Course Lookup
 layout: assignment-two-column
 type: project
-draft: 1
+draft: 0
 points: 20
 abbreviation: Project 1
 num: 1
 h_max: 3
 start_date: 2025-02-27
-due_date: 2025-03-19
+due_date: 2025-03-20
 ---
 
 <style>
@@ -203,9 +203,9 @@ It should allow setting and getting of the following properties:
 * `code` (str)
 * `department` (str)
 * `title` (str)
-* `instructors` (list[str]) - array of strings
+* `instructors` (list[str]) - list of strings
 * `hours` (int)
-* `days` (list[str]) - array of strings
+* `days` (list[str]) - list of strings
 * `start_time` (datetime)
 * `end_time` datetime)
 * `location` (str)
@@ -226,7 +226,7 @@ It should allow setting and getting of the following properties:
 Your class should also have the following methods:
 * A `constructor` method, which takes a dictionary as an argument and sets the properties right away. A stub has been implemented for you.
 * A `__repr__` method (similar to Java's toString() method, which returns the code and name of the course.
-* A `to_row` method that returns a more detailed representation of the course (e.g., name, crn, instructor, location, time / day, etc.)
+* A `to_row` method that returns a more detailed representation of the course (e.g., name, crn, instructor, location, time / day, etc.).
 * An `is_full` method that returns true or false, depending on whether the course is full or not.
 * An `is_morning` method that returns true or false, depending on whether the course starts before 12PM and false otherwise
 * An `is_afternoon` method that returns true if the course starts between 12PM-5PM and false otherwise.
@@ -239,23 +239,23 @@ Your class should also have the following methods:
 The job of the Courses class (`courses.py`) is to make it convenient to print, filter, and download a list of Course objects.
 
 #### Properties
-It should allow setting and getting of the following properties:
-* `courses`: Courses (set by the constructor)
+Your class should have the following properties:
+* `_courseList`: a (private) list of `Course` objects
 
 #### Methods
 Your class should also have the following methods:
 
-* A `constructor` method, which takes a list of Course objects (list[Course]) as an argument and sets the `courses` property right away. A stub has been implemented for you in the starter code.
-* A `to_list` method (no required parameters) which returns the `courses` property
-* A `size` method  (no required parameters) which returns the length of the `courses` list
+* A `constructor` method, which takes a list of Course objects (list[Course]) as an argument and sets the `_courseList` property right away. A stub has been implemented for you in the starter code.
+* A `to_list` method (no required parameters) which returns the `_courseList` property
+* A `size` method  (no required parameters) which returns the length of the `_courseList` list
 * A `display_to_terminal` method (no required parameters) that prints a nice, formatted list of courses (or a message if there are no courses in the list). Use the course's `to_row` method to help you.
 * A `get_matching_courses` method which takes a UserPreferences object as an argument and return a new Courses object that includes only the courses that match the user's preferences.
-    * As you iterate through the available courses, use the CourseFiler object (made by one of your classmates to figure out whether each course is a match).
+    * As you iterate through the available courses, use the CourseFilter object (made by one of your classmates to figure out whether each course is a match).
     * Consider chaining your filtering methods together using Python's built-in `filter` method. Some pseudocode is shown below: 
     ```python
     # Python's `filter` function returns a new list with only results matching the filter function.
     # Use multiple filter invocations to apply multiple filters:
-    course_matches = filter(some_filter_function, self.courses)
+    course_matches = filter(some_filter_function, self._courseList)
     course_matches = filter(another_filter_function, course_matches)
     ```
 {% endexpandable %}
@@ -351,14 +351,14 @@ The job of the Schedule class (`schedule.py`) is to allow the user to build a sc
 
 #### Properties
 It should allow setting and getting of the following properties:
-* `courses`: a list of `Course` objects (set by the constructor)
+* `_courseList`: a list of `Course` objects (set by the constructor)
 
 #### Methods
-* A `to_list` method (no required parameters) which returns the `courses` property
-* A `size` method  (no required parameters) which returns the length of the `courses` list
+* A `to_list` method (no required parameters) which returns the `_courseList` property
+* A `size` method  (no required parameters) which returns the length of the `_courseList` list
 * A `display_to_terminal` method (no required parameters) that prints a nice, formatted list of courses (or a message if there are no courses in the list). Use the course's `to_row` method to help you.
-* An `add_courses` method, which takes a list of Course objects (list[Course]) as an argument and appends them to `courses`.
-* A `remove_courses` method, which takes a list of Course objects (list[Course]) and removes them from `courses`.
+* An `add_courses` method, which takes a list of Course objects (list[Course]) as an argument and appends them to `_courseList`.
+* A `remove_courses` method, which takes a list of Course objects (list[Course]) and removes them from `_courseList`.
 * A `save_schedule` method that saves the current schedule as a CSV file (text file).
 * An `send_email`, which will email the schedule to a selected recipient.
 {% endexpandable %}
@@ -366,7 +366,8 @@ It should allow setting and getting of the following properties:
 
 ## Set Up
 
-> I have also made a <a href="https://drive.google.com/file/d/10h6CsMGXYFRHe4y95x32moJs-u6P9rjo/view?usp=drive_link" target="_blank">video walkthrough</a> of the set up if it helps.
+{:.info}
+> Last semester, I made a <a href="https://drive.google.com/file/d/10h6CsMGXYFRHe4y95x32moJs-u6P9rjo/view?usp=drive_link" target="_blank">video walkthrough</a> of the set up if it helps.
 
 {% expandable expanded="true" level=3 title="1. Set up your repository" %}
 Once your team lead has added you to their repo, you will set up the code locally as follows:
@@ -540,17 +541,17 @@ In your pull request, make sure that:
 
 {:.checkbox-list}
 * You only include code changes that you made in the PR. There shouldn't be other random files in your PR. Just the code you want Sarah to review that you wrote.
-* All of the validation checks on GitHub need to pass
-* There are no merge conflicts with the `main` branch. You will need to coordinate with your teammmates to figure out how to integrate some of the work.
-* In the text of your PR:
-    * Reference this issue by using the hash tag followed by the issue number.
+* All of the validation checks on GitHub pass
+* There are no merge conflicts with the `main` branch. If you see that your pull request has merge conflicts, it means that you need to rebase against main, and then push your rebased branch to GitHub.
+* In the text of your Pull Request:
+    * Be sure to reference your assigned issue by using the hash tag followed by the issue number.
     * Describe what has been done in the PR as simply and clearly as possible.
 
 
 A few other PR details:
 * You may make multiple PRs to implement subsets of functionality. Remember: it's better to create smaller, incremental PRs than one big PR (no long-running branches).
-* I (Sarah) will review all pull requests from the previous day by 10AM the following morning
-* Once I approve your pull request, **you will be responsible for merging your branch into `main` via GitHub**.
+* I (Sarah) will review all pull requests as quickly as possible (ideally within 24 hours)
+* Once I approve your pull request, **you will be responsible for merging your branch into `main` via GitHub**. I recommend doing this as soon as your PR has been approved so that your teammates have the benefit of your updated code.
 
 #### Revisions
 I may ask you for revisions on your code, which is a normal, expected part of the development process. If this happens:
@@ -562,7 +563,7 @@ I may ask you for revisions on your code, which is a normal, expected part of th
 {% endexpandable %}
 
 {% expandable expanded="true" level=3 title="2. Rubric"  %}
-| 20% | Teamwork and communication | Where you a good team player? Did you talk to your teammates? If someone else was working on a feature that you depended on, did you reach out / coordinate / communicate with them? If someone reached out to you because they depended on a task you were doing, did you respond to them in a timely manner? | 
+| 20% | Teamwork and communication | Did you attend class during team meetings? Where you a good team player? Did you talk to your teammates? If someone else was working on a feature that you depended on, did you reach out / coordinate / communicate with them? If someone reached out to you because they depended on a task you were doing, did you respond to them in a timely manner? | 
 | 50% | Individual code contribution | Did you complete your tasks? Does your code work as expected? Do all of your functions / methods have tests? Did the code quality checks pass? Was your PR(s) approved? Were your (PRs) approved by the deadline? |
 | 30% | Quality of the final group product | Does your app work? Is it complete? Can users browse for courses, filter according to their preferences, and add them to a schedule? Were everyone's contributions merged by the deadline (recognizing that the deadline may be a moving target, given the contraints we are operating under)? |
 
