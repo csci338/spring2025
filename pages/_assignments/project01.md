@@ -104,52 +104,51 @@ Your teams are listed below. Each member of your team has been assigned a task f
 {% expandable expanded="true" level=3 title="Team 1" %}
 Please see your team's <a href="#" target="_blank">repo</a> and <a href="#" target="_blank">issue tracker</a> for more information. Members of your team are:
 
-| 1. | TBD | Implement the Course class |
-| 2. | TBD | Implement the Courses class |
-| 3. | TBD | Implement the UserPreferences class |
-| 4. | TBD | Implement the CourseFilter class |
-| 5. | TBD | Implement the UI functions (ui.py) |
-| 6. | TBD | Implement the Schedule class (except for `send_email`)|
-| 7. | TBD | Implement the `save_schedule` method of the Schedule class |
+| 1. | Anis | agolriz714 | Implement the `Course` class |
+| 2. | Simon | sstout660 | Implement the `Courses` class |
+| 3. | Ethan | EPC233 | Implement the `UserPreferences` class |
+| 4. | Tristan | DaemonTokisaki | Implement the `CourseFilter` class |
+| 5. | Ben | blynch87 | Implement the `UI` functions (`ui.py`) |
+| 6. | Dawson | Dawsonmaz13 | Implement the `Schedule` class (except for `send_email`) |
+| 7. | Vlad | vlkrvc | Implement the `send_email` method of the `Schedule` class |
 
 {% endexpandable %}
 
 {% expandable expanded="true" level=3 title="Team 2" %}
 Please see your team's <a href="#" target="_blank">repo</a> and <a href="#" target="_blank">issue tracker</a> for more information. Members of your team are:
 
-| 1. | TBD | Implement the Course class |
-| 2. | TBD | Implement the Courses class |
-| 3. | TBD | Implement the UserPreferences class |
-| 4. | TBD | Implement the CourseFilter class |
-| 5. | TBD | Implement the UI functions (ui.py) |
-| 6. | TBD | Implement the Schedule class (except for `send_email`)|
-| 7. | TBD | Implement the `save_schedule` method of the Schedule class |
+| 1. | Ellie | KailaBtw | Implement the `Course` class |
+| 2. | Nathan | nhouston125 | Implement the `Courses` class |
+| 3. | Robin | RobinPhillips98 | Implement the `UserPreferences` class |
+| 4. | Darby | dsims2888 | Implement the `CourseFilter` class |
+| 5. | Matias | MHWunca | Implement the `UI` functions (`ui.py`) |
+| 6. | Ryan | reneuherz064 | Implement the `Schedule` class (except for `send_email`) |
+| 7. | Jared |  | Implement the `send_email` method of the `Schedule` class |
 
 {% endexpandable %}
 
 {% expandable expanded="true" level=3 title="Team 3" %}
 Please see your team's <a href="#" target="_blank">repo</a> and <a href="#" target="_blank">issue tracker</a> for more information. Members of your team are:
 
-| 1. | TBD | Implement the Course class |
-| 2. | TBD | Implement the Courses class |
-| 3. | TBD | Implement the UserPreferences class |
-| 4. | TBD | Implement the CourseFilter class |
-| 5. | TBD | Implement the UI functions (ui.py) |
-| 6. | TBD | Implement the Schedule class (except for `send_email`)|
-| 7. | TBD | Implement the `save_schedule` method of the Schedule class |
+| 1. | Connor | PhoenixUltra | Implement the `Course` class |
+| 2. | Olle | OlleSL | Implement the `Courses` class |"
+| 3. | Nikko | NikkoCC | Implement the `UserPreferences` class |
+| 4. | Henry | wshaw1 | Implement the `CourseFilter` class |
+| 5. | Lucas | lucas-simmons | Implement the `UI` functions (`ui.py`) |"
+| 6. | Max | GiggleMonster | Implement the `Schedule` class (except for `send_email`) |
+| 7. | Zejun | Hayden514 | Implement the `send_email` method of the Schedule class |
 
 {% endexpandable %}
 
 {% expandable expanded="true" level=3 title="Team 4" %}
 Please see your team's <a href="#" target="_blank">repo</a> and <a href="#" target="_blank">issue tracker</a> for more information. Members of your team are:
 
-| 1. | TBD | Implement the Course class |
-| 2. | TBD | Implement the Courses class |
-| 3. | TBD | Implement the UserPreferences class |
-| 4. | TBD | Implement the CourseFilter class |
-| 5. | TBD | Implement the UI functions (ui.py) |
-| 6. | TBD | Implement the Schedule class (except for `send_email`)|
-| 7. | TBD | Implement the `save_schedule` method of the Schedule class |
+| 1. | Given | givensuman | Implement the `Course` class |
+| 2. | Tyler | Swissssst | Implement the `Courses` class |
+| 3. | Caleb | TerminalCalamitas | Implement the `UserPreferences` class |
+| 4. | Bryan | bmartin19 | Implement the `CourseFilter` class |
+| 5. | Chris | ChrisB220 | Implement the `UI` functions (`ui.py`) |
+| 6. | Anthony | Aindelic | Implement the `Schedule` class (except for `send_email`) |
 
 {% endexpandable %}
 
