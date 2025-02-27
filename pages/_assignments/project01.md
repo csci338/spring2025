@@ -102,7 +102,7 @@ During class on Tuesday (9/24), we discussed how to organize our system, and we 
 Your teams are listed below. Each member of your team has been assigned a task from the GitHub Issue Tracker. Some of you will be working on the same Python class, so  so make sure you only work on the tasks to which you were assigned:
 
 {% expandable expanded="true" level=3 title="Team 1" %}
-Please see your team's <a href="#" target="_blank">repo</a> and <a href="#" target="_blank">issue tracker</a> for more information. Members of your team are:
+Please see your team's <a href="https://github.com/csci338/p01-team01-spring2025" target="_blank">repo</a> and <a href="https://github.com/csci338/p01-team01-spring2025/issues" target="_blank">issue tracker</a> for more information. Members of your team are:
 
 | 1. | Anis | agolriz714 | Implement the `Course` class |
 | 2. | Simon | sstout660 | Implement the `Courses` class |
@@ -115,7 +115,7 @@ Please see your team's <a href="#" target="_blank">repo</a> and <a href="#" targ
 {% endexpandable %}
 
 {% expandable expanded="true" level=3 title="Team 2" %}
-Please see your team's <a href="#" target="_blank">repo</a> and <a href="#" target="_blank">issue tracker</a> for more information. Members of your team are:
+Please see your team's <a href="https://github.com/csci338/p01-team02-spring2025" target="_blank">repo</a> and <a href="https://github.com/csci338/p01-team02-spring2025/issues" target="_blank">issue tracker</a> for more information. Members of your team are:
 
 | 1. | Ellie | KailaBtw | Implement the `Course` class |
 | 2. | Nathan | nhouston125 | Implement the `Courses` class |
@@ -128,7 +128,7 @@ Please see your team's <a href="#" target="_blank">repo</a> and <a href="#" targ
 {% endexpandable %}
 
 {% expandable expanded="true" level=3 title="Team 3" %}
-Please see your team's <a href="#" target="_blank">repo</a> and <a href="#" target="_blank">issue tracker</a> for more information. Members of your team are:
+Please see your team's <a href="https://github.com/csci338/p01-team03-spring2025" target="_blank">repo</a> and <a href="https://github.com/csci338/p01-team03-spring2025/issues" target="_blank">issue tracker</a> for more information. Members of your team are:
 
 | 1. | Connor | PhoenixUltra | Implement the `Course` class |
 | 2. | Olle | OlleSL | Implement the `Courses` class |"
@@ -141,7 +141,7 @@ Please see your team's <a href="#" target="_blank">repo</a> and <a href="#" targ
 {% endexpandable %}
 
 {% expandable expanded="true" level=3 title="Team 4" %}
-Please see your team's <a href="#" target="_blank">repo</a> and <a href="#" target="_blank">issue tracker</a> for more information. Members of your team are:
+Please see your team's <a href="https://github.com/csci338/p01-team04-spring2025" target="_blank">repo</a> and <a href="https://github.com/csci338/p01-team04-spring2025/issues" target="_blank">issue tracker</a> for more information. Members of your team are:
 
 | 1. | Given | givensuman | Implement the `Course` class |
 | 2. | Tyler | Swissssst | Implement the `Courses` class |

@@ -70,6 +70,12 @@ activities:
       draft: 0
       num: 5
       url: https://docs.google.com/document/d/12IoscZkjdahbzFSMjzzvZojQ7oJyGP7uDTjMt0gQC1w/edit?tab=t.0
+    - start_date: "2025-02-27"
+      title: Project 1 Setup
+      num: 6
+      type: activity
+      draft: 0
+      url: /activities/project01-setup
 questions:
     - <span class="badge-dark">general</span> What does "shifting left" mean?
     - <span class="badge-dark">testing</span> What are some of the benefits of automated testing? 
