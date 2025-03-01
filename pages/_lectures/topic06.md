@@ -9,20 +9,21 @@ exams: [1]
 readings:
     - start_date: 2025-03-04
       type: reading
-      notes: "Please review all of the readings and study questions assigned thus far, in preparation for the mid-term review."
+      citation: >
+        Please review all of the readings and study questions assigned thus far, in preparation for the mid-term review.
       required: 1
 slides: 
     - start_date: 2025-03-04
       type: lecture
       num: 9
-      draft: 1
-      url: https://docs.google.com/presentation/d/1VzRUmJnQLpmxLWt-Vd03Xl5dzvKXXEbP/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true 
+      draft: 0
+      url: https://docs.google.com/presentation/d/1B5KUSA1z_SMCFB5dgo6fSU6YZhDr1MTP615czZ1Qcsc/edit?usp=sharing
       title: Mid-Semester Review
 activities:
     - start_date: 2025-03-04
       title: Mid Semester Review Cheat Sheet
-      draft: 1
+      draft: 0
       type: activity
       num: 3
-      url: https://docs.google.com/document/d/142IWxEKUjtkfkvBo6lpJt012a7_QbppKJZpRDpW45MQ/edit?usp=sharing
+      url: https://docs.google.com/document/d/1oc4BHq304dQIrXNG184HQsgOUnlaSQQYpyMjEDYO7Ws/edit?usp=sharing
 ---
