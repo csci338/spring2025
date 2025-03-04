@@ -206,14 +206,14 @@ It should allow setting and getting of the following properties:
 * `hours` (int)
 * `days` (list[str]) - list of strings
 * `start_time` (str) - formatted to be human-readable
-* `end_time` str) - formatted to be human-readable
+* `end_time` (str) - formatted to be human-readable
 * `location` (str)
 * `enrollment_current` (int)
 * `enrollment_max` (int)
 * `term` (int)
 * `is_di` (bool)
 * `is_dir` (bool)
-* `modality` (str): In-Person or Online
+* `modality` (str) - In-Person or Online
 
 **Empty values:** If no data are available for a particular property, represent "no data" as follows:
 ```py
