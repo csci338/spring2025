@@ -205,8 +205,8 @@ It should allow setting and getting of the following properties:
 * `instructors` (list[str]) - list of strings
 * `hours` (int)
 * `days` (list[str]) - list of strings
-* `start_time` (datetime)
-* `end_time` datetime)
+* `start_time` (str) - formatted to be human-readable
+* `end_time` str) - formatted to be human-readable
 * `location` (str)
 * `enrollment_current` (int)
 * `enrollment_max` (int)
