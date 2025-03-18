@@ -219,6 +219,9 @@ ol.readings li, ul.readings li { margin-top: 0px; }
 blockquote.info { background-color: #0076a514; padding: 25px 50px; border-width: 0; padding: 20px 20px 20px 40px; border-radius: 10px; }
 blockquote.info p { margin-bottom: 15px; }
 
+blockquote.info.updates { background-color: #fff3cd !important; }
+blockquote.info.updates h1, blockquote.info.updates h2, blockquote.info.updates h3 { color: #876700; }
+
 blockquote.caveat { margin: 20px 0px 20px 40px; background: none; border-left: 0px; padding: 25px; padding: 0px; }
 
 blockquote.quote { margin-left: 20px; background: none; border-left: 0px; padding: 25px; font-size: 1.2em; font-weight: 500; margin-bottom: 30px; }
