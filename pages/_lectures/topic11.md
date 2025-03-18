@@ -7,7 +7,7 @@ draft: 1
 start_date: 2025-04-24
 slides:
     - start_date: 2025-04-24
-      num: 17
+      num: 16
       type: lecture
       title: Scaling an App
       draft: 1

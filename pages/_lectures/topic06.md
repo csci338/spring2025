@@ -24,6 +24,6 @@ activities:
       title: Mid Semester Review Cheat Sheet
       draft: 0
       type: activity
-      num: 3
+      num: 7
       url: https://docs.google.com/document/d/1oc4BHq304dQIrXNG184HQsgOUnlaSQQYpyMjEDYO7Ws/edit?usp=sharing
 ---

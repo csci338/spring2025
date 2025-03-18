@@ -7,7 +7,7 @@ draft: 1
 start_date: 2025-04-29
 slides:
     - start_date: 2025-04-29
-      num: 16
+      num: 17
       draft: 1
       type: lecture
       title: Course Synthesis
