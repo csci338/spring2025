@@ -8,7 +8,7 @@ abbreviation: Project 1
 num: 1
 h_max: 3
 start_date: 2025-02-27
-due_date: 2025-03-20
+due_date: 2025-03-27
 ---
 
 <style>
@@ -26,6 +26,11 @@ h4 {
     margin-bottom: 20px;
 }
 </style>
+
+{:.info.updates}
+> ## Deadline Updates
+> * The FINAL submission deadline for Project 1 is now on **Thursday, 3/27 at 11:59PM**
+> * Every team member must have submitted at least 1 pull request by **Thursday, 3/27 at 11:59PM**
 
 {% include toggle-button.html %}
 
@@ -356,8 +361,8 @@ It should allow setting and getting of the following properties:
 * A `to_list` method (no required parameters) which returns the `_courseList` property
 * A `size` method  (no required parameters) which returns the length of the `_courseList` list
 * A `display_to_terminal` method (no required parameters) that prints a nice, formatted list of courses (or a message if there are no courses in the list). Use the course's `to_row` method to help you.
-* An `add_courses` method, which takes a list of Course objects (list[Course]) as an argument and appends them to `_courseList`.
-* A `remove_courses` method, which takes a list of Course objects (list[Course]) and removes them from `_courseList`.
+* An `add_courses` method, which takes a list of Course objects (list[Course]) as an argument. The function's job is to display the courses, and ask the user which courses they'd like to append to their schedule. After the user makes their selection, the method will append the selected courses to `_courseList`.
+* A `remove_courses` method (no required parameters). This function's job is to display the user's current schedule of classes, and ask the user which courses they'd like to remove. The corresponding courses are then removed from `_courseList`.
 * A `save_schedule` method that saves the current schedule as a CSV file (text file).
 * An `send_email`, which will email the schedule to a selected recipient.
 {% endexpandable %}

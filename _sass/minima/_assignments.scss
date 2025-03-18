@@ -225,6 +225,12 @@ blockquote.info {
         margin-bottom: 15px;
     }
 } 
+blockquote.info.updates {
+    background-color: #fff3cd !important;
+    h1, h2, h3 {
+        color: #876700;
+    }
+}
 
 
 blockquote.caveat {
