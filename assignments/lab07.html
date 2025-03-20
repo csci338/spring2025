@@ -54,20 +54,29 @@
                 
                 <ol class="side-menu">
   <li><a href="#id_set-up">Set Up</a></li>
-  <li><a href="#id_docker-stuff">Docker Stuff</a></li>
-  <li><a href="#id_goal-of-this-lab-letting-sarah-know-about-http-links">Goal of this lab: letting Sarah know about HTTP links</a></li>
-  <li><a href="#id_adding-parent">Adding Parent</a></li>
-  <li><a href="#id_getting-ready-for-async">Getting Ready for Async</a></li>
-  <li><a href="#id_visiting-in-batches">Visiting in Batches</a></li>
-  <li><a href="#id_async-crawling">Async Crawling</a></li>
-  <li><a href="#id_testing">Testing</a></li>
-  <li><a href="#id_submitting">Submitting</a></li>
-  <li><a href="#id_tips">Tips</a>
+  <li><a href="#id_install-the-dependencies-run-your-webserver">Install the dependencies, run your webserver</a>
     <ol>
-      <li><a href="#id_batch-your-requests">Batch Your Requests</a></li>
-      <li><a href="#id_use-pythons-spread-operator">Use Python’s Spread Operator</a></li>
+      <li><a href="#id_test-out-your-app">Test out your app</a></li>
+      <li><a href="#id_questions-to-ask-yourself">Questions to ask yourself</a></li>
     </ol>
   </li>
+  <li><a href="#id_introduction-to-mvc">Introduction to MVC</a>
+    <ol>
+      <li><a href="#id_models---organizing-and-fetching-data">Models - Organizing and Fetching Data</a></li>
+      <li><a href="#id_example-model">Example Model:</a></li>
+      <li><a href="#id_1-model-task">1. Model Task</a></li>
+      <li><a href="#id_controller---managing-requests">Controller - Managing Requests</a></li>
+      <li><a href="#id_2-controller-task">2. Controller Task</a></li>
+      <li><a href="#id_view---displaying-data">View - Displaying Data</a></li>
+      <li><a href="#id_3-view-task">3. View Task</a></li>
+    </ol>
+  </li>
+  <li><a href="#id_extra-tasks">Extra Tasks</a>
+    <ol>
+      <li><a href="#id_useful-documentation">Useful documentation</a></li>
+    </ol>
+  </li>
+  <li><a href="#id_what-to-submit">What to Submit</a></li>
 </ol>
 
             </aside>
@@ -115,257 +124,237 @@
   <li>Verify that you’re on your new branch: <code class="highlighter-rouge">git branch</code></li>
 </ul>
 
-<h2 id="id_docker-stuff">Docker Stuff</h2>
-<p>Once you’ve created your <code class="highlighter-rouge">lab07-b</code> branch, open the <code class="highlighter-rouge">lab07</code> folder in your code editor and take a look at the <code class="highlighter-rouge">Dockerfile</code> and <code class="highlighter-rouge">docker-compose.yml</code>. You will notice that we’re using many of the same techniques that we have been using in previous labs and in project 1, namely:</p>
+<h2 id="id_install-the-dependencies-run-your-webserver">Install the dependencies, run your webserver</h2>
+<p>Once you’ve created your <code class="highlighter-rouge">lab07-b</code> branch, open the <code class="highlighter-rouge">lab07</code> folder in your code editor, and navigate to the <code class="highlighter-rouge">lab07</code> folder on your terminal. We will not be using Docker – just poetry. Please install the dependencies and run your app as follows:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>poetry <span class="nb">install
+cd </span>app
+poetry run uvicorn server:app <span class="nt">--reload</span>
+</code></pre></div></div>
+
+<p><em>Note that if port 8000 is already being used, you can always run your web server on a different port by using the <code class="highlighter-rouge">--port</code> flag:</em></p>
+
+<p><code class="highlighter-rouge">poetry run uvicorn server:app --reload --host 0.0.0.0 --port 8001</code></p>
+
+<p>If you did this correctly you should see some output like this:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>No dependencies to install or update
+INFO:     Will watch for changes in these directories: ['/../csci338/spring2025/class-exercises-spring2025/lab07/app']
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [27120] using StatReload
+INFO:     Started server process [27124]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+
+</code></pre></div></div>
+
+<p>You are now ready to use your app.</p>
+
+<h3 id="id_test-out-your-app">Test out your app</h3>
 <ul>
-  <li>Configuring a working directory (<code class="highlighter-rouge">lab07</code>) that can be shared with the container</li>
-  <li>Using a <code class="highlighter-rouge">pyproject.toml</code> file to define the dependencies</li>
-  <li>Ensuring that the bash terminal is active and running when the containers starts</li>
+  <li>In your browser, navigate to <a href="http://127.0.0.1:8000">http://127.0.0.1:8000</a> (or whichever port you’re using)</li>
+  <li>Note that it gives you an error, telling you that <code class="highlighter-rouge">place_name</code> is required. This means that the endpoint of your server needs a value for the <code class="highlighter-rouge">place_name</code> argument in order to know which place to get information from. Try your query again with the required data:</li>
+  <li><a href="http://127.0.0.1:8000?place_name=Asheville">http://127.0.0.1:8000?place_name=Asheville</a></li>
+  <li>Try using different values for the <code class="highlighter-rouge">place_name</code> argument to see what happens.</li>
 </ul>
 
-<p>One new thing we’re also doing this time is automatically installing all of our poetry dependencies when the container starts.</p>
-
-<p>Now, let’s build and start the container in detached mode, and run the crawler:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Build and start the container in detached mode</span>
-docker compose up <span class="nt">-d</span>  
-
-<span class="c"># Hop onto the container's bash terminal:</span>
-docker <span class="nb">exec</span> <span class="nt">-it</span> lab07-crawler-1 bash
-
-<span class="c"># run the crawler:</span>
-poetry run python crawler.py
-</code></pre></div></div>
-
-<p>When you successfully run the program, you’ll see output that looks something like this.</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>visiting https://new.cs.unca.edu
-crawlSync took 0.369 seconds to complete.
-</code></pre></div></div>
-
-<p>Our goal is to do this asynchronously to reduce the amount of time it
-takes it to run. We’ll complete a couple tasks before this to get the
-hang of the code.</p>
-
-<p>As usual, you will answer the questions to this lab in the <code class="highlighter-rouge">answers.md</code> file (within the <code class="highlighter-rouge">lab07</code> folder).</p>
-
 <blockquote class="info">
-  <h2 id="id_goal-of-this-lab-letting-sarah-know-about-http-links">Goal of this lab: letting Sarah know about HTTP links</h2>
-  <p>HTTP is essentially deprectated on the web in favor of HTTPS. In
-general, we shouldn’t be linking to non-HTTPS addresses. When running
-the crawler code, you’ll see a lot of lines that look something like
-this:</p>
+  <h3 id="id_questions-to-ask-yourself">Questions to ask yourself</h3>
+  <ul>
+    <li>Where is this data coming from?</li>
+    <li>Is there a way to make this interface more user-friendly and engaging?</li>
+    <li>How is AsyncIO being used here, and what advantages are there to using it?</li>
+  </ul>
 </blockquote>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>WARNING: found non-encrypted link http://catalog.unca.edu/
+<h2 id="id_introduction-to-mvc">Introduction to MVC</h2>
+<p>Lab 7 implements a MVC architecture (Model, View, Controller) architecture using a few different Python libararies including:</p>
+<ol>
+  <li><a href="https://fastapi.tiangolo.com/">FastAPI</a>,</li>
+  <li>AsyncIO, and</li>
+  <li><a href="https://jinja.palletsprojects.com/en/stable/templates/">Jinja</a> (a templating engine)</li>
+</ol>
+
+<p>MVC is a design pattern that separates an application into three interconnected components:</p>
+<ul>
+  <li><strong>Model</strong>: Manages the data and logic (e.g., fetching weather data, restaurant data, cat facts, etc.).</li>
+  <li><strong>View</strong>: Handles the presentation layer (e.g., HTML templates).</li>
+  <li><strong>Controller</strong>: Orchestrates the flow of data between the Model and View (e.g., FastAPI routes).</li>
+</ul>
+
+<p>This separation makes the code easier to manage and scale. Let’s walk through the code to understand how these components work together.</p>
+
+<h3 id="id_models---organizing-and-fetching-data">Models - Organizing and Fetching Data</h3>
+<p>Start by opening the <code class="highlighter-rouge">models.py</code>. This file handles data fetching. Each function retrieves information from various APIs, by using a helper function that makes asynchronous network requests:</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># async helper function:
+</span><span class="k">async</span> <span class="k">def</span> <span class="nf">fetch_data_from_server</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+    <span class="k">async</span> <span class="k">with</span> <span class="n">aiohttp</span><span class="p">.</span><span class="n">ClientSession</span><span class="p">()</span> <span class="k">as</span> <span class="n">session</span><span class="p">:</span>
+        <span class="k">async</span> <span class="k">with</span> <span class="n">session</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span> <span class="k">as</span> <span class="n">response</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="k">return</span> <span class="k">await</span> <span class="n">response</span><span class="p">.</span><span class="n">json</span><span class="p">()</span>
+            <span class="k">except</span><span class="p">:</span>
+                <span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">()</span>
+                <span class="k">return</span> <span class="p">{</span>
+                    <span class="s">"message"</span><span class="p">:</span> <span class="p">(</span>
+                        <span class="sa">f</span><span class="s">"Error decoding JSON data. Here was the response: `</span><span class="si">{</span><span class="n">response</span><span class="si">}</span><span class="s">`"</span>
+                    <span class="p">)</span>
+                <span class="p">}</span>
 </code></pre></div></div>
 
-<p>We want to give Sarah a list of these links so she can correct
-them. It’s not enough to know the link itself, though. To make her job
-easier, let’s give here a list with the page, and then the associated
-http links found on the page. Modify the code to produce the list. For
-example, it might look something like this:</p>
+<p>Let’s break this function down, because it’s at the heart of this app:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://new.cs.unca.edu
-  http://www.ashevillechamber.org/economic-development
-  http://catalog.unca.edu/
+<h4 id="id_1-asynchronous-function-definition">1. Asynchronous function definition</h4>
+<p><code class="highlighter-rouge">async def fetch_data_from_server(url):</code></p>
 
-https://new.unca.edu/student-life/
-  http://catalog.unca.edu/
+<p>An <em>asynchronous function definition</em> (declared with async def) can perform non-blocking I/O operations, like making HTTP requests without blocking the rest of the program.</p>
+
+<h4 id="id_2-aiohttp-client-session">2. Aiohttp Client Session</h4>
+<p><code class="highlighter-rouge">async with aiohttp.ClientSession() as session:</code></p>
+
+<ul>
+  <li><code class="highlighter-rouge">aiohttp</code> is an asynchronous HTTP client for Python.</li>
+  <li><code class="highlighter-rouge">ClientSession()</code> creates a session object that manages and persists settings like headers and cookies across requests.</li>
+  <li><code class="highlighter-rouge">async with</code> ensures the session is properly closed after use, even if an error occurs.</li>
+</ul>
+
+<h4 id="id_3-sending-a-get-request">3. Sending a GET Request:</h4>
+
+<p><code class="highlighter-rouge">async with session.get(url) as response:</code></p>
+
+<ul>
+  <li><code class="highlighter-rouge">session.get(url)</code> sends an asynchronous GET request to the provided url.</li>
+  <li><code class="highlighter-rouge">async with</code> ensures the response object is properly closed once the block ends.</li>
+</ul>
+
+<h4 id="id_4-handling-the-response">4. Handling the Response:</h4>
+
+<p><code class="highlighter-rouge">return await response.json()</code></p>
+
+<ul>
+  <li><code class="highlighter-rouge">await</code> makes the coroutine pause execution here until the JSON is fetched and parsed.</li>
+  <li><code class="highlighter-rouge">await response.json()</code> tries to parse the response body as JSON once it has been transmitted.</li>
+</ul>
+
+<h4 id="id_5-error-handling">5. Error Handling:</h4>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>except:
+    response = await response.text()
+    return {
+        "message": (
+            f"Error decoding JSON data. Here was the response: `{response}`"
+        )
+    }
+</code></pre></div></div>
+<p>Network requests often fail for a variety of reasons. If JSON decoding fails (meaning that there’s a problem with the message), the except block handles the error.</p>
+<ul>
+  <li><code class="highlighter-rouge">await response.text()</code> retrieves the raw response body as a string.</li>
+  <li>It then returns a dictionary with an error message and the raw response content, which can help diagnose the issue.</li>
+</ul>
+
+<h3 id="id_example-model">Example Model:</h3>
+<p>Let’s take a look at the <code class="highlighter-rouge">get_yelp_data</code> function…</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">async</span> <span class="k">def</span> <span class="nf">get_yelp_data</span><span class="p">(</span><span class="n">place</span><span class="p">):</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s">"</span><span class="si">{</span><span class="n">ENDPOINT_YELP</span><span class="si">}</span><span class="s">?location=</span><span class="si">{</span><span class="n">place</span><span class="si">}</span><span class="s">&amp;limit=20"</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    <span class="n">places</span> <span class="o">=</span> <span class="k">await</span> <span class="n">fetch_data_from_server</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">random</span><span class="p">.</span><span class="n">choice</span><span class="p">(</span><span class="n">places</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">places</span>
 </code></pre></div></div>
 
-<p>Write a new function that generates this list programatically and call
-it. Put the output in the <code class="highlighter-rouge">answers.md</code> file.</p>
+<p>Using the <code class="highlighter-rouge">fetch_data_from_server</code> helper function, this function’s job is to first query for the first 20 businesses associated with the place that is passed in as an argument, and then it returns one of those businesses at random.</p>
 
-<h2 id="id_adding-parent">Adding Parent</h2>
+<blockquote class="info">
+  <h3 id="id_1-model-task">1. Model Task</h3>
+  <ol>
+    <li>Add a new function <code class="highlighter-rouge">get_dog_image()</code> that retrieves a random dog image from the “https://dog.ceo/api/breeds/image/random” API.</li>
+  </ol>
+</blockquote>
 
-<p>Each <code class="highlighter-rouge">UrlToCrawl</code> object has a “url” and a “depth” associated with
-it. Let’s create another property, called “parent.” This will track
-the “parent” link, or how we got to the current link.</p>
+<h3 id="id_controller---managing-requests">Controller - Managing Requests</h3>
+<p>The <code class="highlighter-rouge">server.py</code> file acts as the controller. It receives HTTP requests, fetches data using model functions, and returns a response.</p>
 
-<p>Add this property to the class, and populate it via the
-constructor. Then modify the code so that value is tracked and
-returned as part of the <code class="highlighter-rouge">__str__</code> method.</p>
+<h4 id="id_example">Example:</h4>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">@</span><span class="n">app</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">"/"</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">home</span><span class="p">(</span><span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">,</span> <span class="n">place_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Query</span><span class="p">(</span><span class="bp">None</span><span class="p">)):</span>
+    <span class="k">if</span> <span class="n">place_name</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s">"The `place_name` query parameter is required."</span>
 
-<h2 id="id_getting-ready-for-async">Getting Ready for Async</h2>
-
-<p>We’ll need to import a new dependency to do asynchronous HTTPS
-requests. We’ll use the <code class="highlighter-rouge">aiohttp</code> library. Go ahead and install that
-via poetry and then add it to your imports at the top. (You’ve created
-a <code class="highlighter-rouge">check</code> script and are running it after each change to confirm your
-imports are sorted, right?)</p>
-
-<p>Here’s a basic function to get you started. In your <code class="highlighter-rouge">Crawler</code> class,
-we’ll add a function called <code class="highlighter-rouge">_fetchAsync</code>.</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="k">async</span> <span class="k">def</span> <span class="nf">_fetchAsync</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">):</span>
-        <span class="k">async</span> <span class="k">with</span> <span class="n">aiohttp</span><span class="p">.</span><span class="n">ClientSession</span><span class="p">()</span> <span class="k">as</span> <span class="n">session</span><span class="p">:</span>
-            <span class="k">async</span> <span class="k">with</span> <span class="n">session</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span> <span class="k">as</span> <span class="n">resp</span><span class="p">:</span>
-                <span class="k">return</span> <span class="k">await</span> <span class="n">resp</span><span class="p">.</span><span class="n">text</span><span class="p">()</span>
-</code></pre></div></div>
-
-<p>This will allow you to do a non-blocking HTTPS request. Go ahead and
-test it out with some sample code in your <code class="highlighter-rouge">main</code> function. Maybe
-something like this.</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">Crawler</span><span class="p">(</span><span class="s">"https://new.cs.unca.edu"</span><span class="p">).</span><span class="n">_fetchAsync</span><span class="p">(</span>
-        <span class="s">"https://new.cs.unca.edu"</span>
+    <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="p">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="c1"># we're making these I/O-bound function invocations asynchronous:
+</span>    <span class="n">weather_data</span><span class="p">,</span> <span class="n">yelp_data</span><span class="p">,</span> <span class="n">wikipedia_data</span><span class="p">,</span> <span class="n">cat_fact</span><span class="p">,</span> <span class="n">joke</span> <span class="o">=</span> <span class="k">await</span> <span class="n">asyncio</span><span class="p">.</span><span class="n">gather</span><span class="p">(</span>
+        <span class="n">models</span><span class="p">.</span><span class="n">get_weather</span><span class="p">(</span><span class="n">place_name</span><span class="p">),</span>
+        <span class="n">models</span><span class="p">.</span><span class="n">get_yelp_data</span><span class="p">(</span><span class="n">place_name</span><span class="p">),</span>
+        <span class="n">models</span><span class="p">.</span><span class="n">get_wikipedia</span><span class="p">(</span><span class="n">place_name</span><span class="p">),</span>
+        <span class="n">models</span><span class="p">.</span><span class="n">get_cat_fact</span><span class="p">(),</span>
+        <span class="n">models</span><span class="p">.</span><span class="n">get_joke</span><span class="p">(),</span>
     <span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-</code></pre></div></div>
+    <span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="p">.</span><span class="n">time</span><span class="p">()</span>
 
-<p>Make sure this is working correctly.</p>
-
-<h2 id="id_visiting-in-batches">Visiting in Batches</h2>
-
-<p>Now we want to create a new function called <code class="highlighter-rouge">visitAsync</code> that is the
-same as <code class="highlighter-rouge">visitSync</code> but fires off requests in parallel. It should work
-roughly like this.</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="n">results</span> <span class="o">=</span> <span class="k">await</span> <span class="n">Crawler</span><span class="p">(</span><span class="s">"https://new.cs.unca.edu"</span><span class="p">).</span><span class="n">visitAsync</span><span class="p">(</span>
-        <span class="p">[</span><span class="s">"https://new.cs.unca.edu"</span><span class="p">,</span> <span class="s">"https://www.example.com"</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">templates</span><span class="p">.</span><span class="n">TemplateResponse</span><span class="p">(</span>
+        <span class="s">"index.html"</span><span class="p">,</span>
+        <span class="p">{</span>
+            <span class="s">"request"</span><span class="p">:</span> <span class="n">request</span><span class="p">,</span>
+            <span class="s">"time_taken"</span><span class="p">:</span> <span class="sa">f</span><span class="s">"</span><span class="si">{</span><span class="n">end</span> <span class="o">-</span> <span class="n">start</span><span class="si">:</span><span class="p">.</span><span class="mi">2</span><span class="n">f</span><span class="si">}</span><span class="s"> seconds"</span><span class="p">,</span>
+            <span class="s">"place_name"</span><span class="p">:</span> <span class="n">place_name</span><span class="p">,</span>
+            <span class="s">"weather"</span><span class="p">:</span> <span class="n">weather_data</span><span class="p">,</span>
+            <span class="s">"cat_fact"</span><span class="p">:</span> <span class="n">cat_fact</span><span class="p">[</span><span class="s">"fact"</span><span class="p">],</span>
+            <span class="s">"joke"</span><span class="p">:</span> <span class="n">joke</span><span class="p">,</span>
+            <span class="s">"yelp_data"</span><span class="p">:</span> <span class="n">yelp_data</span><span class="p">,</span>
+            <span class="s">"wikipedia_data"</span><span class="p">:</span> <span class="n">wikipedia_data</span><span class="p">,</span>
+        <span class="p">},</span>
     <span class="p">)</span>
-
-    <span class="k">print</span><span class="p">([</span><span class="nb">str</span><span class="p">(</span><span class="n">url_to_crawl</span><span class="p">)</span> <span class="k">for</span> <span class="n">url_to_crawl</span> <span class="ow">in</span> <span class="n">results</span><span class="p">])</span>
 </code></pre></div></div>
 
-<p>This should print out the full UrlToCrawl objects that are returned by
-the method.</p>
+<p>This function listens for GET requests on the <code class="highlighter-rouge">/</code> route. The user is required to provide a <code class="highlighter-rouge">place_name</code> argument. The function then invokes multiple model functions asynchronously using the <code class="highlighter-rouge">await asyncio.gather()</code> function. Once all coroutines resolve (after responses are received from the various servers), the data are passed into a templating function (rendered in the view)</p>
 
-<p>Like the synchronous version, this should check to see if the url has
-already been visited, and only visit the url if it has not. Similarly,
-it should mark any newly visited urls as visited.</p>
+<blockquote class="info">
+  <h3 id="id_2-controller-task">2. Controller Task</h3>
+  <ol>
+    <li>Modify both the <code class="highlighter-rouge">/</code> and the <code class="highlighter-rouge">/api</code> endpoints so that data from the <code class="highlighter-rouge">get_dog_image()</code> function is output (name the key <code class="highlighter-rouge">dog_data</code>).</li>
+    <li>Visit <code class="highlighter-rouge">http://localhost:8000/api</code> to verify the result.</li>
+  </ol>
+</blockquote>
 
-<p>As discussed in class, we should use <code class="highlighter-rouge">asyncio.gather</code> for this. One
-easy approach to this is to create a list of coroutines, perhaps like
-this:</p>
+<hr />
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>coros = [ self._fetchAsync(url) for url in urls_to_visit ]
-bodies = await asyncio.gather(*coros)
+<h3 id="id_view---displaying-data">View - Displaying Data</h3>
+<p>The <code class="highlighter-rouge">index.html</code> file inside the <code class="highlighter-rouge">templates/</code> directory presents data to the user. This template is a combination of “vanilla” HTML and python expressions (surrounded by double curly braces. Note that only keys that were passed into the template are available to the template.</p>
+
+<h4 id="id_example-1">Example:</h4>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nt">&lt;p&gt;</span>Cat Fact: <span class="nt">&lt;/p&gt;</span>
 </code></pre></div></div>
 
-<p>Now we’ll need to run <code class="highlighter-rouge">_extractLinks</code> on all of the resulting bodies.</p>
+<blockquote class="info">
+  <h3 id="id_3-view-task">3. View Task</h3>
+  <ol>
+    <li>Add a new <code class="highlighter-rouge">&lt;img src="??????" /&gt;</code> element to display a photo of your dog (stored in the <code class="highlighter-rouge">dog_data</code> key) in <code class="highlighter-rouge">index.html</code>. Use the double curly braces to output the correct value from the data.</li>
+  </ol>
+</blockquote>
 
-<h2 id="id_async-crawling">Async Crawling</h2>
+<h2 id="id_extra-tasks">Extra Tasks</h2>
+<ul>
+  <li>Try displaying the data from Wikipedia in a nicer format using HTML (e.g., if there’s a photo of the city, show it).</li>
+  <li>Try displaying the data from Yelp in a nicer format using HTML (e.g., if there’s a photo of the city, show it).</li>
+</ul>
 
-<p>Once we’re happy with the <code class="highlighter-rouge">visitAsync</code> method, we can move on to the
-<code class="highlighter-rouge">crawlAsync</code> method. In addition to accepting a <code class="highlighter-rouge">max_depth</code> argument,
-the function should allow for a <code class="highlighter-rouge">batch_size</code> to be set as part of the
-calling arguments. It should default to 5.</p>
+<h3 id="id_useful-documentation">Useful documentation</h3>
+<ul>
+  <li><a href="https://fastapi.tiangolo.com/">FastAPI</a></li>
+  <li><a href="https://jinja.palletsprojects.com/en/stable/templates/">Jinja templates</a></li>
+</ul>
 
-<p>The code itself, should either pull out the next <code class="highlighter-rouge">batch_size</code> elements
-from the queue, or all the remaining elements if there is not enough
-to fill the batch. Then you’ll calls <code class="highlighter-rouge">_visitAsync</code> on those urls.</p>
+<h2 id="id_what-to-submit">What to Submit</h2>
+<p>Verify that you have completed the three tasks described above:</p>
+<ol>
+  <li>Model Task</li>
+  <li>Controller Task</li>
+  <li>View Task</li>
+</ol>
 
-<h2 id="id_testing">Testing</h2>
-
-<p>How can you test this to confirm that the results of the synchrounous
-call and the asynchronous call are the same? Come up with a solution,
-even if it’s a partially manual solution. Describe your approach and
-add any supporting information in your <code class="highlighter-rouge">answers.md</code> file.</p>
-
-<p>You should be able to time the resulting function in the same way we
-timed the original synchronous one.</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="p">.</span><span class="n">time</span><span class="p">()</span>
-    <span class="n">Crawler</span><span class="p">(</span><span class="s">"https://new.cs.unca.edu"</span><span class="p">).</span><span class="n">crawlAsync</span><span class="p">(</span><span class="n">max_depth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
-    <span class="n">elapsed_time</span> <span class="o">=</span> <span class="n">time</span><span class="p">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start_time</span>
-    <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"crawlAsync took </span><span class="si">{</span><span class="n">elapsed_time</span><span class="si">:</span><span class="p">.</span><span class="mi">3</span><span class="n">f</span><span class="si">}</span><span class="s"> seconds to complete."</span><span class="p">)</span>
-</code></pre></div></div>
-
-<p>Experiment with the batch size and see how it impacts the
-results. Show the results in your <code class="highlighter-rouge">answers.md</code> file.</p>
-
-<h2 id="id_submitting">Submitting</h2>
-
-<p>Create a pull request against the main Software Engineering repository
-and mention us in a comment.</p>
-
-<h2 id="id_tips">Tips</h2>
-
-<h3 id="id_batch-your-requests">Batch Your Requests</h3>
-
-<p>This is the code that crawls synchronously.</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>        <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">_queue</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="bp">self</span><span class="p">.</span><span class="n">_queue</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">depth</span> <span class="o">&lt;</span> <span class="n">max_depth</span><span class="p">:</span>
-            <span class="n">link_to_visit</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">_queue</span><span class="p">.</span><span class="n">popleft</span><span class="p">()</span>
-            <span class="n">next_links</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">visitSync</span><span class="p">(</span><span class="n">link_to_visit</span><span class="p">)</span>
-            <span class="bp">self</span><span class="p">.</span><span class="n">_queue</span><span class="p">.</span><span class="n">extend</span><span class="p">(</span><span class="n">next_links</span><span class="p">)</span>
-
-            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">_queue</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-                <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"next: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">_queue</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
-</code></pre></div></div>
-
-<p>We’ll do something similar in the async version, but we’ll do the
-requests in batches. To build the batches, you can grab out a slice of
-the array in Python.</p>
-
-<p>A slice is pretty straight-forward. You just specify the starting
-index in the array, the ending index in the array, or both. Here’s an
-example from an interactive session I had with the Python REPL. You
-can experiment by simply running the <code class="highlighter-rouge">python</code> (or the <code class="highlighter-rouge">python3</code>)
-command from the command line.</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">]</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">l</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
-<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">l</span><span class="p">[</span><span class="mi">3</span><span class="p">:]</span>
-<span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">l</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
-<span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
-<span class="o">&gt;&gt;&gt;</span><span class="n">l</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">20</span><span class="p">]</span>
-<span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
-</code></pre></div></div>
-
-<p>Note that the last slice requests indices beyond the end of the list,
-but it only returns up to the end of the list. This is helpful.</p>
-
-<p>How can we use this to build batches? Maybe something like this.</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>        <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">_queue</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="bp">self</span><span class="p">.</span><span class="n">_queue</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">depth</span> <span class="o">&lt;</span> <span class="n">max_depth</span><span class="p">:</span>
-            <span class="c1"># for each iteration, we'll build a batch instead of doing
-</span>            <span class="c1"># a single request
-</span>
-            <span class="c1"># get a slice of length at most batch size
-</span>            <span class="n">links_to_visit</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">_queue</span><span class="p">)[</span><span class="mi">0</span><span class="p">:</span><span class="n">batch_size</span><span class="p">]</span>
-
-            <span class="c1"># pop those links off the front of the queue
-</span>            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">links_to_visit</span><span class="p">))</span> <span class="bp">self</span><span class="p">.</span><span class="n">_queue</span><span class="p">.</span><span class="n">popleft</span><span class="p">()</span>
-
-            <span class="c1"># now we visit those urls
-</span>            <span class="n">next_links</span> <span class="o">=</span> <span class="k">await</span> <span class="n">visitAsync</span><span class="p">(</span><span class="n">links_to_visit</span><span class="p">)</span>
-</code></pre></div></div>
-
-<h3 id="id_use-pythons-spread-operator">Use Python’s Spread Operator</h3>
-
-<p>This is a brief explanation of the code above that looks like this.</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">coros</span> <span class="o">=</span> <span class="p">[</span> <span class="bp">self</span><span class="p">.</span><span class="n">_fetchAsync</span><span class="p">(</span><span class="n">url</span><span class="p">)</span> <span class="k">for</span> <span class="n">url</span> <span class="ow">in</span> <span class="n">urls_to_visit</span> <span class="p">]</span>
-<span class="n">bodies</span> <span class="o">=</span> <span class="k">await</span> <span class="n">asyncio</span><span class="p">.</span><span class="n">gather</span><span class="p">(</span><span class="o">*</span><span class="n">coros</span><span class="p">)</span>
-</code></pre></div></div>
-
-<p>You’ll ultimately want to create an array of coroutines, and then send
-that into <code class="highlighter-rouge">asyncio.gather</code>. Unfortunately, the API for <code class="highlighter-rouge">gather</code> does
-not accept an array. But you can convert an array of elements into
-individual arguments by using Python’s spread operator, which is an
-<code class="highlighter-rouge">*</code>.</p>
-
-<p>Consider this method.</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
-</code></pre></div></div>
-
-<p>Now suppose you have an array of two numbers.</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>args = [1, 2]
-</code></pre></div></div>
-
-<p>You can call add with those args using the spread operator.</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>print(add(*args))
-# This will print 3
-</code></pre></div></div>
+<p>When you’re done, commit and push your lab07-b branch to GitHub and make a pull request. Please ensure that the destination (left-hand side) is pointing to the main branch of your repo and the source (right-hand side) is pointing to the lab06 branch of your repo. Then, please paste a link to your PR in the Moodle.</p>
 
 
 
