@@ -30,7 +30,7 @@ h4 {
 {:.info.updates}
 > ## Deadline Updates
 > * The FINAL submission deadline for Project 1 is now on **Thursday, 3/27 at 11:59PM**
-> * Every team member must have submitted at least 1 pull request by **Thursday, 3/27 at 11:59PM**
+> * Every team member must have submitted at least 1 pull request by **Thursday, 3/20 at 11:59PM**
 
 {% include toggle-button.html %}
 
@@ -75,7 +75,7 @@ This project will help you practice the concepts we have been covering so far, i
 
 1. Breaking requirements up into logical units that can be worked on in parallel (i.e., minimizing the dependencies between components).
 1. Thinking about which "jobs" each component will have.
-1. Working with a common development environment usind Docker (e.g., operating system, python versions, coding conventions, testing suite) so that the app runs identically on any machine.
+1. Working with a common development environment using Docker (e.g., operating system, python versions, coding conventions, testing suite) so that the app runs identically on any machine.
 1. Working with static analysis tools.
 1. Writing tests.
 1. Devising a workflow for integrating work.
@@ -104,7 +104,7 @@ During class on Tuesday (9/24), we discussed how to organize our system, and we 
 {% endexpandable %}
 
 ## Team Assignments
-Your teams are listed below. Each member of your team has been assigned a task from the GitHub Issue Tracker. Some of you will be working on the same Python class, so  so make sure you only work on the tasks to which you were assigned:
+Your teams are listed below. Each member of your team has been assigned a task from the GitHub Issue Tracker. Some of you will be working on the same Python class, so make sure you only work on the tasks to which you were assigned:
 
 {% expandable expanded="true" level=3 title="Team 1" %}
 Please see your team's <a href="https://github.com/csci338/p01-team01-spring2025" target="_blank">repo</a> and <a href="https://github.com/csci338/p01-team01-spring2025/issues" target="_blank">issue tracker</a> for more information. Members of your team are:
