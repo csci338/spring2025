@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="/spring2025/assets/images/favicon.ico" type="image/x-icon">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-    <title>Database Lab</title>
+    <title>Database + ORM Lab</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <link rel="stylesheet" href="/spring2025/assets/main.css">
     
@@ -63,6 +63,7 @@
   <li><a href="#id_3-sql-exercises">3. SQL Exercises</a>
     <ol>
       <li><a href="#id_run-the-postgres-sql-client">Run the Postgres SQL Client</a></li>
+      <li><a href="#id_optional-using-a-gui-client">[Optional] Using a GUI Client</a></li>
       <li><a href="#id_tutorial">Tutorial</a></li>
       <li><a href="#id_sql-questions">SQL Questions</a></li>
     </ol>
@@ -82,13 +83,13 @@
     
     <h1>
         <a href="../assignments/">Assignments</a> >
-        Lab 8: Database Lab
+        Lab 8: Database + ORM Lab
     </h1>
     
  
                 <p>
     
-        Due on Wed, 04/02 @ 11:59PM.
+        Due on Tue, 04/08 @ 11:59PM.
     
     
         6 Points.
@@ -160,17 +161,17 @@
   <li>Checkout your main branch: <code class="highlighter-rouge">git checkout main</code></li>
   <li>Pull down the latest changes: <code class="highlighter-rouge">git pull</code>
     <ul>
-      <li>If you did it correctly, you will notice that a new <code class="highlighter-rouge">lab09</code> folder has been created.</li>
+      <li>If you did it correctly, you will notice that a new <code class="highlighter-rouge">lab08</code> folder has been created.</li>
     </ul>
   </li>
-  <li>Create a new branch called <strong>lab09</strong>: <code class="highlighter-rouge">git checkout -b lab09</code></li>
+  <li>Create a new branch called <strong>lab08-b</strong>: <code class="highlighter-rouge">git checkout -b lab08-b</code></li>
   <li>Verify that you’re on your new branch: <code class="highlighter-rouge">git branch</code></li>
 </ul>
 
 <h3 id="id_build-and-run-your-docker-file">Build and run your Docker file</h3>
-<p>Navigate to your <code class="highlighter-rouge">lab09</code> directory and type:</p>
+<p>Navigate to your <code class="highlighter-rouge">lab08</code> directory and type:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker compose up
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker compose up <span class="nt">-d</span>
 </code></pre></div></div>
 
 <p>As you may recall, this command builds your Docker container <em>and</em> runs it. Keep your terminal running and do the remaining tasks on anther terminal.</p>
@@ -180,10 +181,18 @@
 <h3 id="id_run-the-postgres-sql-client">Run the Postgres SQL Client</h3>
 
 <p>In the new terminal window we’ll run <code class="highlighter-rouge">psql</code> (the postgres SQL
-client) on the your running <code class="highlighter-rouge">postgres_tutorial</code> container.</p>
+client) on the your running container.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ docker exec -it postgres_tutorial psql -U postgres
-postgres=#
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># get container id:</span>
+docker ps <span class="nt">-la</span>
+
+<span class="c"># connect to the docker container</span>
+docker <span class="nb">exec</span> <span class="nt">-it</span> &lt;pid&gt; psql <span class="nt">-U</span> postgres
+</code></pre></div></div>
+
+<p>If you did this correctly, you should see a PostgreSQL shell that looks like this:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>postgres=#
 </code></pre></div></div>
 
 <p>Now let’s confirm things are working. Try typing in the <code class="highlighter-rouge">\list</code>
@@ -199,9 +208,24 @@ simple sql query to list all customer’s first names.</p>
 dvdrental=# select first_name from customer;
 </code></pre></div></div>
 
+<h3 id="id_optional-using-a-gui-client">[Optional] Using a GUI Client</h3>
+<p>For those of you who would like to look at the data in a visual way, feel free to use DBeaver (which you can <a href="https://dbeaver.io/download/" target="_blank">download here</a>). Once downloaded and installed, you can preview the DVD Rental database by using the following connection information for a PostgreSQL connection:</p>
+
+<ul>
+  <li>host: <strong>localhost</strong></li>
+  <li>database: <strong>postgres</strong></li>
+  <li>username: <strong>postgres</strong></li>
+  <li>password: <strong>postgres</strong></li>
+  <li>port: <strong>5433</strong></li>
+</ul>
+
+<p>Also, make sure that the “Show all databases” option is checked (as pictured in the screenshot below):</p>
+
+<p><img class="medium frame" src="/spring2025/assets/images/labs/lab08/dbeaver-ss.png" /></p>
+
 <h3 id="id_tutorial">Tutorial</h3>
 
-<p>Now that you’re all set up, please answer the 10 SQL questions (listed below) in the “SQL” section of your <code class="highlighter-rouge">lab09/answers.md</code> file. Here are some references from the PostgreSQL tutorial to help you:</p>
+<p>Now that you’re all set up, please answer the 10 SQL questions (listed below) in the “SQL” section of your <code class="highlighter-rouge">lab08/answers_sql.md</code> file. Here are some references from the PostgreSQL tutorial to help you:</p>
 
 <ul>
   <li><a href="https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-select/">Select</a></li>
@@ -226,41 +250,55 @@ dvdrental=# select first_name from customer;
     <li><strong>INSERT - Adding Data.</strong> Insert a new customer into the customer table. The new customer should have a first name, last name, email, and be linked to an existing store.</li>
     <li><strong>UPDATE - Modifying Data.</strong> Update the rental rate of all films in the Comedy category, increasing it by 10%.</li>
     <li><strong>DELETE - Removing Data.</strong> Write a query to delete all films that have never been rented. Make sure to use a subquery to identify the films that haven’t been rented.</li>
-    <li><strong>CREATE TABLE &amp; ALTER TABLE - Managing Database Structure.</strong> Create a new table called movie_reviews with columns for review_id, film_id, reviewer_name, rating, and comments. Then, add a foreign key constraint linking film_id to the film table.</li>
   </ol>
 </blockquote>
 
 <h2 id="id_4-sql-alchemy--python-exercises">4. SQL Alchemy / Python Exercises</h2>
 <p>Now, you’re going to try connecting to your postgres database using python on your local computer.</p>
 
-<p>Open a terminal window, navigate to your <code class="highlighter-rouge">lab09</code> directory, and install the dependencies in the <code class="highlighter-rouge">pyproject.toml</code> file:</p>
+<p>Open a terminal window, navigate to your <code class="highlighter-rouge">lab08</code> directory, and install the dependencies in the <code class="highlighter-rouge">pyproject.toml</code> file:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>poetry <span class="nb">install</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>poetry <span class="nb">install</span>
 </code></pre></div></div>
 
-<p>You should now be able to run the <code class="highlighter-rouge">orm.py</code> file as usual from your local terminal:</p>
+<p>You should now be able to run the <code class="highlighter-rouge">orm_samples.py</code> file as usual from your local terminal:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ poetry run python orm.py
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>poetry run python orm_samples.py
 </code></pre></div></div>
 
-<p>Take a look at the file and try to understand what it does. Then, answer the 4 SQLAlchemy questions in the <code class="highlighter-rouge">answers.py</code> file in your <code class="highlighter-rouge">lab09</code> folder.</p>
+<p>Take a look at the file and try to understand what it does. The code samples are very similar to SQLAlchemy tasks you will be completing (below).</p>
 
 <blockquote class="info">
   <h3 id="id_sql-alchemy-questions">SQL Alchemy Questions</h3>
+  <p>You will be implementing some python functions in the <code class="highlighter-rouge">answers_orm.py</code> as instructed below.
+Before you begin, please run the <code class="highlighter-rouge">answers_orm.py</code> script first to see what it does:<br /><br />
+<code class="highlighter-rouge">poetry run python answers_orm.py</code><br /><br />
+Note that the first exercise has already been completed for you.</p>
   <ol>
-    <li><strong>Understanding SQLAlchemy Automap</strong>: How do you think the <code class="highlighter-rouge">AutoModels</code> class works to dynamically generate SQLAlchemy ORM models from the database schema?</li>
-    <li><strong>Async Database Operations</strong>: Explain the use of asynchronous database sessions in this script. Why does the script use AsyncSession instead of a regular Session, and how does this improve the efficiency of database operations?</li>
-    <li><strong>SQLAlchemy Query Construction</strong>: In the <code class="highlighter-rouge">model_examples</code> function, there is a query that selects all customers whose last names start with the letter “P”. See if you can write another questy that selects customers whose first name ends with the letters “n” or “a” using SQLAlchemy syntax.</li>
-    <li><strong>Raw SQL v. Models</strong>: In the <code class="highlighter-rouge">raw_sql_examples</code> function, there are two ways to execute SQL queries: directly via the engine using conn.execute() and using an ORM session with session.execute(). Discuss the pros and cons of executing raw SQL directly compared to using SQLAlchemy’s ORM methods.
+    <li><strong><code class="highlighter-rouge">print_titles_and_release_years</code></strong> Write a function that uses SQLAlchemy to print the titles and release years of all movies in the film table.</li>
+    <li><strong><code class="highlighter-rouge">print_customers_starting_with</code></strong> Write a function that uses SQLAlchemy to print all customers whose last name starts with the character passed into the function.</li>
+    <li><strong><code class="highlighter-rouge">print_film_titles_and_durations</code></strong> Write a function that uses SQLAlchemy to print all films titles and their durations, sorted by their rental duration in descending order. If two films have the same rental duration, sort them alphabetically by title.</li>
+    <li><strong><code class="highlighter-rouge">print_film_titles_and_categories</code></strong> Write a function that uses SQLAlchemy to print all films along with their categories. Show the film title and category name.</li>
+    <li><strong><code class="highlighter-rouge">print_num_films_in_action_category</code></strong> Write a function that uses SQLAlchemy to print the number of films in the Action category.</li>
+    <li><strong><code class="highlighter-rouge">create_new_customer</code></strong> Write a function that uses SQLAlchemy to create a new customer into the customer table. The new customer should have a first name, last name, email, and be linked to an existing store.</li>
+    <li><strong><code class="highlighter-rouge">delete_customer_by_id</code></strong> Write a function that uses SQLAlchemy to delete a customer from the database based on the <code class="highlighter-rouge">id</code> argument.
       <ul>
-        <li>Hint: Consider the trade-offs in terms of readability, safety (e.g., SQL injection risks), and flexibility when using raw SQL versus ORM abstractions.</li>
+        <li><em>Note that many of the customers in the database are referenced in other tables (e.g., each customer is associated with a record in the store table, the address table, etc.). Given this, be sure to test your delete functionality with one of the customers you created in the previous exercise (which has no dependencies yet).</em></li>
       </ul>
     </li>
+    <li><strong><code class="highlighter-rouge">update_customer_email</code></strong> Write a function that uses SQLAlchemy to update a customer’s email. Required arguments are the customer’s id and the new email address.</li>
   </ol>
 </blockquote>
 
 <h2 id="id_what-to-submit">What to Submit</h2>
-<p>When you’re done answering the questions in the <code class="highlighter-rouge">answers.md</code> file, please push your <code class="highlighter-rouge">lab09</code> branch to GitHub and make a pull request. Please ensure that the destination (left-hand side) is pointing to the <code class="highlighter-rouge">main</code> branch of <strong>your repo</strong> and the source (right-hand side) is pointing to the <code class="highlighter-rouge">lab09</code> branch of <strong>your repo</strong>. Then, please paste a link to your PR in the Moodle.</p>
+<p>Before you submit, make sure you’ve completed the two sets of tasks:</p>
+
+<ul class="checkbox-list">
+  <li>SQL tasks: you have written the SQL for the 9 SQL tasks in <code class="highlighter-rouge">answers_sql.md</code></li>
+  <li>SQLAlchemy tasks: you have successfully written and invoked the 8 SQLAlchemy-based functions using asynchronous database queries in <code class="highlighter-rouge">answers_orm.py</code>.</li>
+</ul>
+
+<p>When you’re done, please push your <code class="highlighter-rouge">lab08-b</code> branch to GitHub and make a pull request. Please ensure that the destination (left-hand side) is pointing to the <code class="highlighter-rouge">main</code> branch of <strong>your repo</strong> and the source (right-hand side) is pointing to the <code class="highlighter-rouge">lab08-b</code> branch of <strong>your repo</strong>. Then, please paste a link to your PR in the Moodle.</p>
 
 
 
