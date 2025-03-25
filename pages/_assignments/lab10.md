@@ -1,498 +1,357 @@
 ---
+title: Design Systems & External Data
 layout: assignment-two-column
-title: Intro to client-side programming with React
 type: lab
 draft: 1
 points: 6
 abbreviation: Lab 10
-num: 10
-start_date: 2025-04-17
-due_date: 2025-04-23
+num: 11
+start_date: 2025-04-22
+due_date: 2025-04-30
 ---
 
-<!-- {% include walkthrough-react-activity.html %} -->
 
-
-## 1. Recommended Readings
-
-* <span class="update">Skim</span> <a href="https://react.dev/learn/describing-the-ui" target="_blank">Describing the UI</a>
-* <span class="update">Skim</span> <a href="https://beta.reactjs.org/learn/thinking-in-react" target="_blank">Thinking in React</a>
-
-
-## 2. Setup
-
-### Version Control Stuff
-Before you begin, get the latest code from <a href="https://github.com/csci338/class-exercises-spring2025" target="_blank">class-exercises-spring2025</a>. 
-* If you are a Windows user, you will do this lab (and all subsequent work in this class) using the WSL terminal.
-
-**On GitHub:**
-* Sync the latest changes from the class version of `class-exercises-spring2025` to your copy of the repo on GitHub.
-
-**On your local computer:**
-* Make sure that all of your changes from the last lab are staged and committed.
-* Checkout your main branch: `git checkout main`
-* Pull down the latest changes: `git pull`
-    * If you did it correctly, you will notice that a new `lab10` folder has been created.
-* Create a new branch called lab10: `git checkout -b lab10`
-* Verify that you're on your new branch: `git branch`
-
-### Starter Files
-1. Inside of your `lab10` folder, create 3 files: 
-    - `index.html`
-    - `styles.css`
-    - `.gitignore` (this file should start with the "." prefix, which means that it's a system, hidden file).
-1. Inside of your `index.html` file, paste the following code:
-
-    ```html
-    <!DOCTYPE html>
-    <html lang="en">
-
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>React Demo</title>
-        <link rel="stylesheet" href="styles.css">
-    </head>
-
-    <body>
-        <h1>Hello world</h1>
-        <p>Here is some text!</p>
-    </body>
-
-    </html>
-    ```
-1. Inside of your `styles.css` file, paste the following code:
-
-    ```css
-    body {
-        font-family: Arial, Helvetica, sans-serif;
-        background-color: navy;
-        color: white;
+<style>
+    .img {
+        width: 80%;
+        border: solid 1px black;
     }
+    .img-sm {
+        width: 50%;
+        border: solid 1px black;
+        margin: 5px auto;
+        display: block;
+    }
+</style>
+
+
+
+## Overview
+In this lab, you will be using the Ant Design System / Component library and the Spotify API to create way to search and listen to songs on Spotify. When you're done with your lab, it should look something like this:
+* <a href="https://svanwart.github.io/spotify-project/" target="_blank">https://svanwart.github.io/spotify-project/</a>
+
+Try it out to get a feel of how it should work. The goals with this lab are as follows:
+
+1. Continue practicing your React skills
+1. Work with a design system / component library -- we will be using Ant Design (`antd` node module) by Alibaba
+
+## 1. Getting Started
+
+For this lab, you will create a brand new folder in your `class-exercises-spring2025` folder called `lab11`. 
+
+Like before, you will build your React app from scratch, which will involve:
+1. Creating a `package.json` at the root of your `lab11` directory.
+    * Hint: `npm init`
+2. Installing the following 4 packages: `react`, `react-dom`, `vite`, and `antd`.
+    * Hint: `npm install`
+3. Creating the following 5 base files: `index.html`, `styles.css`,  `main.jsx`, `App.jsx`, and `.gitignore`
+4. Adding the vite `dev` and `build` scripts under the `scripts` entry of your `package.json` file like this:
+
+    ```json
+    ...
+    "scripts": {
+        "dev": "vite dev",
+        "build": "vite build"
+    },
+    ...
     ```
-1. Inside your `.gitignore` file, type the word `node_modules`. This file is telling git not to put the `node_modules` folder under version control. Since these files were built by somebody else, you don't typically commit them to your version control repository.
 
-When you’re done, preview your HTML page in the browser. If you did it correctly, you should see your HTML, and the background should be navy blue.
+## 2. Setting up your files
+Please add the following starter code to your files:
 
-## 3. Convert your code to a React project
+### index.html
+Paste the following code in `index.html`:
+```html
+<!doctype html>
+<html>
+  <head>
+    <title>Spotify Practice</title>
+    <link rel="stylesheet" href="styles.css" />
+    <!-- link to React module -->
+    <script type="module" src="./main.jsx" type="text/javascript" defer></script>
+  </head>
 
-Now that you’ve created your starter files, you’re going to convert our app into a React app. You will do this from the command line (Windows users use GitBash, Mac users use Terminal):
+  <body>
+    <div id="app" />
+  </body>
+</html>
+```
 
-1. From the command line, navigate into your **lab10** folder. You can also open the VS Code Integrated terminal. 
-2. Verify that you’re in the correct folder by typing **pwd**
-3. Issue the following commands
+### styles.css
+Paste the following code in `styles.css` (simple formatting to start you off):
 
-    ```bash
-    npm init -y
-    npm install vite
-    npm install react react-dom
-    ```
+```css
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+}
 
-4. Open the newly-created package.json file (from within VS Code) add the following entry to your “scripts” section:
+header {
+    border-bottom: solid 2px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+}
 
-    ```bash
+main {
+    max-width: 1100px;
+    margin: auto;
+    padding: 30px;
+}
+```
+
+### App.jsx
+Paste the following code in `App.jsx` (sets up an HTML skeleton that you will later be enhancing):
+
+```jsx
+import React from "react";
+
+export default function App() {
+            
+    return (
+        <>
+            <header>
+                <h1>Spotify Demo</h1>
+            </header>
+            <main>
+                <p>Hello React!</p>
+            </main>
+        </>
+    );
+}
+```
+
+### main.jsx
+Paste the following code in `main.jsx` (imports your `App.jsx` component and renders it inside of `<div id="app" />`):
+
+```jsx
+import React from "react";
+import { createRoot } from "react-dom/client";
+import App from "./App.jsx";
+
+function main() {
+    const rootEl = document.getElementById("app");
+    const root = createRoot(rootEl);
+    root.render(<App />);
+}
+
+main();
+```
+
+### package.json
+In the scripts section of your `package.json`, add the following two entries to configure the vite bundler (recall that you already installed vite via npm):
+
+```json
+  ...
+  "scripts": {
     "dev": "vite dev",
-    ```
-
-5. After editing your `package.json` file, run **`npm run dev`** on the command line. When you do, you should see the following output:
-
-    ```bash
-    **VITE** v5.2.6  ready in **307** ms
-    ➜  **Local**:   http://localhost:**5173**/
-    ➜  **Network**: use **--host** to expose
-    ➜  press **h + enter** to show help
-    ```
-
-1. Finally, navigate to [http://localhost:**5173**/](http://localhost:5173/) in your web browser. You should see a web page. If you open the browser console, you should see “hello world!”
-
-### Q: What just happened?
-
-A few things just happened:
-
-1. **npm init** created a package.json file, which has some instructions for running our react app, as well as the dependencies that need to be installed.
-2. The **npm install** commands downloaded some JavaScript libraries from the Internet, including vite and react.
-3. Adding the **"dev": "vite dev"** line to package.json created a node instruction that means:
-    - “Whenever we type “**npm run dev”** in the command line, run a local server with “hot reload” and “bundling” enabled.
-
-We’ll talk more about what each of these terms mean in future lessons.
-
-## 4. Modify Your HTML & JavaScript
-
-Now, we’re going to make a few changes to our HTML and JavaScript to make it a React App.
-
-1. Create a new folder called `src` inside of your `lab10` folder.
-1. Inside of `src`, create a new file called `App.jsx`
-
-    ```jsx
-    import React from "react";
-
-    export default function App() {
-
-        return (
-            <>
-                <header>
-                    <h1>My First App</h1>
-                </header>
-                <main>
-                    <p>Hello React!</p>
-                </main>
-            </>
-        );
-    }
-    ```
-1. Also inside of `src`, Create another new file called `main.jsx` and paste the following code into your page:
-
-    ```jsx
-    import React from "react";
-    import { createRoot } from "react-dom/client";
-    import App from "./App.jsx";
-
-    function main() {
-        const rootEl = document.getElementById("app");
-        const root = createRoot(rootEl);
-        root.render(<App />);
-    }
-
-    main();
-    ```
-
-1. Modify `index.html` as follows:
-
-    1. Inside of the body tag, add an empty div tag that has an id of “app”:  
-
-        ```html
-        ...
-        <body>
-            <h1>Hello world</h1>
-            <p>Here is some text!</p>
-            <div id="app">React App gets injected here...</div>
-        </body>
-        ...
-        ```
-
-    1. Add the following JavaScript reference within the `<head></head>` of your HTML file to point to the **main.jsx** file you just made:
-
-        ```html
-        <head>
-            ...
-            <script type="module" src="./src/main.jsx" type="text/javascript" defer></script>
-        </head>
-        ```
-
-Now, go and check <a href="http://localhost:5173/" target="_blank">http://localhost:5173/</a> in your web browser, and you should see a new element in your web browser.
-
-### Q: What just happened?
-You have now successfully configured your computer to run React applications. A few notes:
-
-1. The `main.jsx` script essentially injects our first component, `App`, into the DOM.
-1. Notice that App.jsx uses JSX instead of building strings using template literals (the backtick). Just a minor syntax adjustment.
-1. Currently, the App component doesn't do much, but in the subsequent steps, we're going to make it more interesting.
-
-## 5. Create your first component
-Say we want to make a card for each student in this class with their name, major, photo, and some links to their socials. We can do this by making a component, which standardizizes the way that the information is processed and presented. Let's try making one inside of your `src` folder:
-
-1. Create a new component called **Profile.jsx** and a corresponding stylesheet called **Profile.css**
-2. Inside of Profile.jsx, import the stylesheet to link the two files together as follows:
-
-    ```jsx
-    import "./Profile.css";
-    import React from "react";
-
-    export default function Profile() {
-        return (
-            <section className="profile">
-                Profile Goes here!
-            </section>
-        );
-    }
-    ```
-
-1. Now, inside of App.jsx, import your new Profile component at the top:
-
-    ```jsx
-    import Profile from  "./Profile.jsx";
-    ```
-
-1. You can now make new <Profile /> tags. Let's add a few to your `App.jsx` file underneath your `<p>Hello React!</p>` message:
-
-    ```jsx
-    <p>Hello React!</p>
-    <Profile />
-    <Profile />
-    <Profile />
-    <Profile />
-    ```
-
-1. Preview your website in your web browser: [http://localhost:**5173**/](http://localhost:5173/). If you did it correctly, you should see the sentence "Profile Goes here!" 4 times.
-
-### Challenge 1
-Can you get your `Profile.jsx` component to display the “name” attribute? In other words, if I make different profile tags that look like this, 
-the component should output each of their names to the screen.
-
-```jsx
-<Profile name="Anita" />
-<Profile name="Ben" />
-<Profile name="Adwaina" />
-<Profile name="Laciesha" />
+    "build": "vite build"
+  }
+  ...
 ```
 
-**Hint:** you need to use `props` in your `Profile.jsx` file.
+
+### .gitignore
+Exclude `node_modules`, `.DS_Store`, and any other system files you don't want in your repo
 
 
-#### Answer (don't look until you've tried it!)
+## 3. Test Your files
+Run your react app by issuing the following command via the command line:
 
-1. Here's the answer:
-    ```jsx
-    import "./Profile.css";
-    import React from "react";
-
-    export default function Profile({ name }) {
-        
-        return (
-            <section className="profile">
-                <h3>{name}</h3>
-            </section>
-        );
-    }
-    ```
-
-1. Notice that a **property** is passed into Profile within a set of curly braces:
-
-    ```jsx
-    export default function Profile({ name }) {
-        ...
-    }
-    ```
-2. The **property** is then used inside the JSX template:
-
-    ```jsx
-    <h3>{name}</h3>
-    ```
-
-### Challenge 2
-See if you can figure out how to get different people’s profile pics to show up: for instance, if I make different profile tags that look like this…
-
-```jsx
-<Profile name="Anita" picture="https://picsum.photos/id/216/100/100" />
-<Profile name="Ben" picture="https://picsum.photos/id/217/100/100" />
-<Profile name="Adwaina" picture="https://picsum.photos/id/218/100/100" />
-<Profile name="Laciesha" picture="https://picsum.photos/id/219/100/100" />
+```
+$ npm run dev
 ```
 
-…I should be able to see the student's name and image.
+You should see the following output:
 
-#### Answer (don't look until you've tried it!)
-1. To get your component to understand data from the parent tag, you’ll have to “pass in” the property as an argument to Profile:
+```bash
 
-    ```jsx
-    import "./Profile.css";
-    import React from "react";
+  VITE v5.2.7  ready in 84 ms
 
-    export default function Profile({ name, picture }) {
-        
-        return (
-            <section className="profile">
-                <h3>{name}</h3>
-                <img src={picture} />
-            </section>
-        );
-    }
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+  ➜  press h + enter to show help
 
-    ```
+```
 
-1. Notice that a second **property** is passed into Profile within a set of curly braces:
+If you configured everything correctly, when you navigate to [http://localhost:5173/](http://localhost:5173/) in your web browser, your react app should appear with the message "Hello React".
 
-    ```jsx
-    export default function Profile({ name, picture }) {
+## 4. Querying Spotify
+For this React project, we will be working with Spotify's REST API. Ordinarily, to use their API, you would register for an API key with Spotify. However, to save time, Sarah has created a proxy server called <a href="https://apitutor.org" target="_blank">API Tutor</a> that simplifies the API requests to Spotify (and a few other providers). The proxy server does two things:
+
+1. Simplifies the data structure that is returned from Spotify 
+2. Appends Sarah's Spotify API key in the header so that you don't have to register for an account.
+    * Footnote: this isn't technically kosher, but it's only for educational purposes and I would never do this for a "real world" app.
+
+The API endpoint that you will all be using is this one:
+
+<a href="https://www.apitutor.org/spotify/simple/v1/search?q=beyonce&type=album&limit=2" target="_blank">https://www.apitutor.org/spotify/simple/v1/search?q=beyonce&type=album&limit=2</a>
+
+There are three query parameters that you can adjust:
+* `q`: the search term
+* `type`: the resource type. Valid options are `album`, `track`, or `artist`
+* `limit`: how many results to return
+
+Try playing around with these three parameters to see what happens.
+
+## 5. Warmup: Using the antd component library
+Recall from lecture on Thursday, that you can use Ant Design components by importing them from the `antd` component library. Let's practice doing this.
+
+### Make some antd images
+In `App.jsx`, import the Image component from the `antd` library, and add some image tags inside of the `<main></main>` tag. Check out the documentation to figure out how to do this:
+
+* [https://ant.design/components/image](https://ant.design/components/image)
+
+If you want some dummy photos, you can use a random image generator like [https://picsum.photos](https://picsum.photos). In the samples below, the first number specifies the width of the photo you want and the second number specifies the height. To "trick" your browser to make more than one image request (versus caching the same image and using it over and over again), append a unique query parameter at the end of each url (could be anything).
+
+* https://picsum.photos/400/400?id=1
+* https://picsum.photos/300/300?foo=bar
+
+### Make a carousel
+Using the antd `Carousel` component, see if you can make a carousel of Beyonce albums. Here is a list of JSON objects representing 5 of Beyonce's albums:
+
+```json
+[
+   {
+      "id": "6BzxX6zkDsYKFJ04ziU5xQ",
+      "name": "COWBOY CARTER",
+      "image_url": "https://i.scdn.co/image/ab67616d0000b2731572698fff8a1db257a53599",
+      "spotify_url": "https://open.spotify.com/album/6BzxX6zkDsYKFJ04ziU5xQ"
+   },
+   {
+      "id": "2UJwKSBUz6rtW4QLK74kQu",
+      "name": "BEYONCÉ [Platinum Edition]",
+      "image_url": "https://i.scdn.co/image/ab67616d0000b2730d1d6e9325275f104f8e33f3",
+      "spotify_url": "https://open.spotify.com/album/2UJwKSBUz6rtW4QLK74kQu"
+   },
+   {
+      "id": "6PeoltoiWQWCyWA0JBHVGN",
+      "name": "16 CARRIAGES",
+      "image_url": "https://i.scdn.co/image/ab67616d0000b273f5220893852002a2a3078bab",
+      "spotify_url": "https://open.spotify.com/album/6PeoltoiWQWCyWA0JBHVGN"
+   },
+   {
+      "id": "6oxVabMIqCMJRYN1GqR3Vf",
+      "name": "Dangerously In Love",
+      "image_url": "https://i.scdn.co/image/ab67616d0000b27345680a4a57c97894490a01c1",
+      "spotify_url": "https://open.spotify.com/album/6oxVabMIqCMJRYN1GqR3Vf"
+   },
+   {
+      "id": "2m1enA3YrMLVvR3q0MqLpL",
+      "name": "COWBOY CARTER",
+      "image_url": "https://i.scdn.co/image/ab67616d0000b2734903a9678d5664b9cd9a3fd8",
+      "spotify_url": "https://open.spotify.com/album/2m1enA3YrMLVvR3q0MqLpL"
+   }
+]
+```
+
+See if you can figure out how to use JavaScript's built-in `Array.map()` function to programmatically generate each slide of the carousel. Try asking ChatGPT something like 
+
+> "How do I create JSX components from a list of objects in React?"
+
+
+#### Solution
+Inside the App() function, try this:
+
+```javascript
+
+    ...
+    const carouselStyles = {
+        "width": "640px", 
+        "border": "solid 1px #000", 
+        "margin": "auto"
+    };
+    const albums = [
+        {
+           "id": "6BzxX6zkDsYKFJ04ziU5xQ",
+           "name": "COWBOY CARTER",
+           "image_url": "https://i.scdn.co/image/ab67616d0000b2731572698fff8a1db257a53599",
+           "spotify_url": "https://open.spotify.com/album/6BzxX6zkDsYKFJ04ziU5xQ"
+        },
+        {
+           "id": "2UJwKSBUz6rtW4QLK74kQu",
+           "name": "BEYONCÉ [Platinum Edition]",
+           "image_url": "https://i.scdn.co/image/ab67616d0000b2730d1d6e9325275f104f8e33f3",
+           "spotify_url": "https://open.spotify.com/album/2UJwKSBUz6rtW4QLK74kQu"
+        }
         ...
-    }
-    ```
+     ];
 
-1. Also notice that the new **property** is then used inside the JSX template:
-    ```jsx
-    <img src={picture} />
-    ```
-
-1. Feel free to style your card by editing your `Profile.css` file.
-
-## 6. Working with Data
-Components are often rendered "on-the-fly," in response to a user event or server request. 
-
-### Challenge 1
-See if you can modify your `App.jsx` file to iterate through the following array of classmates and generate a Profile component for each one.
-
-1. Add this array within your App function:
-    ```jsx
-    const people = [
-        {
-            "name": "Anita",
-            "image_url": "https://picsum.photos/id/216/100/100"
-        },
-        {
-            "name": "Ben",
-            "image_url": "https://picsum.photos/id/217/100/100"
-        },
-        {
-            "name": "Adwaina",
-            "image_url": "https://picsum.photos/id/218/100/100"
-        },
-        {
-            "name": "Laciesha",
-            "image_url": "https://picsum.photos/id/219/100/100"
-        }
-    ];
-    ```
-1. Modify the JSX that's returned
-    * Hint: use the array's `map` function.
-
-#### Answer (don't look until you've tried it!)
-1. One way to generate components from an array is by using an embedded expression in the JSX return value:
-    ```jsx
-    import React from "react";
-    import Profile from "./Profile.jsx";
-
-    export default function App() {
-        const people = [...];
-
+    function albumToJSX(albumJSON) {
         return (
-            <>
-                <header>
-                    <h1>My First App</h1>
-                </header>
-                <main>
-                    <p>Hello React!</p>
-                    {/* expressions are embedded in curly braces in JSX */}
-                    { people.map((person) => {
-                        return (
-                            <Profile
-                                name={person.name}
-                                picture={person.image_url}
-                            />
-                        );
-                    }) }
-                </main>
-            </>
-        );
-    }
-    ```
-1. Note that JSX expressions are embedded in the JSX using curly braces.
-1. The `people.map(...)` expression is the same JavaScript we've been using this whole time. 
-1. The job of `people.map(...)`'s inner function (shown below) is to return a `<Profile />` component for each element in the array:
-    ```jsx
-        // inner anonymous function
-        (person) => {
-            return (
-                <Profile
-                    name={person.name}
-                    picture={person.image_url}
-                />
-            );
-        }
-
-    ```
-1. After the `people.map(...)` expression has been processed, the return value is an array of React components that are inserted into the surrounding JSX object.
-1. An alternate way to do this is to separate the "map" part of the logic into its own function:
-
-    ```jsx
-    import React from "react";
-    import Profile from "./Profile.jsx";
-
-    export default function App() {
-        const people = [...];
-
-        function getProfileComponents() {
-            return people.map((item) => {
-                return <Profile name={item.name} picture={item.image_url} />;
-            });
-        }
-
-        return (
-            <>
-                <header>
-                    <h1>My First App</h1>
-                </header>
-                <main>
-                    <p>Hello React!</p>
-                    {/* expressions are embedded in curly braces in JSX */}
-                    {getProfileComponents()}
-                </main>
-            </>
-        );
-    }
-    ```
-
-#### Summary
-We have now seen an approach to generating components from data. But how do we get data from a server?! Great question! We will. But before we do that, we need to cover one more big idea: **state**
-
-
-## 7. Working with State
-**“State Variables”** enable a component to dynamically redraw after a state change -- usually caused by a user interaction or an external process like retrieving data from a server). In React, we don't target DOM elements. Instead, we just redraw our components. The process for getting state variables to work is as follows:
-
-1. Create a state variable and a “setter” using the built-in `useState()` function.
-1. Manipulate the state variable via a user interaction (e.g., onClick, onMouseOver, etc.). The user interaction will invoke the state variable’s “setter” and set the variable to a new value.
-1. Once the “setter” is finished setting the new value, the component redraws automatically.
-
-### Example
-Let's talk through state concretely by looking at an example:
-
-1. In your `src` folder, create a new file called `ButtonCount.jsx`
-1. Paste the following code into the file:
-
-    ```jsx
-    import React, { useState } from "react";
-
-    export default function ButtonCount() {
-        // biggest idea in React is: state variables!
-        const [count, setCount] = useState(0);
-
-        function addOne() {
-            setCount(count + 1);
-        }
-
-        function resetCounter() {
-            setCount(0);
-        }
-
-        return (
-            <div>
-                <button onClick={addOne}>You have clicked {count} times</button>
-                <button onClick={resetCounter}>reset</button>
+            <div key={albumJSON.id}>
+                <img src={albumJSON.image_url} />
+                <h3>{albumJSON.name}</h3>
             </div>
-        );
+        )
     }
-    ```
+
+    return (
+        <div style={carouselStyles}>
+            <Carousel dotPosition="top">
+                { 
+                    albums.map(albumToJSX)
+                }
+            </Carousel>
+        </div>
+    );
+```
+
+Note that the argument within `albums.map()` is a function definition that is invoked for each JSON object in the list. The job of "map()" is to return a new array with a data transformation applied to each element. In this case, map returns a list of JSX objects, where each JSX object is a visual representation of the album.
+
+
+## 6. Your Task: Allow your user to query, display, and listen to songs
+To complete this lab, please do the following:
+
+1. Create a form -- using the `antd` form components (that we reviewed during lecture) -- that allows a user to input:
+    * A search term (e.g., "Beyonce")
+    * The number of songs they want (max is 20)
+2. When the clicks the search button, issue a query to Spotify with the user-specified `q` and `limit` arguments.
+3. When the response comes back from the server draw a carousel with an audio player (iframe) for each song -- one per slide.
+
+<a href="https://svanwart.github.io/spotify-project/" target="_blank">Here's a demo</a> of what your app should roughly do.
+
+
+### Hints
+
+Create a state variable to hold the tracks:
+
+```javascript
+const [tracks, setTracks] = useState([]);
+```
+
+Create a function that transforms each track JSON object to an iframe JSX. Your JSX iframe should look something like this:
+
+```html
+<iframe
+    key="1EjQRTG53jsinzk2xlVVJP"
+    src="https://open.spotify.com/embed/track/1EjQRTG53jsinzk2xlVVJP?utm_source=generator" 
+    width="100%" 
+    border="0"
+    height="352" 
+    frameBorder="0"
+    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+    loading="lazy"></iframe>
+```
+
+The function that fetches the data should look something like this:
+
+```javascript
+async function fetchData() {
+    const baseURL = 'https://www.apitutor.org/spotify/simple/v1/search';
+    const url = `${baseURL}?q=${searchTerm}&type=${dataType}&limit=5`;
+    const request = await fetch(url);
+    const data = await request.json();
+    console.log(data);
+    // set state variable to redraw...
+}
+```
+
+
+### Extra Credit
+1. See if you can deploy your React App on GitHub pages. One way of doing this is using the `gh-pages` module (which you can install via npm). Here's a <a href="https://blog.seancoughlin.me/deploying-to-github-pages-using-gh-pages" target="_blank">blog post about it</a>, but you can also use ChatGPT to get some insight.
+2. Refactor `App.jsx` so that the **Form** functionality and the **Carousel** functionality are separated into two standalone components. Then, get them to talk to each other.
+    * In other words, how does the Form component notify the Carousel to redraw after the user submits their search?
     
-1. Now, in `App.jsx`, import the component you just made...
-
-    ```jsx
-    import ButtonCount from "./ButtonCount.jsx";
-    ```
-
-1. ...and then add some `<ButtonCount />` tags to the bottom of your JSX object
-
-    ```jsx
-    <ButtonCount />
-    <ButtonCount />
-    <ButtonCount />
-    <ButtonCount />
-    <ButtonCount />
-    <ButtonCount />
-    ```
-1. When you preview your code in the browser, you will see a bunch of buttons. Try clicking the buttons. Notice that each component is independent of the others.
-
-Some things to notice:
-
-1. In the example above that the `addOne()` and `reset()` functions -- which are invoked by button clicks -- both invoke the `setCounter()` function.
-1. The `setCounter()` function, which was generated from React's `useState` function, is a special function that will (a) set the counter variable to the new value and (b) redraw the screen.
-
-
-### Challenge
-Can you figure out how to modify the `ButtonCount` component so that it initializes to any value (which is specified in the component tag)?
-
-
-1. ***Takeaway***: Every time you want to trigger a screen redraw, use a state variable as follows:
-    1. Create a state variable and setter using React's built-in `useState` function
-    1. Invoke the setter function to set the state variable, which will automatically redraw the component.
-
 ## What to Submit
-When you're done, push your `lab10` branch to GitHub and make a pull request. Please ensure that the destination (left-hand side) is pointing to the `main` branch of **your repo** and the source (right-hand side) is pointing to the `lab10` branch of **your repo**. Then, please paste a link to your PR in the Moodle.
+When you're done, push your `lab11` branch to GitHub and make a pull request. Please ensure that the destination (left-hand side) is pointing to the `main` branch of **your repo** and the source (right-hand side) is pointing to the `lab11` branch of **your repo**. Then, please paste a link to your PR in the Moodle.

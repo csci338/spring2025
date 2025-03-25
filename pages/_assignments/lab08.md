@@ -1,13 +1,13 @@
 ---
 layout: assignment-two-column
-title: Database Lab
+title: Database + ORM Lab
 type: lab
 abbreviation: Lab 8
-draft: 1
+draft: 0
 points: 6
 num: 8
-start_date: 2025-03-27
-due_date: 2025-04-02
+start_date: 2025-04-01
+due_date: 2025-04-08
 ---
 
 <style>
@@ -68,16 +68,16 @@ Before you begin, get the latest code from <a href="https://github.com/csci338/c
 * Make sure that all of your changes from the last lab are staged and committed.
 * Checkout your main branch: `git checkout main`
 * Pull down the latest changes: `git pull`
-    * If you did it correctly, you will notice that a new `lab09` folder has been created.
-* Create a new branch called **lab09**: `git checkout -b lab09`
+    * If you did it correctly, you will notice that a new `lab08` folder has been created.
+* Create a new branch called **lab08-b**: `git checkout -b lab08-b`
 * Verify that you're on your new branch: `git branch`
 
 
 ### Build and run your Docker file
-Navigate to your `lab09` directory and type:
+Navigate to your `lab08` directory and type:
 
 ```bash
-$ docker compose up
+docker compose up -d
 ```
 
 As you may recall, this command builds your Docker container *and* runs it. Keep your terminal running and do the remaining tasks on anther terminal.
@@ -88,10 +88,19 @@ As you may recall, this command builds your Docker container *and* runs it. Keep
 ### Run the Postgres SQL Client
 
 In the new terminal window we'll run `psql` (the postgres SQL
-client) on the your running `postgres_tutorial` container.
+client) on the your running container.
+
+```bash
+# get container id:
+docker ps -la
+
+# connect to the docker container
+docker exec -it <pid> psql -U postgres
+```
+
+If you did this correctly, you should see a PostgreSQL shell that looks like this:
 
 ```
-$ docker exec -it postgres_tutorial psql -U postgres
 postgres=#
 ```
 
@@ -110,9 +119,22 @@ postgres=# \c dvdrental
 dvdrental=# select first_name from customer;
 ```
 
+### [Optional] Using a GUI Client
+For those of you who would like to look at the data in a visual way, feel free to use DBeaver (which you can <a href="https://dbeaver.io/download/" target="_blank">download here</a>). Once downloaded and installed, you can preview the DVD Rental database by using the following connection information for a PostgreSQL connection:
+
+* host: **localhost**
+* database: **postgres**
+* username: **postgres**
+* password: **postgres**
+* port: **5433**
+
+Also, make sure that the "Show all databases" option is checked (as pictured in the screenshot below):
+
+<img class="medium frame" src="/spring2025/assets/images/labs/lab08/dbeaver-ss.png" />
+
 ### Tutorial
 
-Now that you're all set up, please answer the 10 SQL questions (listed below) in the "SQL" section of your `lab09/answers.md` file. Here are some references from the PostgreSQL tutorial to help you:
+Now that you're all set up, please answer the 10 SQL questions (listed below) in the "SQL" section of your `lab08/answers_sql.md` file. Here are some references from the PostgreSQL tutorial to help you:
 
 - [Select](https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-select/)
 - [Where](https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-where/)
@@ -134,33 +156,46 @@ Now that you're all set up, please answer the 10 SQL questions (listed below) in
 > 7. **INSERT - Adding Data.** Insert a new customer into the customer table. The new customer should have a first name, last name, email, and be linked to an existing store.
 > 8. **UPDATE - Modifying Data.** Update the rental rate of all films in the Comedy category, increasing it by 10%.
 > 9. **DELETE - Removing Data.** Write a query to delete all films that have never been rented. Make sure to use a subquery to identify the films that haven't been rented.
-> 10. **CREATE TABLE & ALTER TABLE - Managing Database Structure.** Create a new table called movie_reviews with columns for review_id, film_id, reviewer_name, rating, and comments. Then, add a foreign key constraint linking film_id to the film table.
 
 
 ## 4. SQL Alchemy / Python Exercises
 Now, you're going to try connecting to your postgres database using python on your local computer.
 
-Open a terminal window, navigate to your `lab09` directory, and install the dependencies in the `pyproject.toml` file:
+Open a terminal window, navigate to your `lab08` directory, and install the dependencies in the `pyproject.toml` file:
 
 ```bash 
-$ poetry install
+poetry install
 ```
 
-You should now be able to run the `orm.py` file as usual from your local terminal:
+You should now be able to run the `orm_samples.py` file as usual from your local terminal:
 
-```
-$ poetry run python orm.py
+```bash 
+poetry run python orm_samples.py
 ```
 
-Take a look at the file and try to understand what it does. Then, answer the 4 SQLAlchemy questions in the `answers.py` file in your `lab09` folder.
+Take a look at the file and try to understand what it does. The code samples are very similar to SQLAlchemy tasks you will be completing (below). 
 
 {:.info}
 > ### SQL Alchemy Questions
-> 1. **Understanding SQLAlchemy Automap**: How do you think the `AutoModels` class works to dynamically generate SQLAlchemy ORM models from the database schema?
-> 2. **Async Database Operations**: Explain the use of asynchronous database sessions in this script. Why does the script use AsyncSession instead of a regular Session, and how does this improve the efficiency of database operations?
-> 3. **SQLAlchemy Query Construction**: In the `model_examples` function, there is a query that selects all customers whose last names start with the letter "P". See if you can write another questy that selects customers whose first name ends with the letters "n" or "a" using SQLAlchemy syntax.
-> 4. **Raw SQL v. Models**: In the `raw_sql_examples` function, there are two ways to execute SQL queries: directly via the engine using conn.execute() and using an ORM session with session.execute(). Discuss the pros and cons of executing raw SQL directly compared to using SQLAlchemy’s ORM methods.
->   * Hint: Consider the trade-offs in terms of readability, safety (e.g., SQL injection risks), and flexibility when using raw SQL versus ORM abstractions.
+> You will be implementing some python functions in the `answers_orm.py` as instructed below.
+> Before you begin, please run the `answers_orm.py` script first to see what it does:<br><br>
+> `poetry run python answers_orm.py`<br><br>
+> Note that the first exercise has already been completed for you.
+> 1. **`print_titles_and_release_years`** Write a function that uses SQLAlchemy to print the titles and release years of all movies in the film table.
+> 2. **`print_customers_starting_with`** Write a function that uses SQLAlchemy to print all customers whose last name starts with the character passed into the function.
+> 3. **`print_film_titles_and_durations`** Write a function that uses SQLAlchemy to print all films titles and their durations, sorted by their rental duration in descending order. If two films have the same rental duration, sort them alphabetically by title.
+> 4. **`print_film_titles_and_categories`** Write a function that uses SQLAlchemy to print all films along with their categories. Show the film title and category name.
+> 5. **`print_num_films_in_action_category`** Write a function that uses SQLAlchemy to print the number of films in the Action category.
+> 6. **`create_new_customer`** Write a function that uses SQLAlchemy to create a new customer into the customer table. The new customer should have a first name, last name, email, and be linked to an existing store.
+> 7. **`delete_customer_by_id`** Write a function that uses SQLAlchemy to delete a customer from the database based on the `id` argument.
+>   * *Note that many of the customers in the database are referenced in other tables (e.g., each customer is associated with a record in the store table, the address table, etc.). Given this, be sure to test your delete functionality with one of the customers you created in the previous exercise (which has no dependencies yet).*
+> 8. **`update_customer_email`** Write a function that uses SQLAlchemy to update a customer's email. Required arguments are the customer's id and the new email address.
 
 ## What to Submit
-When you're done answering the questions in the `answers.md` file, please push your `lab09` branch to GitHub and make a pull request. Please ensure that the destination (left-hand side) is pointing to the `main` branch of **your repo** and the source (right-hand side) is pointing to the `lab09` branch of **your repo**. Then, please paste a link to your PR in the Moodle.
+Before you submit, make sure you've completed the two sets of tasks:
+
+* SQL tasks: you have written the SQL for the 9 SQL tasks in `answers_sql.md`
+* SQLAlchemy tasks: you have successfully written and invoked the 8 SQLAlchemy-based functions using asynchronous database queries in `answers_orm.py`.
+{:.checkbox-list}
+
+When you're done, please push your `lab08-b` branch to GitHub and make a pull request. Please ensure that the destination (left-hand side) is pointing to the `main` branch of **your repo** and the source (right-hand side) is pointing to the `lab08-b` branch of **your repo**. Then, please paste a link to your PR in the Moodle.
