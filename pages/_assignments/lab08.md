@@ -6,7 +6,7 @@ abbreviation: Lab 8
 draft: 0
 points: 6
 num: 8
-start_date: 2025-04-01
+start_date: 2025-04-03
 due_date: 2025-04-08
 ---
 
@@ -43,6 +43,23 @@ due_date: 2025-04-08
     table code {
         font-weight: 600;
         font-size: 1.1em;
+    }
+
+    blockquote.updates {
+        background-color: #d4edda;
+        border: solid 1px #c3e6cb;
+    }
+    blockquote.updates h2, 
+    blockquote.updates p, 
+    blockquote.updates li, 
+    blockquote.updates a {
+        color: #155724;
+    }
+    blockquote.updates h2 {
+        border-bottom: solid 1px #155724;
+    }
+    blockquote.updates a:hover {
+        background-color: transparent;
     }
 
 </style>
@@ -199,3 +216,9 @@ Before you submit, make sure you've completed the two sets of tasks:
 {:.checkbox-list}
 
 When you're done, please push your `lab08-b` branch to GitHub and make a pull request. Please ensure that the destination (left-hand side) is pointing to the `main` branch of **your repo** and the source (right-hand side) is pointing to the `lab08-b` branch of **your repo**. Then, please paste a link to your PR in the Moodle.
+
+
+{:.updates}
+> ## Extra Credit Opportunity
+> If you need extra credit, complete the following tasks:
+> 1. Create a SQL statement new table called `movie_reviews` with columns for `review_id`, `film_id`, `reviewer_name`, `rating`, and `comments`. Then, add a foreign key constraint linking `film_id` to the `film` table's `film_id`.

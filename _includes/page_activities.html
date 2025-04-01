@@ -16,16 +16,16 @@
     {{ activity | display_link_or_badge: false, true }}
 {% endfor %}
 
-<!-- Projects -->
-{% assign projects = topic | get_projects_by_module_by_date: site, date %}
-{% for project in projects %}
-    {{ project | display_link_or_badge: false, true }}
-{% endfor %}
-
 <!-- Labs -->
 {% assign labs = topic | get_labs_by_module_by_date: site, date %}
 {% for lab in labs %}
     {{ lab | display_link_or_badge: false, true }}
+{% endfor %}
+
+<!-- Projects -->
+{% assign projects = topic | get_projects_by_module_by_date: site, date %}
+{% for project in projects %}
+    {{ project | display_link_or_badge: false, true }}
 {% endfor %}
 
 <!-- Exams -->

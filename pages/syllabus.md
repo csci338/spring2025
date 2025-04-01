@@ -83,10 +83,9 @@ Your course grade is calculated based on projects, labs, exams, and attendance /
 
 {:.small}
 | **Labs** | 30% |
-| **Projects** | 30% |
+| **Projects** | 40% |
 | **Attendance & Participation** | 10% |
-| **Midterm Exam** | 15% |
-| **Final Exam** | 15% |
+| **Midterm Exam** | 20% |
 
 ### Labs
 Labs will be graded according to the following scale (from 0-3 points):
@@ -99,7 +98,7 @@ Labs will be graded according to the following scale (from 0-3 points):
 **Late labs will not be accepted.**
 
 ### Projects
-projects involve building part of a larger system, and will be graded according to a rubric. We will be using a code review workflow to assess you. Here is how the process will work:
+Projects involve building part of a larger system, and will be graded according to a rubric. We will be using a code review workflow for assessment. Here is how the process will work:
 
 #### Code Reviews
 1. You will submit your work as a series of pull requests (PR) on or before the due date.
@@ -109,13 +108,13 @@ projects involve building part of a larger system, and will be graded according 
 
 #### Code Review Resubmissions and Late Work
 * All late submissions will incur a 15% penalty. 
-* If you anticipate not being able to complete your feature on time, please talk to the instructors as soon as possible (just as you would if this were your job).
+* If you anticipate not being able to complete your feature on time, please talk to the instructor as soon as possible (just as you would if this were your job).
  
 ### Participation
 In this class, participation is defined as:
 
-1. [5%] Attendance – "Half of life is just showing up."
-2. [5%] Engaging with the course ideas and with your peers, including completing the readings and participating in the discussions and activities, and performance on the quizzes.
+1. [8%] Attendance – "Half of life is just showing up."
+2. [2%] Engaging with the course ideas and with your peers, including completing the readings and participating in the discussions and activities, and performance on the quizzes.
 
 We will take attendance. You may miss **two** class sessions – no questions asked – without a grade penalty. Any additional absences (beyond your two “freebies”) will impact your participation grade (and more to the point, your capacity to productively engage with the class).
 
