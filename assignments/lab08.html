@@ -74,6 +74,7 @@
     </ol>
   </li>
   <li><a href="#id_what-to-submit">What to Submit</a></li>
+  <li><a href="#id_extra-credit-opportunity">Extra Credit Opportunity</a></li>
 </ol>
 
             </aside>
@@ -130,6 +131,23 @@
     table code {
         font-weight: 600;
         font-size: 1.1em;
+    }
+
+    blockquote.updates {
+        background-color: #d4edda;
+        border: solid 1px #c3e6cb;
+    }
+    blockquote.updates h2, 
+    blockquote.updates p, 
+    blockquote.updates li, 
+    blockquote.updates a {
+        color: #155724;
+    }
+    blockquote.updates h2 {
+        border-bottom: solid 1px #155724;
+    }
+    blockquote.updates a:hover {
+        background-color: transparent;
     }
 
 </style>
@@ -299,6 +317,14 @@ Note that the first exercise has already been completed for you.</p>
 </ul>
 
 <p>When you’re done, please push your <code class="highlighter-rouge">lab08-b</code> branch to GitHub and make a pull request. Please ensure that the destination (left-hand side) is pointing to the <code class="highlighter-rouge">main</code> branch of <strong>your repo</strong> and the source (right-hand side) is pointing to the <code class="highlighter-rouge">lab08-b</code> branch of <strong>your repo</strong>. Then, please paste a link to your PR in the Moodle.</p>
+
+<blockquote class="updates">
+  <h2 id="id_extra-credit-opportunity">Extra Credit Opportunity</h2>
+  <p>If you need extra credit, complete the following tasks:</p>
+  <ol>
+    <li>Create a SQL statement new table called <code class="highlighter-rouge">movie_reviews</code> with columns for <code class="highlighter-rouge">review_id</code>, <code class="highlighter-rouge">film_id</code>, <code class="highlighter-rouge">reviewer_name</code>, <code class="highlighter-rouge">rating</code>, and <code class="highlighter-rouge">comments</code>. Then, add a foreign key constraint linking <code class="highlighter-rouge">film_id</code> to the <code class="highlighter-rouge">film</code> table’s <code class="highlighter-rouge">film_id</code>.</li>
+  </ol>
+</blockquote>
 
 
 
