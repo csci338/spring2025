@@ -38,5 +38,12 @@ slides:
       num: 11
       title: Intro to Databases & Object-Relational Mappings
       url: https://docs.google.com/presentation/d/1ND9V2eVBVDEoaF_T-XvMeyjM73l9NqBD/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true
+activities:
+    - start_date: 2025-04-03
+      title: Team Formation Questionnaire
+      draft: 0
+      type: activity
+      num: 9
+      url: https://forms.gle/xpSszwCG1uFDwvQe8
 ---
  
