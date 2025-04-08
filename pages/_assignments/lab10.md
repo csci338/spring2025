@@ -5,7 +5,7 @@ type: lab
 draft: 1
 points: 6
 abbreviation: Lab 10
-num: 11
+num: 10
 start_date: 2025-04-22
 due_date: 2025-04-30
 ---

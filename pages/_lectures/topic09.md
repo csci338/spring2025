@@ -44,28 +44,23 @@ slides:
     - start_date: 2025-04-08
       num: 13
       type: lecture
-      draft: 1
+      draft: 0
       title: Client-Side Engineering (Part I)
-      url: https://docs.google.com/presentation/d/1IU6O1AZIKdXMepvPcMZxYS2kYmlK469f/edit#slide=id.p1
+      url: https://docs.google.com/presentation/d/1r_wR-80DVhh68gAhsQOBjmmTvWJSHbkf/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true
     - start_date: 2025-04-10
       num: 14
       type: lecture
       draft: 1
-      title: "Guest Speaker: UX / UI Considerations"
+      title: "UX / UI Considerations"
       url: #
     - start_date: 2025-04-15
       num: 15
       type: lecture
       draft: 1
       title: React
-      url: https://docs.google.com/presentation/d/1UqhChRR-yn_K1jgKnZSMkhbEo02zyih4/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true
-    # - start_date: 2025-04-15
-    #   num: 16
-    #   draft: 1
-    #   type: lecture
-    #   title: Client-Server Communication over HTTP
-    #   url: https://docs.google.com/presentation/d/1zqF7V_Ove-n15Ghz2oMNbZZekqeNlea5/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true
+      url: #
 labs: [9, 10]
+projects: [2]
 questions:
     - What is front-end engineering? What is UI engineering?
     - When did it become a distinct subdiscipline of computer programming?

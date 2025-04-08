@@ -6,7 +6,6 @@ draft: 0
 num: 8
 start_date: 2025-03-27
 labs: [8]
-projects: [2]
 readings: 
     - start_date: 2025-04-01
       type: reading

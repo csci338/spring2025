@@ -2,9 +2,9 @@
 layout: assignment-two-column
 title: Intro to client-side programming with React
 type: lab
-draft: 1
+draft: 0
 points: 6
-abbreviation: Lab 10
+abbreviation: Lab 9
 num: 9
 start_date: 2025-04-17
 due_date: 2025-04-23
@@ -32,12 +32,12 @@ Before you begin, get the latest code from <a href="https://github.com/csci338/c
 * Make sure that all of your changes from the last lab are staged and committed.
 * Checkout your main branch: `git checkout main`
 * Pull down the latest changes: `git pull`
-    * If you did it correctly, you will notice that a new `lab10` folder has been created.
-* Create a new branch called lab10: `git checkout -b lab10`
+    * If you did it correctly, you will notice that a new `lab09` folder has been created.
+* Create a new branch called lab09: `git checkout -b lab09-b`
 * Verify that you're on your new branch: `git branch`
 
 ### Starter Files
-1. Inside of your `lab10` folder, create 3 files: 
+1. Inside of your `lab09` folder, create 3 files: 
     - `index.html`
     - `styles.css`
     - `.gitignore` (this file should start with the "." prefix, which means that it's a system, hidden file).
@@ -78,7 +78,7 @@ When you’re done, preview your HTML page in the browser. If you did it correct
 
 Now that you’ve created your starter files, you’re going to convert our app into a React app. You will do this from the command line (Windows users use GitBash, Mac users use Terminal):
 
-1. From the command line, navigate into your **lab10** folder. You can also open the VS Code Integrated terminal. 
+1. From the command line, navigate into your **lab09** folder. You can also open the VS Code Integrated terminal. 
 2. Verify that you’re in the correct folder by typing **pwd**
 3. Issue the following commands
 
@@ -120,7 +120,7 @@ We’ll talk more about what each of these terms mean in future lessons.
 
 Now, we’re going to make a few changes to our HTML and JavaScript to make it a React App.
 
-1. Create a new folder called `src` inside of your `lab10` folder.
+1. Create a new folder called `src` inside of your `lab09` folder.
 1. Inside of `src`, create a new file called `App.jsx`
 
     ```jsx
@@ -495,4 +495,4 @@ Can you figure out how to modify the `ButtonCount` component so that it initiali
     1. Invoke the setter function to set the state variable, which will automatically redraw the component.
 
 ## What to Submit
-When you're done, push your `lab10` branch to GitHub and make a pull request. Please ensure that the destination (left-hand side) is pointing to the `main` branch of **your repo** and the source (right-hand side) is pointing to the `lab10` branch of **your repo**. Then, please paste a link to your PR in the Moodle.
+When you're done, push your `lab09-b` branch to GitHub and make a pull request. Please ensure that the destination (left-hand side) is pointing to the `main` branch of **your repo** and the source (right-hand side) is pointing to the `lab09-b` branch of **your repo**. Then, please paste a link to your PR in the Moodle.

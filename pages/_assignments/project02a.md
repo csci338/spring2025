@@ -11,6 +11,9 @@ start_date: 2025-04-08
 due_date: 2025-04-11
 ---
 
+{:.info}
+> Here is a link to the full [Project 2 description](project02)
+
 Before beginning implementation, your team must submit a brief proposal outlining your planned features for approval, following the guidelines outlined below. To submit this assignment, one person will create a markdown file at the root of your project called `PROPOSAL.md`, with all of the components outlined in the instructions. The author of `PROPOSAL.md` will make a pull request and then have another member of their team review and approve it. Once the PR has been approved, make sure to merge it into `main`.
 
 

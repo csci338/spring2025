@@ -7,7 +7,7 @@ points: 20
 abbreviation: Project 2
 num: 2
 h_max: 5
-start_date: 2025-04-03
+start_date: 2025-04-08
 due_date: 2025-05-06
 ---
 
@@ -52,6 +52,8 @@ due_date: 2025-05-06
 
 {:.info}
 > ## Learning Objectives
+> * <a href="https://docs.google.com/presentation/d/1Z8XO6V68mKqFuXPMzrDp8melq0o-Pm8r/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true">Overview Slides</a>
+> 
 > This project is designed to give you practice working with real-world software engineering tools and practices including:
 > 
 > 1. **Version Control Workflows & DevOps**
@@ -267,35 +269,19 @@ Please see your team's <a href="https://github.com/csci338/p02-team04-spring2025
 
 {% endexpandable %}
 
-## Project Scope
-Your team will extend this code to be more useful. The theme is **"student academic management"**, but you may interpret this broadly. Possible ideas include:
+## Potential Project Ideas
+Your team will extend a partially completed Academic Planning web application, but feel free to interpret this assignment broadly. Possible ideas include:
 
-### Course Planner
-- Enhancing the schedule UI by displaying a weekly calendar of their courses.
-- Allowing students to map out the remaining courses they're thinking of taking.
-
-### Study Group Manager
-- Matches students with peers based on shared courses and availability.
-- Could include a chat or note-taking feature.
-- Each course could have an area for taking notes, uploading screenshots, etc.
-
-### Internship / REU Tracker
-- Assists students in tracking job applications and networking contacts.
-- Helps plan how to incorporate course assignments/projects into a resume, LinkedIn, GitHub, or portfolio.
-
-### Task / Assignment Tracker
-- Users log assignments, deadlines, and progress for each course.
-- Could include email/text notifications.
-
-### Work/Life Balance Support
-- Helps students consider how coursework supports other life priorities.
-
-### Some other idea of your choice...
-- Feel free to propose your own interpretation of this assignment. Creativity is encouraged.
+1. **Course Planner**. Enhancing the schedule UI by displaying a weekly calendar of their courses; allowing students to map out the remaining courses they're thinking of taking.
+1. **Study Group Manager**. Matches students with peers based on shared courses and availability; could include a chat or note-taking feature; each course could have an area for taking notes, uploading screenshots, etc.
+1. **Internship / REU Tracker**. Assists students in tracking job applications and networking contacts; helps plan how to incorporate course assignments/projects into a resume, LinkedIn, GitHub, or portfolio.
+1. **Task / Assignment Tracker**. Users log assignments, deadlines, and progress for each course; could include email/text notifications.
+1. **Work/Life Balance Support**. Helps students consider how coursework supports other life priorities.
+1. **Some other idea of your choice...** Feel free to propose your own interpretation of this assignment. Creativity is encouraged.
 
 ## Minimum Required Features
 All teams must:
-- Create at least **two new database models** (e.g., `StudySession`, `Internship`, `StudyGroup`, `Task`).
+- Create at least **two new database models** (e.g., `StudySession`, `Internship`, `StudyGroup`, `Task`, `Calendar`).
 - Build FastAPI endpoints for any relevant **CRUD operations** (Create, Read, Update, Delete) needed to support the functionality of your site.
 - Develop React UI components/screens to interact with FastAPI endpoints.
 - Give the app a **look and feel** (colors, fonts, styling, accessibility, usability, etc.).
