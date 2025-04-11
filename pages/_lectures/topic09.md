@@ -41,18 +41,12 @@ readings:
       title: How A Small Team of Developers Created React at Facebook (video)
       url: https://www.youtube.com/watch?v=8pDqJVdNa44
 slides:
-    - start_date: 2025-04-08
+    - start_date: 2025-04-10
       num: 13
       type: lecture
       draft: 0
       title: Client-Side Engineering (Part I)
       url: https://docs.google.com/presentation/d/1r_wR-80DVhh68gAhsQOBjmmTvWJSHbkf/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true
-    - start_date: 2025-04-10
-      num: 14
-      type: lecture
-      draft: 1
-      title: "UX / UI Considerations"
-      url: #
     - start_date: 2025-04-15
       num: 15
       type: lecture
