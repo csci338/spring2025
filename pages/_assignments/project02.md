@@ -314,7 +314,7 @@ All teams must:
 {:.deliverables}
 | Week  | Milestone | Due | Link |
 |--|--|--|--|
-| **Week 1** | Set up repo, install Docker dependencies, run the app locally, familiarize with code, submit project description (1-page plan, basic wireframe, API endpoint descriptions). |  4/11 | [Project 2a](project02a) |
+| **Week 1** | Set up repo, install Docker dependencies, run the app locally, familiarize with code, submit project description (1-page plan, basic wireframe, API endpoint descriptions). |  4/14 | [Project 2a](project02a) |
 | **Week 3** | Midpoint Deliverable: Working modifications to backend and frontend + Cloud deployment. |  4/25 | Project 2b |
 | **Week 4** | Final presentations. |  4/29 | In class |
 | **Week 5** | Final Submission – Complete project, presentation, and final GitHub push.  |  5/6 | Project 2c |

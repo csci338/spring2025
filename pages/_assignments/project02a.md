@@ -8,7 +8,7 @@ abbreviation: Project 2a
 num: 2a
 h_max: 5
 start_date: 2025-04-08
-due_date: 2025-04-11
+due_date: 2025-04-14
 ---
 
 {% include walkthrough-project02.html %}

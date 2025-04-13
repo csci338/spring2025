@@ -2,7 +2,7 @@
 title: Design Systems & External Data
 layout: assignment-two-column
 type: lab
-draft: 1
+draft: 0
 points: 6
 abbreviation: Lab 10
 num: 10
@@ -37,10 +37,14 @@ Try it out to get a feel of how it should work. The goals with this lab are as f
 
 ## 1. Getting Started
 
-For this lab, you will create a brand new folder in your `class-exercises-spring2025` folder called `lab11`. 
+For this lab, there is no starter code. You will create everything yourself. Begin by navigating to your `class-exercises-spring2025` directory on your local machine and creating a new branch: 
+* `git checkout -b lab10-b`
+* Verify that you're on your new branch: `git branch`
+
+Now, create a brand new folder called `lab10`. 
 
 Like before, you will build your React app from scratch, which will involve:
-1. Creating a `package.json` at the root of your `lab11` directory.
+1. Creating a `package.json` at the root of your `lab10` directory.
     * Hint: `npm init`
 2. Installing the following 4 packages: `react`, `react-dom`, `vite`, and `antd`.
     * Hint: `npm install`
@@ -354,4 +358,4 @@ async function fetchData() {
     * In other words, how does the Form component notify the Carousel to redraw after the user submits their search?
     
 ## What to Submit
-When you're done, push your `lab11` branch to GitHub and make a pull request. Please ensure that the destination (left-hand side) is pointing to the `main` branch of **your repo** and the source (right-hand side) is pointing to the `lab11` branch of **your repo**. Then, please paste a link to your PR in the Moodle.
+When you're done, push your `lab10-b` branch to GitHub and make a pull request. Please ensure that the destination (left-hand side) is pointing to the `main` branch of **your repo** and the source (right-hand side) is pointing to the `lab10-b` branch of **your repo**. Then, please paste a link to your PR in the Moodle.
