@@ -11,6 +11,9 @@ start_date: 2025-04-08
 due_date: 2025-04-25
 ---
 
+{% include walkthrough-project02.html %}
+
+
 {:.info}
 > Here is a link to the full [Project 2 description](project02)
 

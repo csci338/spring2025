@@ -50,6 +50,8 @@ due_date: 2025-05-06
     }
 </style>
 
+{% include walkthrough-project02.html %}
+
 {:.info}
 > ## Learning Objectives
 > * <a href="https://docs.google.com/presentation/d/1Z8XO6V68mKqFuXPMzrDp8melq0o-Pm8r/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true">Overview Slides</a>

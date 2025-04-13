@@ -232,6 +232,21 @@ blockquote.info.updates {
     }
 }
 
+blockquote.info.new {
+    background-color: #dac0202b;
+    h2 {
+        color: #86760d;
+    }
+    .badge.info {
+        background-color: #86760d;
+        color: white;
+    }
+    a, a:hover, a:active, a:visited, a:link {
+        border-color: #86760d;
+        background: transparent;
+    }
+}
+
 
 blockquote.caveat {
     margin: 20px 0px 20px 40px;
