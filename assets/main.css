@@ -222,6 +222,11 @@ blockquote.info p { margin-bottom: 15px; }
 blockquote.info.updates { background-color: #fff3cd !important; }
 blockquote.info.updates h1, blockquote.info.updates h2, blockquote.info.updates h3 { color: #876700; }
 
+blockquote.info.new { background-color: #dac0202b; }
+blockquote.info.new h2 { color: #86760d; }
+blockquote.info.new .badge.info { background-color: #86760d; color: white; }
+blockquote.info.new a, blockquote.info.new a:hover, blockquote.info.new a:active, blockquote.info.new a:visited, blockquote.info.new a:link { border-color: #86760d; background: transparent; }
+
 blockquote.caveat { margin: 20px 0px 20px 40px; background: none; border-left: 0px; padding: 25px; padding: 0px; }
 
 blockquote.quote { margin-left: 20px; background: none; border-left: 0px; padding: 25px; font-size: 1.2em; font-weight: 500; margin-bottom: 30px; }
