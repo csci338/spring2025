@@ -48,11 +48,17 @@ slides:
       title: Client-Side Engineering (Part I)
       url: https://docs.google.com/presentation/d/1r_wR-80DVhh68gAhsQOBjmmTvWJSHbkf/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true
     - start_date: 2025-04-15
+      num: 14
+      type: lecture
+      draft: 0
+      title: React
+      url: https://docs.google.com/presentation/d/1TVobvJhxr7khpRmUdWu4MWPGvvOssP4l/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true
+    - start_date: 2025-04-17
       num: 15
       type: lecture
-      draft: 1
-      title: React
-      url: #
+      draft: 0
+      title: Communicating over HTTP
+      url: https://docs.google.com/presentation/d/1qyhYGZEDFGqEDapV_lnuVcNUmYNRGEo5/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true
 labs: [9, 10]
 projects: [2]
 questions:

@@ -6,7 +6,7 @@ draft: 0
 points: 6
 abbreviation: Lab 10
 num: 10
-start_date: 2025-04-22
+start_date: 2025-04-17
 due_date: 2025-04-30
 ---
 
