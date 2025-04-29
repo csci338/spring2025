@@ -9,6 +9,7 @@ num: 2
 h_max: 5
 start_date: 2025-04-08
 due_date: 2025-05-06
+hide: true
 ---
 
 <style>
@@ -281,43 +282,15 @@ Your team will extend a partially completed Academic Planning web application, b
 1. **Work/Life Balance Support**. Helps students consider how coursework supports other life priorities.
 1. **Some other idea of your choice...** Feel free to propose your own interpretation of this assignment. Creativity is encouraged.
 
-## Minimum Required Features
-All teams must:
-- Create at least **two new database models** (e.g., `StudySession`, `Internship`, `StudyGroup`, `Task`, `Calendar`).
-- Build FastAPI endpoints for any relevant **CRUD operations** (Create, Read, Update, Delete) needed to support the functionality of your site.
-- Develop React UI components/screens to interact with FastAPI endpoints.
-- Give the app a **look and feel** (colors, fonts, styling, accessibility, usability, etc.).
-- **Enforce security** (users should not see data that doesn’t belong to them).
-- Write **tests** for all backend functionality (you don't need to run tessts for React stuff) and ensure linter/formatter checks pass.
-- **Cloud deployment** – Update Dockerfile to integrate dependencies and schemas.
-
-{:.info}
-> ### Optional Stretch Goals (Extra Credit)
-> Each feature below is worth **5 points** (maximum of **10 extra points**):
-> 
-> - **Calendar API integration** (sync with Google Calendar).
-> - **Collaboration/chat features** – Share schedules, chat with other logged-in users.
-> - **Email or text notifications** for schedule updates or reminders.
-> - **Automated course data updates** – Periodically refresh course listings from the Meteor site.
-> - **Waitlist feature** – Display real-time seat availability and send notifications when a course opens.
-> - **Admin dashboard**:
-  - Allow instructors/admins to modify course offerings.
-  - Provide analytics on course popularity.
-> - **UI Enhancements**:
-  - Add dark mode.
-  - Improve keyboard navigation and screen reader compatibility.
-  - Ensure full responsiveness and mobile-friendliness.
-> - **Propose your own stretch goal!**
-
 ## Deliverables
 
 {:.deliverables}
-| Week  | Milestone | Due | Link |
+| Week | Milestone | Due | Link |
 |--|--|--|--|
-| **Week 1** | Set up repo, install Docker dependencies, run the app locally, familiarize with code, submit project description (1-page plan, basic wireframe, API endpoint descriptions). |  4/14 | [Project 2a](project02a) |
-| **Week 3** | Midpoint Deliverable: Working modifications to backend and frontend + Cloud deployment. |  4/25 | Project 2b |
-| **Week 4** | Final presentations. |  4/29 | In class |
-| **Week 5** | Final Submission – Complete project, presentation, and final GitHub push.  |  5/6 | Project 2c |
+| **Week 1** | Set up repo, install Docker dependencies, run the app locally, familiarize with code, submit project description (1-page plan, basic wireframe, API endpoint descriptions). | 4/14 | [Project 2a](project02a) |
+| **Week 3** | Midpoint Deliverable: Working modifications to backend and frontend + Cloud deployment. | 4/25 | [Project 2b](project02b) |
+| **Week 5** | Final presentations. | 5/6 | In class |
+| | Final Submission – Complete project, presentation, and final GitHub push. | 5/6 | Project 2c |
 
 ## Grading Criteria (100 Points)
 
@@ -332,3 +305,5 @@ All teams must:
 | **UI/UX Design** | 10 | Simple but intuitive frontend. |
 | **Code Quality** | 15 | Clean, modular, readable code with meaningful commits and tests. |
 | **Final Presentation** | 5 | 5-minute demo with a clear feature explanation. |
+
+{% include project02c.md %}
