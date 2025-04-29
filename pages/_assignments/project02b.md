@@ -17,11 +17,16 @@ due_date: 2025-04-25
 {:.info}
 > Here is a link to the full [Project 2 description](project02)
 
-## Your Tasks
-This assignment will be elaborated further, but the basic requirements include:
-1. Working modifications to backend and frontend
-1. Cloud deployment of current app complete. I recommend:
-    * Supabase for the database
-    * Render for the webserver (I've already verified that the Dockerfile works well with Render)
-    * I can make a walkthrough video of how to do a cloud deployment and integrate it with GitHub actions in the next week or so.
-1. Some sort of reflection from your team re: how things are going and what's still left to do.
+## What to Submit
+For the mid-point deliverable, one member of your team should submit the following:
+
+1. A link to your team's repo. The `main` branch of your repo should include the following:
+    * Some substantiv changes to both backend and frontend functionality (but can still all be work in progress).
+    * A document called `MIDPOINT.md` that summarizes:
+        1. What you've done
+        1. Who did what
+        1. What you plan to complete by next Tuesday (5/6)
+
+    In addition, all formatting/linting tasks and automated tests should pass
+
+1. A link to your working cloud deployment. If you need some guidance on this, please see videos #8, #9, and #10 above.
